@@ -74,7 +74,16 @@ scout_rules = {
         -- To get in...
         Any(
             -- This can be scouted with 299, but you'll die. Maybe that's fine?
-            Hellrun(2)
+            Hellrun(2),
+            GravitySuit
+        ),
+        -- You also need a method of getting up to the check itself.
+        Any(
+            PowerGrip,
+            All(
+                HiJump,
+                CanWallJump
+            )
         )
         -- And to get out... you need quite a bit more, as well as some way to climb out.
         -- I'd estimate around 499-599 energy, and either Power Grip or walljumps.
@@ -121,6 +130,7 @@ scout_rules = {
     ),
     ["Ridley Southwest Puzzle Bottom"] = True,
     ["Ridley Bomb Puzzle"] = True,
+    ["Ridley Speed Jump"] = True,
 
     -- Tourian - None in Tourian!
 
