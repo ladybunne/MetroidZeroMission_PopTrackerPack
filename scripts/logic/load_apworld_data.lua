@@ -4,6 +4,8 @@
 -- These are provided "automatically" (actually manually, don't tell anyone)
 -- When the apworld updates, that file needs to be updated too, and if there
 -- are any new tables there, they need to be added here as well.
+
+-- TODO Future me, please load these automatically. <3
 local location_tables_from_apworld = {
     brinstar_start,
     brinstar_main,
@@ -17,6 +19,7 @@ local location_tables_from_apworld = {
     norfair_right_shaft,
     norfair_upper_right,
     norfair_behind_ice,
+    norfair_under_brinstar_elevator,
     norfair_lowerrightshaft,
     lower_norfair,
     norfair_screwattack,
@@ -35,7 +38,8 @@ local location_tables_from_apworld = {
     chozodia_ruins_crateria_entrance,
     chozodia_ruins_test,
     chozodia_under_tube,
-    chozodia_mothership,
+    chozodia_upper_mothership,
+    chozodia_lower_mothership,
     chozodia_pb_area,
     chozodia_mecha_ridley_hall
 }

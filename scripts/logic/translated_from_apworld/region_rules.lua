@@ -6,7 +6,7 @@ function brinstar_past_hives()
         MorphBall,
         Missiles,
         Any(
-            AdvancedLogic,
+            NormalCombat,
             MissileCount(10),
             SuperMissiles,
             LongBeam,
@@ -29,7 +29,7 @@ function brinstar_main_to_brinstar_top()
             IceBeam,
             CanWallJump,
             PowerBombs
-        ) -- truly cursed strat
+        )
     )
 end
 
@@ -55,7 +55,7 @@ function brinstar_crateria_ballcannon()
     return All(
         PowerBombs,
         CanBallCannon,
-        CanVertical,
+        CanVerticalWall,
         SpeedBooster
     )
 end
@@ -69,8 +69,10 @@ function kraid_upper_right()
             CanHorizontalIBJ,
             PowerGrip,
             All(
+                NormalLogic,
                 IceBeam,
-                CanBallJump
+                CanBallJump,
+                CanVerticalWall
             )
         )
     )
@@ -82,7 +84,10 @@ function kraid_left_shaft_access()
         Any(
             CanHorizontalIBJ,
             PowerGrip,
-            HiJump
+            All(
+                NormalLogic,
+                HiJump
+            )
         ),
         CanBallJump,
         CanBombTunnelBlock,
@@ -110,6 +115,7 @@ end
 
 function kraid_bottom_to_lower_norfair()
     return All(
+        NormalLogic,
         ScrewAttack,
         PowerBombs,
         Missiles,
@@ -134,7 +140,13 @@ end
 function norfair_right_shaft_access()
     return Any(
         CanVertical,
-        SpeedBooster
+        SpeedBooster,
+        All(
+            SuperMissiles,
+            IceBeam,
+            CanWallJump,
+            AdvancedLogic
+        )
     )
 end
 
@@ -173,6 +185,7 @@ end
 
 function norfair_behind_ice_to_bottom()
     return All(
+        NormalLogic,
         Missiles,
         CanBombTunnelBlock,
         Any(
@@ -186,7 +199,6 @@ function norfair_behind_ice_to_bottom()
         Any(
             CanIBJ,
             All(
-                AdvancedLogic,
                 PowerBombs,
                 HiJump
             ),
@@ -201,16 +213,55 @@ function norfair_behind_ice_to_bottom()
     )
 end
 
-function norfair_lower_right_shaft()
+function norfair_shaft_to_under_elevator()
     return Any(
-        ScrewAttack,
+        SpeedBooster,
+        All(
+            ScrewAttack,
+            Any(
+                CanFlyWall,
+                CanHiGrip
+            )
+        )
+    )
+end
+
+-- under elevator to lower right shaft
+function norfair_lower_right_shaft()
+    RightShaftNearHiJumpRule = norfair_lowerrightshaft["Norfair Right Shaft Near Hi-Jump"]
+    LowerNorfairAccess = norfair_lower_right_shaft_to_lower_norfair()
+    return Any(
+        All(
+            ScrewAttack,
+            Any(
+                CanFlyWall,
+                CanHiGrip
+            )
+        ),
         All(
             SpeedBooster,
-            Any(
-                CanBallCannon,
-                -- TODO: This does nothing. Figure out a way to make it do what you intended
-                CanReachEntrance("Norfair Right Shaft -> Lower Norfair")
+            Any(                              -- escape
+                All(
+                    RightShaftNearHiJumpRule, -- shorthand for accessing that area of the room
+                    Any(
+                        Missiles,
+                        CanVertical
+                    ),
+                    CanBallCannon
+                ),
+                -- to reach a save station and warp out
+                LowerNorfairAccess
             )
+        )
+    )
+end
+
+function norfair_lower_shaft_to_under_elevator()
+    return All(
+        ScrewAttack,
+        Any(
+            CanFlyWall,
+            CanHiGrip
         )
     )
 end
@@ -222,14 +273,22 @@ function norfair_lower_right_shaft_to_lower_norfair()
         Any(
             SpaceJump,
             CanWallJump,
+            CanHorizontalIBJ,
             All(
-                Bomb,
+                GravitySuit,
+                CanHiGrip
+            ),
+            All(
+                Any(
+                    HiJump,
+                    PowerGrip,
+                    CanIBJ
+                ),
                 Any(
                     PowerGrip,
                     CanHorizontalIBJ,
                     All(
                         AdvancedLogic,
-                        SuperMissiles,
                         IceBeam
                     )
                 )
@@ -252,7 +311,6 @@ end
 
 function lower_norfair_to_screwattack()
     return Any(
-        CanTrickySparks,
         All(
             ScrewAttack,
             Any(
@@ -261,6 +319,7 @@ function lower_norfair_to_screwattack()
             )
         ),
         All(
+            NormalLogic,
             MissileCount(5),
             Any(
                 CanFlyWall,
@@ -270,6 +329,10 @@ function lower_norfair_to_screwattack()
                     HiJump
                 )
             )
+        ),
+        All(
+            NormalLogic,
+            SpeedBooster
         )
     )
 end
@@ -284,6 +347,7 @@ end
 
 function lower_norfair_to_kraid()
     return All(
+        NormalLogic,
         ScrewAttack,
         PowerBombs,
         Missiles,
@@ -295,7 +359,7 @@ function lower_norfair_to_kraid()
                 IceBeam
             ),
             All(
-                CanTrickySparks,
+                AdvancedLogic,
                 CanBallspark
             )
         )
@@ -342,19 +406,49 @@ function lower_norfair_to_bottom_norfair()
     )
 end
 
+-- Needed for Kraid -> Norfair shortcut, so rules assume getting to Hi-Jump location from that entrance
+function lower_norfair_to_lower_right_shaft()
+    return All(
+        CanVerticalWall,
+        CanBombTunnelBlock,
+        Any(
+            VariaSuit,
+            Hellrun(2) -- TODO: may be possible with even just 1
+        )
+    )
+end
+
 function bottom_norfair_to_lower_shaft()
+    BottomShaftLocationRule = norfair_bottom["Norfair Right Shaft Bottom"]
     return Any(
         All(
             Missiles,
-            CanFlyWall,
+            Any(
+                CanFlyWall,
+                All(
+                    BottomShaftLocationRule,
+                    Any(
+                        HiJump,
+                        PowerGrip,
+                        All(
+                            NormalLogic,
+                            Bomb
+                        )
+                    )
+                )
+            ),
             Any(
                 PowerGrip,
                 CanIBJ
+            ),
+            Any(
+                CanBombTunnelBlock,
+                WaveBeam
             )
         ),
         All(
             SpeedBooster,
-            AdvancedLogic
+            NormalLogic
         )
     )
 end
@@ -362,10 +456,13 @@ end
 function bottom_norfair_to_ridley()
     return Any(
         All(
-            MissileCount(6), -- Covers the case where you only have Supers; 1 normal missile is enough from drops
+            Any(
+                MissileTanks(1),
+                SuperMissileCount(6)
+            ),
             Any(
                 IceBeam,
-                AdvancedLogic
+                NormalLogic
             )
         ),
         PowerBombs
@@ -378,8 +475,7 @@ function bottom_norfair_to_screw()
         SpeedBooster,
         Any(
             CanBallCannon,
-            CanTrickySparks,
-            AdvancedLogic
+            NormalLogic
         ),
         Any(
             IceBeam,
@@ -403,7 +499,11 @@ function ridley_main_to_left_shaft()
                 CanBombTunnelBlock
             )
         ),
-        MorphBall
+        MorphBall,
+        Any(
+            NormalCombat,
+            EnergyTanks(1)
+        )
     )
 end
 
@@ -422,6 +522,10 @@ function ridley_main_to_right_shaft()
                     IceBeam
                 )
             )
+        ),
+        Any(
+            NormalCombat,
+            EnergyTanks(1)
         )
     )
 end
@@ -449,16 +553,29 @@ function ridley_right_shaft_to_central()
     return CanEnterMediumMorphTunnel
 end
 
+function ridley_right_shaft_to_left_shaft()
+    return Any(
+        CanIBJ,
+        All(
+            SpaceJump,
+            PowerGrip
+        ),
+        All(
+            PowerGrip,
+            CanWallJump,
+            CanTrickySparks
+        )
+    )
+end
+
 -- Ridley, Unknown 3, and the item behind Unknown 3
 function ridley_central_to_ridley_room()
     return All(
         Any(
-            AdvancedLogic,
-            All(
-                MissileCount(40),
-                EnergyTanks(3)
-            )
+            Missiles,
+            ChargeBeam -- Fun fact! you can kill the eye door with charge beam
         ),
+        RidleyCombat,
         Any(
             CanFly,
             All(
@@ -481,11 +598,12 @@ function crateria_main_to_crateria_upper()
     return Any(
         CanBallJump,
         All(
+            NormalLogic,
             LayoutPatches,
             CanFly
         ),
         All(
-            AdvancedLogic,
+            NormalLogic,
             ScrewAttack,
             Any(
                 SpaceJump,
@@ -523,20 +641,32 @@ function chozo_ruins_to_ruins_test()
         PowerBombs,
         Any(
             Bomb,
-            PowerBombCount(3)
+            PowerBombCount(5),
+            All(
+                PowerBombCount(4),
+                Any(
+                    CanFlyWall,
+                    ScrewAttack
+                ),
+                NormalLogic
+            ),
+            All(
+                PowerBombCount(3),
+                CanFlyWall,
+                ScrewAttack,
+                NormalLogic
+            )
         ),
-        Any(
-            AdvancedLogic,
-            ChozodiaCombat
-        ),
+        CanVerticalWall,
+        ChozodiaCombat,
         RuinsTestEscape
     )
 end
 
 function chozo_ruins_to_chozodia_tube()
     return Any(
-        All( -- Getting up to the tube is doable with just walljumps but tricky enough to be advanced imo
-            AdvancedLogic,
+        All(
+            NormalLogic,
             CanWallJump
         ),
         CanFly
@@ -589,7 +719,7 @@ function under_tube_to_crateria()
             CanFlyWall
         ),
         All(
-            CanTrickySparks,
+            NormalLogic,
             CanBallspark
         )
     )
@@ -604,37 +734,156 @@ end
 
 function chozodia_tube_to_mothership_central()
     return All(
-        Any(
-            AdvancedLogic,
-            ChozodiaCombat
-        ),
+        ChozodiaCombat,
         Any(
             CanFly,
             All(
                 CanWallJump,
                 HiJump
+            ),
+            All(
+                NormalLogic,
+                IceBeam
             )
         )
     )
 end
 
-function mothership_central_to_cockpit()
+-- access to the map station
+function mothership_central_to_lower()
+    return Any(
+        PowerBombCount(2),
+        All(
+            Bomb,
+            PowerBombs
+        )
+    )
+end
+
+-- accessing the missile door just under the Behind Workbot item
+function mothership_central_to_upper()
     return All(
         Any(
             Bomb,
             PowerBombCount(2)
         ),
         Any(
-            ScrewAttack,
-            MissileCount(5)
-        ),
+            All(
+                ScrewAttack,
+                Any(
+                    CanWallJump,
+                    SpaceJump,
+                    All(
+                        HiJump,
+                        Any(
+                            PowerGrip,
+                            CanIBJ
+                        )
+                    )
+                )
+            ),
+            All(
+                MissileCount(5),
+                Any(
+                    CanFly,
+                    CanHiGrip,
+                    All(
+                        HiJump,
+                        CanWallJump
+                    )
+                )
+            ),
+            -- the low% way
+            All(
+                Any(
+                    MissileCount(2),
+                    ScrewAttack
+                ),
+                Any(
+                    CanFly,
+                    CanHiGrip,
+                    All(
+                        HiJump,
+                        CanWallJump
+                    )
+                ),
+                Any(
+                    Bomb,
+                    PowerBombCount(3)
+                ),
+                Any(
+                    ScrewAttack,
+                    MissileCount(4),
+                    Bomb,
+                    PowerBombCount(4)
+                )
+            )
+        )
+    )
+end
+
+function mothership_lower_to_upper()
+    return All(
+        CanBombTunnelBlock,
         Any(
+            CanFly,
+            CanHiGrip,
+            All(
+                HiJump,
+                CanWallJump
+            )
+        )
+    )
+end
+
+-- the long way around - in case you don't have enough PBs
+function mothership_upper_to_lower()
+    return All(
+        Any(
+            CanFlyWall,
+            CanHiGrip
+        ),
+        MissileCount(4),
+        CanBombTunnelBlock
+    )
+end
+
+-- to the room right past Pirate Pitfall Trap
+function mothership_upper_to_deep_mothership()
+    return Any(
+        All(
+            Missiles,
+            Any(
+                CanFly,
+                All(
+                    AdvancedLogic, -- very tight midair morph
+                    HiJump,
+                    CanWallJump
+                )
+            )
+        ),
+        -- shortcut, going through Pirate Pitfall Trap
+        All(
             SuperMissiles,
-            PowerGrip,
-            CanFly
+            PowerBombs,
+            CanFlyWall
+        )
+    )
+end
+
+function deep_mothership_to_cockpit()
+    return All(
+        CanFlyWall,
+        Any(
+            Bomb,
+            PowerBombCount(4)
         ),
         Any(
-            AdvancedLogic,
+            MinimalCombat,
+            All(
+                NormalCombat,
+                EnergyTanks(3)
+            ),
             EnergyTanks(6)
         )
     )
@@ -642,12 +891,16 @@ end
 
 function cockpit_to_original_pb()
     return All(
-        Any(
+        Any( -- cannot IBJ to escape to cockpit
             CanWallJump,
             HiJump,
             PowerGrip,
             SpaceJump
-        ), -- cannot IBJ to escape to cockpit
+        ),
+        Any(
+            Bomb,
+            PowerBombCount(2)
+        ),
         Any(
             CanIBJ,
             All(
@@ -673,20 +926,29 @@ function cockpit_to_mecha_ridley()
             CanIBJ,
             PowerGrip,
             All(
-                AdvancedLogic,
+                NormalLogic,
                 IceBeam,
                 HiJump
             )
         ),
-        CanBallJump,
         Any(
-            PowerBombCount(2),
+            CanBallJump,
+            PowerGrip
+        ),
+        Any(
             All(
-                Bomb,
-                PowerBombs
+                PowerBombs,
+                Any(
+                    Bomb,
+                    PowerBombCount(2),
+                    All(
+                        NormalLogic,
+                        MissileCount(4)
+                    )
+                )
             ),
             All(
-                AdvancedLogic,
+                NormalLogic,
                 Any(
                     CanIBJ,
                     All(

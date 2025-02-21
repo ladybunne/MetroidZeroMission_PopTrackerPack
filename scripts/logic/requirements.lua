@@ -63,6 +63,7 @@ MissileCount = function(n)
 end
 
 SuperMissiles = SuperMissileTanks(1)
+SuperMissileCount = function(n) return SuperMissileTanks(n // 2) end
 PowerBombs = PowerBombTanks(1)
 PowerBombCount = function(n) return PowerBombTanks(n // 2) end
 
@@ -96,11 +97,14 @@ CanBallJump = All(
 )
 CanLongBeam = Any(
     LongBeam,
-    MissileCount(1),
+    MissileCount(2),
     CanBombTunnelBlock
 )
 
-AdvancedLogic = OptionAtLeast("logic_difficulty", 1)
+NormalLogic = OptionAtLeast("logic_difficulty", 1)
+AdvancedLogic = OptionAtLeast("logic_difficulty", 2)
+NormalCombat = OptionAtLeast("combat_logic_difficulty", 1)
+MinimalCombat = OptionAtLeast("combat_logic_difficulty", 2)
 CanIBJ = All(
     OptionAtLeast("ibj_logic", 1),
     CanRegularBomb
@@ -157,17 +161,10 @@ CanEnterMediumMorphTunnel = Any(
     )
 )
 
-ChozodiaCombat = All(
-    Any(
-        IceBeam,
-        PlasmaBeam
-    ),
-    EnergyTanks(4)
-)
 RuinsTestEscape = All(
     Any(
         All(
-            AdvancedLogic,
+            NormalLogic,
             CanHiGrip,
             CanWallJump
         ),
@@ -176,6 +173,118 @@ RuinsTestEscape = All(
     ),
     CanEnterMediumMorphTunnel
 )
+
+KraidCombat = Any(
+    All(
+        MinimalCombat,
+        Any(
+            MissileCount(1),
+            SuperMissileCount(3)
+        )
+    ),
+    All(
+        NormalCombat,
+        MissileTanks(4),
+        EnergyTanks(1)
+    ),
+    All(
+        MissileTanks(6),
+        EnergyTanks(2)
+    )
+)
+RidleyCombat = Any(
+    MinimalCombat,
+    All(
+        NormalCombat,
+        MissileTanks(5),
+        EnergyTanks(3)
+    ),
+    All(
+        VariaSuit,
+        ChargeBeam,
+        MissileTanks(8),
+        SuperMissileTanks(2),
+        EnergyTanks(4)
+    )
+)
+MotherBrainCombat = Any(
+    MinimalCombat,
+    All(
+        NormalCombat,
+        Any(
+            PowerGrip,
+            GravitySuit,
+            HiJump,
+            All(
+                VariaSuit,
+                CanWallJump
+            )
+        ),
+        MissileTanks(8),
+        SuperMissileTanks(2),
+        EnergyTanks(5)
+    ),
+    All(
+        Any(
+            VariaSuit,
+            GravitySuit
+        ),
+        WaveBeam,
+        ScrewAttack,
+        PowerGrip,
+        MissileTanks(10),
+        SuperMissileTanks(3),
+        EnergyTanks(6)
+    )
+)
+ChozodiaCombat = Any(
+    MinimalCombat,
+    All(
+        NormalCombat,
+        Any(
+            MissileTanks(2),
+            IceBeam,
+            PlasmaBeam
+        ),
+        EnergyTanks(2)
+    ),
+    All(
+        Any(
+           IceBeam,
+           PlasmaBeam
+        ),
+        EnergyTanks(4)
+    )
+)
+
+MechaRidleyCombat = Any(
+    All(
+        MinimalCombat,
+        Missiles,
+        Any(
+            PlasmaBeam,
+            ScrewAttack,
+            SuperMissileCount(6)
+        )
+    ),
+    All(
+        NormalCombat,
+        SuperMissileTanks(3),
+        MissileTanks(4),
+        EnergyTanks(4)
+    ),
+    All(
+        Any(
+            HiJump,
+            SpaceJump
+        ),
+        ScrewAttack,
+        SuperMissileTanks(4),
+        MissileTanks(10),
+        EnergyTanks(6)
+    )
+)
+
 
 ReachedGoal = Any(
     All(

@@ -37,6 +37,9 @@ def requirement_to_option(input: str) -> str:
 def comments(input: str) -> str:
     return re.sub(r"#", r"--", input)
 
+def array_access(input: str) -> str:
+    return re.sub(r".get\((.*)\)", r"[\1]", input)
+
 
 # Region replacements
 
@@ -90,18 +93,20 @@ def strip_region_rules_start(input: str) -> str:
 
 
 # Test
-translate("test.txt", "temp/output.txt", [any_all, none_to_true, table_strings, def_to_function])
+# translate("test.txt", "temp/output.txt", [any_all, none_to_true, table_strings, def_to_function])
 
 # create_regions.lua
-translate("python_from_apworld/regions.py", "temp/create_regions.lua", [
+translate("python_from_apworld/regions.py", "scripts/logic/translated_from_apworld/create_regions.lua", [
     strip_regions_start,
     any_all,
+    array_access,
     create_region,
     connect,
-    remove_create_rule])
+    remove_create_rule
+    ])
 
 # location_region_mappings.lua
-translate("python_from_apworld/locations.py", "temp/location_region_mappings.lua", [
+translate("python_from_apworld/locations.py", "scripts/logic/translated_from_apworld/location_region_mappings.lua", [
     strip_location_tables_start,
     strip_location_tables_end,
     table_strings,
@@ -109,19 +114,21 @@ translate("python_from_apworld/locations.py", "temp/location_region_mappings.lua
     ])
 
 # location_rules.lua
-translate("python_from_apworld/rules.py", "temp/location_rules.lua", [
+translate("python_from_apworld/rules.py", "scripts/logic/translated_from_apworld/location_rules.lua", [
     strip_location_rules_start,
     strip_location_rules_end,
     any_all,
+    array_access,
     none_to_true,
     table_strings,
     comments
     ])
 
 # region_rules.lua
-translate("python_from_apworld/logic.py", "temp/region_rules.lua", [
+translate("python_from_apworld/rules.py", "scripts/logic/translated_from_apworld/region_rules.lua", [
     strip_region_rules_start,
     any_all,
+    array_access,
     none_to_true,
     def_to_function,
     requirement_to_option,
