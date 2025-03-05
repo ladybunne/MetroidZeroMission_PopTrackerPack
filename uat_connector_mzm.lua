@@ -62,6 +62,10 @@ local LOCATION_MEMORY_LENGTH = {
     [KEY_CHOZODIA] = 18,
 }
 
+local LOCATION_MAPPING = {
+    [KEY_BRINSTAR] = {1227, 1307, 807, 2802, 518, 525, 410, 704, 807, 1907, 1816, 5406, 406, 1423, 1110, 3905, 1105, 2306, 3906}
+}
+
 local state = {}
 local last_state = {}
 
@@ -76,9 +80,9 @@ local function compare_tables(a, b, keys)
 end
 
 local function update_items()
-    for k, _ in pairs(ITEM_ADDRESSES) do
+    for k, v in pairs(ITEM_ADDRESSES) do
         last_state[k] = state[k]
-        state[k] = ITEM_MEMORY_FUNCS[k](ITEM_ADDRESSES[k], ITEMS_DOMAIN)
+        state[k] = ITEM_MEMORY_FUNCS[k](v, ITEMS_DOMAIN)
     end
 
     return not compare_tables(state, last_state, ITEM_ADDRESSES)
@@ -87,7 +91,19 @@ end
 local function update_locations()
     for k, v in pairs(LOCATION_ADDRESSES) do
         last_state[k] = state[k]
-        state[k] = memory.read_bytes_as_array(LOCATION_ADDRESSES[k], LOCATION_MEMORY_LENGTH[k] * 4, LOCATIONS_DOMAIN)
+        local bitmask = 1 << LOCATION_MEMORY_LENGTH[k]
+        local addr = v
+        for i=1,LOCATION_MEMORY_LENGTH[k] do
+            local loc_x = memory.readbyte(addr + 2, LOCATIONS_DOMAIN)
+            local loc_y = memory.readbyte(addr + 3, LOCATIONS_DOMAIN)
+            if k == KEY_BRINSTAR then
+                print(bitmask, loc_x * 100 + loc_y, LOCATION_MAPPING[k][loc_x * 100 + loc_y])
+                bitmask = bitmask | 1 << LOCATION_MAPPING[k][loc_x * 100 + loc_y] - 1
+                
+            end
+            addr = addr + 4
+        end
+        state[k] = bitmask
     end
 
     return not compare_tables(state, last_state, LOCATION_ADDRESSES)
@@ -108,7 +124,7 @@ end
 -- Updates state and returns true if state has changed since last update.
 local function update()
     local items = update_items()
-    local locations = update_locations()
+    -- local locations = update_locations()
     local events = update_events()
     local current_map = update_current_map()
     local samus_position = update_samus_position()
@@ -126,17 +142,30 @@ local function init()
     for k, v in pairs(state) do
         last_state[k] = v
     end
+
+    -- Invert LOCATION_MAPPING to allow easier access for bitmasking
+    for k, _ in pairs(LOCATION_MAPPING) do
+        local temp_table = {}
+        for k2, v2 in pairs(LOCATION_MAPPING[k]) do
+            temp_table[v2] = k2
+        end
+        LOCATION_MAPPING[k] = temp_table
+    end
+
+    -- print(LOCATION_MAPPING["brinstar"])
 end
 
 local function main()
     local outcome = update()
     if outcome then
-        print("State updated, printing:")
-        print(state)
+        -- print("State updated, printing:")
+        -- print(state)
     end
 end
 
 init()
+update_locations()
+print(state)
 while true do
     main()
     emu.frameadvance()
