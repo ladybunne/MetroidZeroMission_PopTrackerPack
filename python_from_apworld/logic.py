@@ -181,12 +181,12 @@ CanFlyWall = any(  # infinite vertical with a usable wall
     CanFly,
     CanWallJump
 )
-CanVertical = any(  # fka can_hj_sj_ibj_or_grip
+CanVertical = any(  # any way of traversing vertically past base jump height, sans a wall
     HiJump,
     PowerGrip,
     CanFly
 )
-CanVerticalWall = any(
+CanVerticalWall = any(  # any way of traversing vertically past base jump height, with a usable wall
     CanVertical,
     CanWallJump
 )
@@ -194,7 +194,7 @@ CanHiGrip = all(
     HiJump,
     PowerGrip
 )
-CanEnterHighMorphTunnel = any(
+CanEnterHighMorphTunnel = any(  #
     CanIBJ,
     all(
         MorphBall,
@@ -249,7 +249,6 @@ RidleyCombat = any(
     ),
     all(
         VariaSuit,
-        ChargeBeam,
         MissileTanks(8),
         SuperMissileTanks(2),
         EnergyTanks(4)
@@ -300,6 +299,10 @@ ChozodiaCombat = any(
         any(
            IceBeam,
            PlasmaBeam
+        ),
+        any(
+            VariaSuit,
+            GravitySuit
         ),
         EnergyTanks(4)
     ),

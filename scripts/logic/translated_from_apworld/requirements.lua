@@ -1,6 +1,3 @@
--- Requirements
-
--- Ziplines = Event("ziplines")
 Ziplines = CanReachEntrance("Kraid Main -> Acid Worm Area")
 KraidBoss = Event("kraid")
 RidleyBoss = Event("ridley")
@@ -8,23 +5,20 @@ MotherBrainBoss = Event("mother_brain")
 ChozoGhostBoss = Event("fully_powered_suit")
 MechaRidleyBoss = Event("mecha_ridley")
 
--- Figure out something better for these.
 UnknownItem1 = CanReachLocation("Crateria Unknown Item Statue")
 UnknownItem2 = CanReachLocation("Kraid Unknown Item Statue")
 UnknownItem3 = CanReachLocation("Ridley Unknown Item Statue")
 
 CanUseUnknownItems = Any(
-    OptionIs("unknown_items", 1),
+    OptionEnabled("unknown_items"),
     ChozoGhostBoss
 )
-
-LayoutPatches = OptionIs("layout_patches", 1)
+LayoutPatches = OptionEnabled("layout_patches")
 
 EnergyTanks = function(n) return Has("EnergyTank", n) end
 MissileTanks = function(n) return Has("MissileTank", n) end
 SuperMissileTanks = function(n) return Has("SuperMissileTank", n) end
 PowerBombTanks = function(n) return Has("PowerBombTank", n) end
-
 LongBeam = Has("LongBeam")
 ChargeBeam = Has("ChargeBeam")
 IceBeam = Has("IceBeam")
@@ -53,24 +47,18 @@ Missiles = Any(
     MissileTanks(1),
     SuperMissileTanks(1)
 )
-
-MissileCount = function(n)
-    local count = n
-    return function()
-        return Tracker:ProviderCountForCode("MissileTank") * 5 +
-            Tracker:ProviderCountForCode("SuperMissileTank") * 2 >= count
-    end
-end
-
+MissileCount = function(n) return function () return 5 * Count("MissileTank")() + 2 * Count("SuperMissileTank")() >= n end end
 SuperMissiles = SuperMissileTanks(1)
-SuperMissileCount = function(n) return SuperMissileTanks(n // 2) end
+SuperMissileCount = function(n) return SuperMissileTanks(n // 2)   end-- TODO: account for Hard
 PowerBombs = PowerBombTanks(1)
-PowerBombCount = function(n) return PowerBombTanks(n // 2) end
+PowerBombCount = function(n) return PowerBombTanks(n // 2)   end-- TODO: account for Hard
 
+-- Various morph/bomb rules
 CanRegularBomb = All(
     MorphBall,
     Bomb
 )
+-- Morph tunnels or bomb chains--any block that Screw Attack can't break
 CanBombTunnelBlock = All(
     MorphBall,
     Any(
@@ -101,6 +89,7 @@ CanLongBeam = Any(
     CanBombTunnelBlock
 )
 
+-- Logic option rules
 NormalLogic = OptionAtLeast("logic_difficulty", 1)
 AdvancedLogic = OptionAtLeast("logic_difficulty", 2)
 NormalCombat = OptionAtLeast("combat_logic_difficulty", 1)
@@ -115,30 +104,29 @@ CanHorizontalIBJ = All(
 )
 CanWallJump = OptionAtLeast("walljump_logic", 1)
 CanTrickySparks = All(
-    OptionIs("tricky_shinesparks", 1),
+    OptionEnabled("tricky_shinesparks"),
     SpeedBooster
 )
-Hellrun = function(n)
-    return All(
-        OptionIs("heatruns", 1),
+Hellrun = function(n) return All(
+        OptionEnabled("heatruns"),
         EnergyTanks(n)
-    )
-end
+    ) end
 
-CanFly = Any(
+-- Miscellaneous rules
+CanFly = Any(  -- infinite vertical
     CanIBJ,
     SpaceJump
 )
-CanFlyWall = Any(
+CanFlyWall = Any(  -- infinite vertical with a usable wall
     CanFly,
     CanWallJump
 )
-CanVertical = Any(
+CanVertical = Any(  -- any way of traversing vertically past base jump height, sans a wall
     HiJump,
     PowerGrip,
     CanFly
 )
-CanVerticalWall = Any(
+CanVerticalWall = Any(  -- any way of traversing vertically past base jump height, with a usable wall
     CanVertical,
     CanWallJump
 )
@@ -146,7 +134,7 @@ CanHiGrip = All(
     HiJump,
     PowerGrip
 )
-CanEnterHighMorphTunnel = Any(
+CanEnterHighMorphTunnel = Any(  --
     CanIBJ,
     All(
         MorphBall,
@@ -160,7 +148,6 @@ CanEnterMediumMorphTunnel = Any(
         HiJump
     )
 )
-
 RuinsTestEscape = All(
     Any(
         All(
@@ -169,11 +156,12 @@ RuinsTestEscape = All(
             CanWallJump
         ),
         CanIBJ,
-        Has("SpaceJump")
+        Has("SpaceJump")  -- Need SJ to escape, but it doesn't need to be active yet
     ),
     CanEnterMediumMorphTunnel
 )
 
+-- Boss + difficult area combat logic
 KraidCombat = Any(
     All(
         MinimalCombat,
@@ -201,7 +189,6 @@ RidleyCombat = Any(
     ),
     All(
         VariaSuit,
-        ChargeBeam,
         MissileTanks(8),
         SuperMissileTanks(2),
         EnergyTanks(4)
@@ -253,10 +240,14 @@ ChozodiaCombat = Any(
            IceBeam,
            PlasmaBeam
         ),
+        Any(
+            VariaSuit,
+            GravitySuit
+        ),
         EnergyTanks(4)
     )
 )
-
+-- Currently combat logic assumes non-100% Mecha Ridley
 MechaRidleyCombat = Any(
     All(
         MinimalCombat,
@@ -285,7 +276,7 @@ MechaRidleyCombat = Any(
     )
 )
 
-
+-- Goal
 ReachedGoal = Any(
     All(
         OptionIs("goal", 0)

@@ -229,17 +229,18 @@ kraid_left_shaft = {
             ),
             all(
                 AdvancedLogic,
-                PowerGrip,
+                PowerGrip,  # Quick jumps and gripping the crumble blocks prevents them from reforming
                 any(
                     HiJump,
                     SpaceJump
-                )  # Quick jumps and gripping the crumble blocks prevents them from reforming
+                )
             )
         ),
         "Kraid Unknown Item Statue": all(
             any(
                 Bomb,
-                PowerBombCount(2)
+                PowerBombCount(4),  # nowhere good to refill PBs between elevator shaft and here
+                ScrewAttack
             ),
             any(
                 PowerGrip,
@@ -478,7 +479,16 @@ norfair_behind_superdoor = {
             )
         ),
         "Norfair Behind Lower Super Missile Door - Right": any(
-            CanFly,
+            SpaceJump,
+            CanHorizontalIBJ,
+            all(
+                GravitySuit,
+                CanIBJ
+            ),
+            all(
+                IceBeam,
+                CanWallJump
+            ),
             all(
                 HiJump,
                 any(
@@ -619,7 +629,14 @@ ridley_right_shaft = {
 
 ridley_right_speed_puzzles = {
         "Ridley Bomb Puzzle": all(
-            PowerGrip,
+            any(
+                PowerGrip,
+                all(
+                    AdvancedLogic,
+                    HiJump,
+                    CanHorizontalIBJ
+                )
+            ),
             any(
                 all(
                     Bomb,
@@ -729,7 +746,10 @@ tourian = {
         ),
         "Mother Brain": all(
             IceBeam,
-            CanRegularBomb,  # only bomb can unlatch metroids
+            any(
+                Bomb,  # only bomb can unlatch metroids
+                NormalCombat  # or just don't get hit!
+            ),
             MotherBrainCombat,
             any(  # to get through the tunnel right before Mother Brain
                 CanEnterHighMorphTunnel,
@@ -739,7 +759,14 @@ tourian = {
                 ),
                 AdvancedLogic  # it is possible to freeze Rinkas in such a way that you don't need grip IBJ or walljumps
             ),
-            CanVertical,  # to get through escape shaft
+            any(  # to get through escape shaft
+                CanVertical,
+                all(
+                    AdvancedLogic,  # running into MB after the final hit to get a speed boost
+                    SpeedBooster,
+                    CanWallJump
+                )
+            ),
             any(  # to get to ship
                 SpeedBooster,
                 CanFly,
@@ -822,25 +849,55 @@ chozodia_ruins_crateria_entrance = {
 chozodia_ruins_test = {
         "Chozodia Chozo Ghost Area Morph Tunnel Above Water": all(
             ChozoGhostBoss,  # The room leading to this item is inaccessible until the Chozo Ghost is defeated
-            Missiles,
+            any(
+                CanWallJump,
+                all(
+                    GravitySuit,
+                    CanFly
+                ),
+                all(  # Going up from the Triple Crawling Pirates room
+                    NormalLogic,
+                    CanFlyWall
+                )
+            ),
+            MissileCount(3),
             CanBallJump
         ),
         "Chozodia Chozo Ghost Area Underwater": all(
             ChozoGhostBoss,  # This item is fake until the Chozo Ghost is defeated
+            Missiles,
             SpeedBooster,
             GravitySuit
         ),
         "Chozodia Chozo Ghost Area Long Shinespark": all(
             ChozoGhostBoss,  # The room leading to this item is inaccessible until the Chozo Ghost is defeated
+            Missiles,
             SpeedBooster,
             GravitySuit,
+            any(  # IBJ is too slow to keep charge
+                SpaceJump,
+                CanWallJump
+            ),
             any(
-                NormalLogic,
-                ScrewAttack
+                ScrewAttack,
+                all(
+                    NormalLogic,
+                    MissileCount(3)
+                )
             )
         ),
         "Chozodia Lava Dive": all(  # TODO redo this whole lava dive
             ChozoGhostBoss,
+            any(
+                ScrewAttack,
+                all(
+                    Missiles,
+                    any(
+                        Bomb,
+                        PowerBombCount(2)
+                    )
+                )
+            ),
             any(
                 GravitySuit,
                 all(
@@ -866,7 +923,7 @@ chozodia_ruins_test = {
         ),
         "Chozo Ghost": any(
             MotherBrainBoss,
-            AdvancedLogic
+            AdvancedLogic  # TODO change when basepatch changes Chozodia
         )
     }
 
@@ -927,8 +984,7 @@ chozodia_upper_mothership = {
             any(
                 all(
                     CanBombTunnelBlock,
-                    CanFlyWall,
-                    CanEnterHighMorphTunnel
+                    CanFlyWall
                 ),
                 all(
                     AdvancedLogic,  # doable without falling down using screw, but can get softlocked without infinite vertical
@@ -936,7 +992,17 @@ chozodia_upper_mothership = {
                 )
             )
         ),
-        "Chozodia Behind Workbot": MissileCount(5),
+        "Chozodia Behind Workbot": all(
+            Missiles,
+            any(
+                CanFly,
+                CanHiGrip,
+                all(
+                    HiJump,
+                    CanWallJump
+                )
+            )
+        )
     }
 
 chozodia_lower_mothership = {
@@ -973,6 +1039,7 @@ chozodia_mecha_ridley_hall = {
         "Mecha Ridley": all(
             MechaRidleyCombat,
             CanEnterHighMorphTunnel,
+            CanBallJump,
             PlasmaBeam,  # To defeat black pirates
             ReachedGoal
         ),
@@ -1043,6 +1110,7 @@ def brinstar_past_hives():
             MissileCount(10),
             SuperMissiles,
             LongBeam,
+            ChargeBeam,
             IceBeam,
             WaveBeam,
             PlasmaBeam,
@@ -1434,7 +1502,22 @@ def lower_norfair_to_bottom_norfair():
             WaveBeam,
             CanTrickySparks
         ),
-        CanEnterMediumMorphTunnel
+        CanEnterMediumMorphTunnel,
+        any(  # defeating the larvae
+            PowerBombCount(2),
+            all(
+                WaveBeam,
+                CanBombTunnelBlock
+            ),
+            all(
+                AdvancedLogic,
+                Missiles,  # you can defeat the first larva by jumping and shooting missiles up into the ceiling
+                any(
+                    PlasmaBeam,
+                    CanBombTunnelBlock
+                ),
+            )
+        )
     )
 
 
@@ -1738,7 +1821,7 @@ def under_tube_to_tube():
         all(
             CanFly,
             PowerBombs,
-            ChozoGhostBoss  # Change if basepatch makes the tube breakable before Charlie
+            ChozoGhostBoss  # Change if basepatch makes the tube breakable before MB/Charlie
         )
     )
 
@@ -1955,12 +2038,15 @@ def cockpit_to_mecha_ridley():
     return all(
         CanBombTunnelBlock,
         any(
+            all(
+                PowerBombs,
+                CanVertical
+            ),
             CanIBJ,
             PowerGrip,
             all(
                 NormalLogic,
-                IceBeam,
-                HiJump
+                IceBeam
             )
         ),
         any(

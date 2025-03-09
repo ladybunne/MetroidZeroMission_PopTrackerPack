@@ -92,7 +92,7 @@ ConnectRegions("Chozodia Under Tube -> Crateria", "Chozodia Under Tube", "Crater
 ConnectRegions("Chozodia Under Tube -> Glass Tube", "Chozodia Under Tube", "Chozodia Glass Tube", under_tube_to_tube())
 ConnectRegions("Chozodia Glass Tube -> Under Tube", "Chozodia Glass Tube", "Chozodia Under Tube", tube_to_under_tube())
 ConnectRegions("Chozodia Glass Tube -> Chozo Ruins", "Chozodia Glass Tube", "Chozodia Ruins", chozodia_tube_to_chozo_ruins())
-ConnectRegions("Chozozia Glass Tube -> Mothership Central", "Chozodia Glass Tube", "Chozodia Mothership Central", chozodia_tube_to_mothership_central())
+ConnectRegions("Chozodia Glass Tube -> Mothership Central", "Chozodia Glass Tube", "Chozodia Mothership Central", chozodia_tube_to_mothership_central())
 ConnectRegions("Chozodia Central Mothership -> Lower Mothership", "Chozodia Mothership Central", "Chozodia Mothership Lower", mothership_central_to_lower())
 ConnectRegions("Chozodia Central Mothership -> Upper Mothership", "Chozodia Mothership Central", "Chozodia Mothership Upper", mothership_central_to_upper())
 ConnectRegions("Chozodia Lower Mothership -> Upper Mothership", "Chozodia Mothership Lower", "Chozodia Mothership Upper", mothership_lower_to_upper())
