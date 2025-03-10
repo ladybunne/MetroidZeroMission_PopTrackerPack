@@ -1,7 +1,7 @@
 [
     {
         "name": "Energy Tank",
-        "codes": "EnergyTank",
+        "codes": "Energy Tank",
         "img": "images/EnergyTank.png",
         "type": "consumable",
         "max_quantity": 12,
@@ -10,7 +10,7 @@
     },
     {
         "name": "Missile Tank",
-        "codes": "MissileTank",
+        "codes": "Missile Tank",
         "img": "images/MissileTank.png",
         "type": "consumable",
         "max_quantity": 50,
@@ -19,7 +19,7 @@
     },
     {
         "name": "Super Missile Tank",
-        "codes": "SuperMissileTank",
+        "codes": "Super Missile Tank",
         "img": "images/SuperMissileTank.png",
         "type": "consumable",
         "max_quantity": 15,
@@ -28,7 +28,7 @@
     },
     {
         "name": "Power Bomb Tank",
-        "codes": "PowerBombTank",
+        "codes": "Power Bomb Tank",
         "img": "images/PowerBombTank.png",
         "type": "consumable",
         "max_quantity": 9,
@@ -37,31 +37,31 @@
     },
     {
         "name": "Long Beam",
-        "codes": "LongBeam",
+        "codes": "Long Beam",
         "img": "images/LongBeam.png",
         "type": "toggle"
     },
     {
         "name": "Charge Beam",
-        "codes": "ChargeBeam",
+        "codes": "Charge Beam",
         "img": "images/ChargeBeam.png",
         "type": "toggle"
     },
     {
         "name": "Ice Beam",
-        "codes": "IceBeam",
+        "codes": "Ice Beam",
         "img": "images/IceBeam.png",
         "type": "toggle"
     },
     {
         "name": "Wave Beam",
-        "codes": "WaveBeam",
+        "codes": "Wave Beam",
         "img": "images/WaveBeam.png",
         "type": "toggle"
     },
     {
         "name": "Plasma Beam",
-        "codes": "PlasmaBeam",
+        "codes": "Plasma Beam",
         "img": "images/PlasmaBeam.png",
         "type": "toggle"
     },
@@ -73,49 +73,49 @@
     },
     {
         "name": "Varia Suit",
-        "codes": "VariaSuit",
+        "codes": "Varia Suit",
         "img": "images/VariaSuit.png",
         "type": "toggle"
     },
     {
         "name": "Gravity Suit",
-        "codes": "GravitySuit",
+        "codes": "Gravity Suit",
         "img": "images/GravitySuit.png",
         "type": "toggle"
     },
     {
         "name": "Morph Ball",
-        "codes": "MorphBall",
+        "codes": "Morph Ball",
         "img": "images/MorphBall.png",
         "type": "toggle"
     },
     {
         "name": "Speed Booster",
-        "codes": "SpeedBooster",
+        "codes": "Speed Booster",
         "img": "images/SpeedBooster.png",
         "type": "toggle"
     },
     {
         "name": "Hi-Jump",
-        "codes": "HiJump",
+        "codes": "Hi-Jump",
         "img": "images/HiJump.png",
         "type": "toggle"
     },
     {
         "name": "Screw Attack",
-        "codes": "ScrewAttack",
+        "codes": "Screw Attack",
         "img": "images/ScrewAttack.png",
         "type": "toggle"
     },
     {
         "name": "Space Jump",
-        "codes": "SpaceJump",
+        "codes": "Space Jump",
         "img": "images/SpaceJump.png",
         "type": "toggle"
     },
     {
         "name": "Power Grip",
-        "codes": "PowerGrip",
+        "codes": "Power Grip",
         "img": "images/PowerGrip.png",
         "type": "toggle"
     }

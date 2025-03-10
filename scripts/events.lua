@@ -1,6 +1,8 @@
 local events = {
-    [0] = "deorem", "acid_worm", "kraid", "imago_cocoon", "imago", "ridley",
-          "mother_brain", "escaped_zebes", "fully_powered_suit", "mecha_ridley", "escaped_chozodia"
+    [0] = "Deorem Defeated", "Acid Worm Defeated", "Kraid Defeated",
+          "Imago Cocoon Defeated", "Imago Defeated", "Ridley Defeated",
+          "Mother Brain Defeated", "Escaped Zebes",
+          "Chozo Ghost Defeated", "Mecha Ridley Defeated", "Escaped Chozodia"
 }
 
 function GetEventKey()

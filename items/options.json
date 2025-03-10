@@ -17,6 +17,27 @@
         ]
     },
     {
+        "name": "Game Difficulty",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "game_difficulty",
+        "stages": [
+            {
+                "name": "Normal",
+                "img": "images/greensquare.png"
+            },
+            {
+                "name": "Hard",
+                "img": "images/redsquare.png"
+            },
+            {
+                "name": "Either",
+                "img": "images/YellowZoomer.png"
+            }
+        ]
+    },
+    {
         "name": "Logic Difficulty",
         "type": "progressive",
         "loop": "true",
@@ -63,7 +84,7 @@
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
-        "codes": "unknown_items",
+        "codes": "unknown_items_always_usable",
         "initial_stage_idx": 1,
         "stages": [
             {
@@ -116,7 +137,7 @@
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
-        "codes": "ibj_logic",
+        "codes": "ibj_in_logic",
         "stages": [
             {
                 "name": "None",
@@ -159,7 +180,7 @@
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
-        "codes": "walljump_logic",
+        "codes": "walljumps_in_logic",
         "initial_stage_idx": 1,
         "stages": [
             {
@@ -174,11 +195,11 @@
         ]
     },
     {
-        "name": "Heatruns / Lavadives",
+        "name": "Hazard Runs",
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
-        "codes": "heatruns",
+        "codes": "hazard_runs",
         "stages": [
             {
                 "name": "Disabled",

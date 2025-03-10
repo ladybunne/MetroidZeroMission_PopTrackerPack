@@ -1,57 +1,81 @@
 Ziplines = CanReachEntrance("Kraid Main -> Acid Worm Area")
-KraidBoss = Event("kraid")
-RidleyBoss = Event("ridley")
-MotherBrainBoss = Event("mother_brain")
-ChozoGhostBoss = Event("fully_powered_suit")
-MechaRidleyBoss = Event("mecha_ridley")
+KraidBoss = Event("Kraid Defeated")
+RidleyBoss = Event("Ridley Defeated")
+MotherBrainBoss = Event("Mother Brain Defeated")
+ChozoGhostBoss = Event("Chozo Ghost Defeated")
+MechaRidleyBoss = Event("Mecha Ridley Defeated")
 
 UnknownItem1 = CanReachLocation("Crateria Unknown Item Statue")
 UnknownItem2 = CanReachLocation("Kraid Unknown Item Statue")
 UnknownItem3 = CanReachLocation("Ridley Unknown Item Statue")
 
 CanUseUnknownItems = Any(
-    OptionEnabled("unknown_items"),
+    OptionEnabled("unknown_items_always_usable"),
     ChozoGhostBoss
 )
 LayoutPatches = OptionEnabled("layout_patches")
+NormalMode = OptionIs("game_difficulty", 1)
+HardMode = OptionIs("game_difficulty", 2)
 
-EnergyTanks = function(n) return Has("EnergyTank", n) end
-MissileTanks = function(n) return Has("MissileTank", n) end
-SuperMissileTanks = function(n) return Has("SuperMissileTank", n) end
-PowerBombTanks = function(n) return Has("PowerBombTank", n) end
-LongBeam = Has("LongBeam")
-ChargeBeam = Has("ChargeBeam")
-IceBeam = Has("IceBeam")
-WaveBeam = Has("WaveBeam")
+
+EnergyTanks = function(n) return Has("Energy Tank", n) end
+MissileTanks = function(n) return Has("Missile Tank", n) end
+SuperMissileTanks = function(n) return Has("Super Missile Tank", n) end
+PowerBombTanks = function(n) return Has("Power Bomb Tank", n) end
+LongBeam = Has("Long Beam")
+ChargeBeam = Has("Charge Beam")
+IceBeam = Has("Ice Beam")
+WaveBeam = Has("Wave Beam")
 PlasmaBeam = All(
-    Has("PlasmaBeam"),
+    Has("Plasma Beam"),
     CanUseUnknownItems
 )
 Bomb = Has("Bomb")
-VariaSuit = Has("VariaSuit")
+VariaSuit = Has("Varia Suit")
 GravitySuit = All(
-    Has("GravitySuit"),
+    Has("Gravity Suit"),
     CanUseUnknownItems
 )
-MorphBall = Has("MorphBall")
-SpeedBooster = Has("SpeedBooster")
-HiJump = Has("HiJump")
-ScrewAttack = Has("ScrewAttack")
+MorphBall = Has("Morph Ball")
+SpeedBooster = Has("Speed Booster")
+HiJump = Has("Hi-Jump")
+ScrewAttack = Has("Screw Attack")
 SpaceJump = All(
-    Has("SpaceJump"),
+    Has("Space Jump"),
     CanUseUnknownItems
 )
-PowerGrip = Has("PowerGrip")
+PowerGrip = Has("Power Grip")
 
 Missiles = Any(
     MissileTanks(1),
     SuperMissileTanks(1)
 )
-MissileCount = function(n) return function () return 5 * Count("MissileTank")() + 2 * Count("SuperMissileTank")() >= n end end
+MissileCount = function(n)
+    return function()
+        if NormalMode then
+            return 5 * Count("MissileTank")() + 2 * Count("SuperMissileTank")() >= n
+        else
+            return 2 * Count("MissileTank")() + 1 * Count("SuperMissileTank")() >= n
+        end
+    end
+end
+
 SuperMissiles = SuperMissileTanks(1)
-SuperMissileCount = function(n) return SuperMissileTanks(n // 2)   end-- TODO: account for Hard
+SuperMissileCount = function(n)
+    if NormalMode then
+        return SuperMissileTanks(n // 2)
+    else
+        return SuperMissileTanks(n)
+    end
+end
 PowerBombs = PowerBombTanks(1)
-PowerBombCount = function(n) return PowerBombTanks(n // 2)   end-- TODO: account for Hard
+PowerBombCount = function(n)
+    if NormalMode then
+        return PowerBombTanks(n // 2)
+    else
+        return PowerBombTanks(n)
+    end
+end
 
 -- Various morph/bomb rules
 CanRegularBomb = All(
@@ -83,11 +107,13 @@ CanBallJump = All(
         HiJump
     )
 )
-CanLongBeam = Any(
-    LongBeam,
-    MissileCount(2),
-    CanBombTunnelBlock
-)
+CanLongBeam = function(n) 
+    return Any(
+        LongBeam,
+        MissileCount(n),
+        CanBombTunnelBlock
+    )
+end
 
 -- Logic option rules
 NormalLogic = OptionAtLeast("logic_difficulty", 1)
@@ -95,22 +121,24 @@ AdvancedLogic = OptionAtLeast("logic_difficulty", 2)
 NormalCombat = OptionAtLeast("combat_logic_difficulty", 1)
 MinimalCombat = OptionAtLeast("combat_logic_difficulty", 2)
 CanIBJ = All(
-    OptionAtLeast("ibj_logic", 1),
+    OptionAtLeast("ibj_in_logic", 1),
     CanRegularBomb
 )
 CanHorizontalIBJ = All(
     CanIBJ,
-    OptionAtLeast("ibj_logic", 2)
+    OptionAtLeast("ibj_in_logic", 2)
 )
-CanWallJump = OptionAtLeast("walljump_logic", 1)
+CanWallJump = OptionAtLeast("walljumps_in_logic", 1)
 CanTrickySparks = All(
     OptionEnabled("tricky_shinesparks"),
     SpeedBooster
 )
-Hellrun = function(n) return All(
-        OptionEnabled("heatruns"),
+Hellrun = function(n)
+    return All(
+        OptionEnabled("hazard_runs"),
         EnergyTanks(n)
-    ) end
+    )
+end
 
 -- Miscellaneous rules
 CanFly = Any(  -- infinite vertical
@@ -156,12 +184,13 @@ RuinsTestEscape = All(
             CanWallJump
         ),
         CanIBJ,
-        Has("SpaceJump")  -- Need SJ to escape, but it doesn't need to be active yet
+        Has("Space Jump")  -- Need SJ to escape, but it doesn't need to be active yet
     ),
     CanEnterMediumMorphTunnel
 )
 
 -- Boss + difficult area combat logic
+-- TODO: Minimal combat on Hard may need tweaking
 KraidCombat = Any(
     All(
         MinimalCombat,

@@ -10,9 +10,9 @@
                 "margin": "0, 0",
                 "h_alignment": "center",
                 "rows": [
-                    ["MorphBall", "Bomb", "PowerGrip", "SpeedBooster"],
-                    ["HiJump", "ScrewAttack", "SpaceJump"],
-                    ["VariaSuit", "GravitySuit"]
+                    ["Morph Ball", "Bomb", "Power Grip", "Speed Booster"],
+                    ["Hi-Jump", "Screw Attack", "Space Jump"],
+                    ["Varia Suit", "Gravity Suit"]
                 ]
             },
             {
@@ -21,8 +21,8 @@
                 "margin": "0, 10",
                 "h_alignment": "center",
                 "rows": [
-                    ["LongBeam", "ChargeBeam", "IceBeam"],
-                    ["", "WaveBeam", "PlasmaBeam", ""]
+                    ["Long Beam", "Charge Beam", "Ice Beam"],
+                    ["", "Wave Beam", "Plasma Beam", ""]
                 ]
             },
             {
@@ -31,7 +31,7 @@
                 "margin": "0, 10",
                 "h_alignment": "center",
                 "rows": [
-                    ["EnergyTank", "MissileTank", "SuperMissileTank", "PowerBombTank"]
+                    ["Energy Tank", "Missile Tank", "Super Missile Tank", "Power Bomb Tank"]
                 ]
             }
         ]

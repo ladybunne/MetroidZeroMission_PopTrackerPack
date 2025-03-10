@@ -102,8 +102,14 @@ function kraid_left_shaft_access()
             All(
                 GravitySuit,
                 Any(
-                    CanTrickySparks,
-                    CanIBJ
+                    CanIBJ,
+                    All(
+                        CanTrickySparks,
+                        Any(
+                            HiJump,
+                            CanWallJump
+                        )
+                    )
                 )
             ),
             All(  -- Acid Worm Skip
@@ -135,7 +141,7 @@ function norfair_main_to_crateria()
     return All(
         MorphBall,
         Any(
-            CanLongBeam,
+            CanLongBeam(1),
             CanBallspark
         ),
         Any(
@@ -172,7 +178,7 @@ function norfair_behind_ice_beam()
     return All(
         CanReachLocation("Norfair Ice Beam"),
         Any(
-            CanLongBeam,
+            CanLongBeam(1),
             WaveBeam
         ),
         MorphBall,
@@ -188,7 +194,12 @@ function norfair_behind_ice_beam()
             CanIBJ,
             All(
                 IceBeam,
-                HiJump
+                HiJump,
+                Any(
+                    NormalMode,
+                    CanWallJump,
+                    AdvancedLogic  -- Finicky enemy freeze to get up the triple ripper room with just HJ on Hard
+                )
             )
         )
     )
@@ -421,7 +432,14 @@ function lower_norfair_to_bottom_norfair()
         ),
         Any(
             WaveBeam,
-            CanTrickySparks
+            All(
+                NormalMode,
+                CanTrickySparks
+            ),
+            All(
+                ScrewAttack,  -- Hard mode adds extra enemies to the hardest room for this spark
+                CanTrickySparks
+            )
         ),
         CanEnterMediumMorphTunnel,
         Any(  -- defeating the larvae
@@ -686,15 +704,15 @@ function crateria_upper_to_chozo_ruins()
 
 end
 -- Ruins to Chozo Ghost, the three items in that general area, and the lava dive item
-function chozo_ruins_to_ruins_test()
+function chozo_ruins_to_ruins_test()  -- TODO: Hard mode + Chozodia forced post-charlie will need this to change
     return All(
         MorphBall,
         PowerBombs,
         Any(
             Bomb,
-            PowerBombCount(5),
+            PowerBombCount(4),
             All(
-                PowerBombCount(4),
+                PowerBombCount(3),
                 Any(
                     CanFlyWall,
                     ScrewAttack
@@ -702,7 +720,7 @@ function chozo_ruins_to_ruins_test()
                 NormalLogic
             ),
             All(
-                PowerBombCount(3),
+                PowerBombCount(2),
                 CanFlyWall,
                 ScrewAttack,
                 NormalLogic

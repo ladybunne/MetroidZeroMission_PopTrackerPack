@@ -1,5 +1,5 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING, Dict, List, Optional
+from typing import TYPE_CHECKING, Optional
 from BaseClasses import Region, Location, MultiWorld
 from .rules import *
 from .locations import full_location_table

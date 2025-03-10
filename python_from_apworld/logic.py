@@ -70,6 +70,9 @@ CanUseUnknownItems = any(
     ChozoGhostBoss,
 )
 LayoutPatches = Requirement.setting_enabled("layout_patches")
+NormalMode = Requirement.setting_is("game_difficulty", 1)
+HardMode = Requirement.setting_is("game_difficulty", 2)
+
 
 EnergyTanks = lambda n: Requirement.item("Energy Tank", n)
 MissileTanks = lambda n: Requirement.item("Missile Tank", n)
@@ -104,14 +107,14 @@ Missiles = any(
     SuperMissileTanks(1),
 )
 MissileCount = lambda n: Requirement(
-    # TODO: account for Hard
     lambda world, state:
-    5 * state.count("Missile Tank", world.player) + 2 * state.count("Super Missile Tank", world.player) >= n
+        5 * state.count("Missile Tank", world.player) + 2 * state.count("Super Missile Tank", world.player) >= n if NormalMode
+        else 2 * state.count("Missile Tank", world.player) + 1 * state.count("Super Missile Tank", world.player) >= n
 )
 SuperMissiles = SuperMissileTanks(1)
-SuperMissileCount = lambda n: SuperMissileTanks(n // 2)  # TODO: account for Hard
+SuperMissileCount = lambda n: SuperMissileTanks(n // 2) if NormalMode else SuperMissileTanks(n)  # TODO: check Hard
 PowerBombs = PowerBombTanks(1)
-PowerBombCount = lambda n: PowerBombTanks(n // 2)  # TODO: account for Hard
+PowerBombCount = lambda n: PowerBombTanks(n // 2) if not NormalMode else PowerBombTanks(n)  # TODO: check Hard
 
 # Various morph/bomb rules
 CanRegularBomb = all(
@@ -143,9 +146,9 @@ CanBallJump = all(
         HiJump
     )
 )
-CanLongBeam = any(
+CanLongBeam = lambda n: any(
     LongBeam,
-    MissileCount(2),
+    MissileCount(n),
     CanBombTunnelBlock,
 )
 
@@ -168,7 +171,7 @@ CanTrickySparks = all(
     SpeedBooster,
 )
 Hellrun = lambda n: all(
-    Requirement.setting_enabled("heatruns_lavadives"),
+    Requirement.setting_enabled("hazard_runs"),
     EnergyTanks(n),
 )
 
@@ -222,6 +225,7 @@ RuinsTestEscape = all(
 )
 
 # Boss + difficult area combat logic
+# TODO: Minimal combat on Hard may need tweaking
 KraidCombat = any(
     all(
         MinimalCombat,

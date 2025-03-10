@@ -11,10 +11,10 @@
                 "margin": "0, 0",
                 "h_alignment": "center",
                 "rows": [
-                    ["kraid"],
-                    ["ridley"],
-                    ["mother_brain"],
-                    ["fully_powered_suit"]
+                    ["Kraid Defeated"],
+                    ["Ridley Defeated"],
+                    ["Mother Brain Defeated"],
+                    ["Chozo Ghost Defeated"]
                 ]
             }
         ]

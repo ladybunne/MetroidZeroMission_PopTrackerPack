@@ -20,7 +20,10 @@ brinstar_start = {
         "Brinstar Ceiling E-Tank": any(
             all(
                 IceBeam,
-                RidleyBoss
+                any(
+                    RidleyBoss,
+                    HardMode
+                )
             ),
             CanFly,
             all(
@@ -34,7 +37,7 @@ brinstar_main = {
         "Brinstar Long Beam": all(
             MorphBall,
             any(
-                CanLongBeam,
+                CanLongBeam(2),
                 LayoutPatches,
             )
         ),
@@ -50,11 +53,14 @@ brinstar_main = {
             CanBallspark,
             CanBombTunnelBlock
         ),
-        "Brinstar Ripper Climb": any(
+        "Brinstar Ripper Climb": any(  # TODO hard mode changes
             all(
-                CanEnterHighMorphTunnel,
+                PowerGrip,
                 any(
-                    IceBeam,
+                    all(
+                        IceBeam,
+                        NormalMode
+                    ),
                     CanFlyWall
                 )
             ),
@@ -143,7 +149,10 @@ brinstar_top = {
                 )
             ),
             CanBallJump,
-            CanLongBeam,
+            any(
+                CanLongBeam(5),
+                WaveBeam
+            ),
             any(
                 VariaSuit,
                 GravitySuit,
@@ -201,7 +210,7 @@ kraid_acidworm_area = {
             any(
                 NormalCombat,
                 all(
-                    MissileCount(25),
+                    MissileTanks(5),
                     EnergyTanks(1)
                 )
             ),
@@ -274,8 +283,7 @@ kraid_bottom = {
             ),
             Missiles,
             KraidCombat,
-            # to escape, or to get to the upper door if you take the speed booster exit into the room
-            any(
+            any(  # to escape, or to get to the upper door if you take the speed booster exit into the room
                 SpeedBooster,
                 CanHiGrip,
                 CanFlyWall
@@ -294,7 +302,7 @@ norfair_main = {
         ),
         "Norfair Under Crateria Elevator": all(
             any(
-                CanLongBeam,
+                CanLongBeam(1),
                 CanBallspark
             ),
             any(
@@ -335,6 +343,10 @@ norfair_upper_right = {
             CanFlyWall,
             PowerGrip,
             all(
+                IceBeam,
+                HardMode
+            ),
+            all(
                 HiJump,
                 AdvancedLogic
             )
@@ -365,7 +377,7 @@ norfair_under_brinstar_elevator = {
         ),
         "Norfair Heated Room Under Brinstar Elevator": all(
             SuperMissiles,
-            any(
+            any(  # TODO: Redo this hellrun; Hard mode has extra considerations
                 VariaSuit,
                 Hellrun(4),
                 all(
@@ -457,7 +469,13 @@ norfair_behind_superdoor = {
             any(
                 all(
                     CanIBJ,
-                    GravitySuit
+                    any(
+                        GravitySuit,
+                        all(
+                            NormalLogic,
+                            HiJump
+                        )
+                    )
                 ),
                 all(
                     SpaceJump,
@@ -471,9 +489,15 @@ norfair_behind_superdoor = {
                         Bomb
                     ),
                     CanReachLocation("Norfair Behind Lower Super Missile Door - Right"),
+                ),
+                all(
+                    NormalLogic,
+                    GravitySuit,
+                    CanHiGrip,
+                    CanWallJump
                 )
             ),
-            any(
+            any(  # To get out
                 SpeedBooster,
                 CanBallJump
             )
@@ -531,12 +555,12 @@ ridley_main = {
             CanVerticalWall,
             any(
                 all(
-                    MissileCount(35),
+                    MissileTanks(7),
                     EnergyTanks(1)
                 ),
                 all(
                     NormalCombat,
-                    MissileCount(20),
+                    MissileTanks(4),
                 ),
                 all(
                     MinimalCombat,
@@ -557,7 +581,10 @@ ridley_left_shaft = {
             CanFly,  # the short way
             all(
                 AdvancedLogic,
-                CanWallJump
+                any(
+                    CanWallJump,
+                    PowerGrip
+                )
             )
         ),
     }
@@ -760,7 +787,23 @@ tourian = {
                 AdvancedLogic  # it is possible to freeze Rinkas in such a way that you don't need grip IBJ or walljumps
             ),
             any(  # to get through escape shaft
-                CanVertical,
+                all(
+                    NormalMode,
+                    CanVertical,
+                ),
+                any(  # Hard mode escape; much tighter time so IBJs alone don't cut it
+                    SpaceJump,
+                    HiJump,
+                    all(
+                        PowerGrip,
+                        CanWallJump
+                    ),
+                    all(
+                        AdvancedLogic,
+                        CanIBJ,
+                        CanWallJump
+                    )
+                ),
                 all(
                     AdvancedLogic,  # running into MB after the final hit to get a speed boost
                     SpeedBooster,
@@ -1197,8 +1240,14 @@ def kraid_left_shaft_access():
             all(
                 GravitySuit,
                 any(
-                    CanTrickySparks,
-                    CanIBJ
+                    CanIBJ,
+                    all(
+                        CanTrickySparks,
+                        any(
+                            HiJump,
+                            CanWallJump
+                        )
+                    )
                 )
             ),
             all(  # Acid Worm Skip
@@ -1227,7 +1276,7 @@ def norfair_main_to_crateria():
     return all(
         MorphBall,
         any(
-            CanLongBeam,
+            CanLongBeam(1),
             CanBallspark
         ),
         any(
@@ -1261,7 +1310,7 @@ def norfair_behind_ice_beam():
     return all(
         CanReachLocation("Norfair Ice Beam"),
         any(
-            CanLongBeam,
+            CanLongBeam(1),
             WaveBeam
         ),
         MorphBall,
@@ -1277,7 +1326,12 @@ def norfair_behind_ice_beam():
             CanIBJ,
             all(
                 IceBeam,
-                HiJump
+                HiJump,
+                any(
+                    NormalMode,
+                    CanWallJump,
+                    AdvancedLogic  # Finicky enemy freeze to get up the triple ripper room with just HJ on Hard
+                )
             )
         )
     )
@@ -1500,7 +1554,14 @@ def lower_norfair_to_bottom_norfair():
         ),
         any(
             WaveBeam,
-            CanTrickySparks
+            all(
+                NormalMode,
+                CanTrickySparks
+            ),
+            all(
+                ScrewAttack,  # Hard mode adds extra enemies to the hardest room for this spark
+                CanTrickySparks
+            )
         ),
         CanEnterMediumMorphTunnel,
         any(  # defeating the larvae
@@ -1750,15 +1811,15 @@ def crateria_upper_to_chozo_ruins():
 
 
 # Ruins to Chozo Ghost, the three items in that general area, and the lava dive item
-def chozo_ruins_to_ruins_test():
+def chozo_ruins_to_ruins_test():  # TODO: Hard mode + Chozodia forced post-charlie will need this to change
     return all(
         MorphBall,
         PowerBombs,
         any(
             Bomb,
-            PowerBombCount(5),
+            PowerBombCount(4),
             all(
-                PowerBombCount(4),
+                PowerBombCount(3),
                 any(
                     CanFlyWall,
                     ScrewAttack
@@ -1766,7 +1827,7 @@ def chozo_ruins_to_ruins_test():
                 NormalLogic
             ),
             all(
-                PowerBombCount(3),
+                PowerBombCount(2),
                 CanFlyWall,
                 ScrewAttack,
                 NormalLogic
