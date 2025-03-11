@@ -23,14 +23,14 @@ function LoadOptions(slot_data)
     for k, v in pairs(slot_data) do
         -- Don't do this yet.
         if k == "selected_layout_patches" then
-            return
-        end
-        local obj = Tracker:FindObjectForCode(options[k])
-        if obj then
-            if obj.Type == "toggle" then
-                obj.Active = v >= 1
-            elseif obj.Type == "progressive" then
-                obj.CurrentStage = v
+        else
+            local obj = Tracker:FindObjectForCode(options[k])
+            if obj then
+                if obj.Type == "toggle" then
+                    obj.Active = v >= 1
+                elseif obj.Type == "progressive" then
+                    obj.CurrentStage = v
+                end
             end
         end
     end

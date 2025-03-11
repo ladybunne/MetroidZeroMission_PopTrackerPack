@@ -62,18 +62,22 @@ end
 
 SuperMissiles = SuperMissileTanks(1)
 SuperMissileCount = function(n)
-    if NormalMode then
-        return SuperMissileTanks(n // 2)
-    else
-        return SuperMissileTanks(n)
+    return function()
+        if NormalMode then
+            return SuperMissileTanks(n // 2)
+        else
+            return SuperMissileTanks(n)
+        end
     end
 end
 PowerBombs = PowerBombTanks(1)
 PowerBombCount = function(n)
-    if NormalMode then
-        return PowerBombTanks(n // 2)
-    else
-        return PowerBombTanks(n)
+    return function()
+        if NormalMode then
+            return PowerBombTanks(n // 2)
+        else
+            return PowerBombTanks(n)
+        end
     end
 end
 
@@ -107,12 +111,14 @@ CanBallJump = All(
         HiJump
     )
 )
-CanLongBeam = function(n) 
-    return Any(
-        LongBeam,
-        MissileCount(n),
-        CanBombTunnelBlock
-    )
+CanLongBeam = function(n)
+    return function()
+        return Any(
+            LongBeam,
+            MissileCount(n),
+            CanBombTunnelBlock
+        )
+    end
 end
 
 -- Logic option rules
@@ -134,27 +140,29 @@ CanTrickySparks = All(
     SpeedBooster
 )
 Hellrun = function(n)
-    return All(
-        OptionEnabled("hazard_runs"),
-        EnergyTanks(n)
-    )
+    return function()
+        return All(
+            OptionEnabled("hazard_runs"),
+            EnergyTanks(n)
+        )
+    end
 end
 
 -- Miscellaneous rules
-CanFly = Any(  -- infinite vertical
+CanFly = Any( -- infinite vertical
     CanIBJ,
     SpaceJump
 )
-CanFlyWall = Any(  -- infinite vertical with a usable wall
+CanFlyWall = Any( -- infinite vertical with a usable wall
     CanFly,
     CanWallJump
 )
-CanVertical = Any(  -- any way of traversing vertically past base jump height, sans a wall
+CanVertical = Any( -- any way of traversing vertically past base jump height, sans a wall
     HiJump,
     PowerGrip,
     CanFly
 )
-CanVerticalWall = Any(  -- any way of traversing vertically past base jump height, with a usable wall
+CanVerticalWall = Any( -- any way of traversing vertically past base jump height, with a usable wall
     CanVertical,
     CanWallJump
 )
@@ -162,7 +170,7 @@ CanHiGrip = All(
     HiJump,
     PowerGrip
 )
-CanEnterHighMorphTunnel = Any(  --
+CanEnterHighMorphTunnel = Any( --
     CanIBJ,
     All(
         MorphBall,
@@ -184,7 +192,7 @@ RuinsTestEscape = All(
             CanWallJump
         ),
         CanIBJ,
-        Has("Space Jump")  -- Need SJ to escape, but it doesn't need to be active yet
+        Has("Space Jump") -- Need SJ to escape, but it doesn't need to be active yet
     ),
     CanEnterMediumMorphTunnel
 )
@@ -266,8 +274,8 @@ ChozodiaCombat = Any(
     ),
     All(
         Any(
-           IceBeam,
-           PlasmaBeam
+            IceBeam,
+            PlasmaBeam
         ),
         Any(
             VariaSuit,
