@@ -22,18 +22,19 @@
         "loop": "true",
         "allow_disabled": false,
         "codes": "game_difficulty",
+        "initial_stage_idx": 2,
         "stages": [
             {
                 "name": "Normal",
-                "img": "images/greensquare.png"
+                "img": "images/NormalSymbol.png"
             },
             {
                 "name": "Hard",
-                "img": "images/redsquare.png"
+                "img": "images/HardSymbol.png"
             },
             {
                 "name": "Either",
-                "img": "images/YellowZoomer.png"
+                "img": "images/EitherSymbol.png"
             }
         ]
     },

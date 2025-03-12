@@ -21,15 +21,19 @@ function LoadOptions(slot_data)
     end
 
     for k, v in pairs(slot_data) do
+        local game_difficulty_offset = 0
         -- Don't do this yet.
         if k == "selected_layout_patches" then
         else
+            if k == "game_difficulty" then
+                game_difficulty_offset = -1
+            end
             local obj = Tracker:FindObjectForCode(options[k])
             if obj then
                 if obj.Type == "toggle" then
                     obj.Active = v >= 1
                 elseif obj.Type == "progressive" then
-                    obj.CurrentStage = v
+                    obj.CurrentStage = v + game_difficulty_offset
                 end
             end
         end
