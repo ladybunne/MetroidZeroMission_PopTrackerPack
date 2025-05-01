@@ -1,4 +1,4 @@
-Ziplines = Has("Ziplines Activated")
+Ziplines = CanReachEntrance("Kraid Main -> Acid Worm Area")
 KraidBoss = Has("Kraid Defeated")
 RidleyBoss = Has("Ridley Defeated")
 MotherBrainBoss = Has("Mother Brain Defeated")
