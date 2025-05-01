@@ -43,6 +43,10 @@ class Requirement(NamedTuple):
     def setting_atleast(cls, setting: str, value: int):
         return cls(lambda world, _: getattr(world.options, setting) >= value)
 
+    @classmethod
+    def setting_contains(cls, setting: str, value: Any):
+        return cls(lambda world, _: value in getattr(world.options, setting))
+
 
 def all(*args: Requirement):
     return Requirement(lambda world, state: builtins.all(req.rule(world, state) for req in args))
@@ -69,7 +73,14 @@ CanUseUnknownItems = any(
     Requirement.setting_enabled("unknown_items_always_usable"),
     ChozoGhostBoss,
 )
-LayoutPatches = Requirement.setting_enabled("layout_patches")
+LayoutPatches = lambda n: any(
+    Requirement.setting_is("layout_patches", 1),
+    all(
+        Requirement.setting_is("layout_patches", 2),
+        Requirement.setting_contains("selected_patches", n)
+    )
+)
+
 NormalMode = Requirement.setting_is("game_difficulty", 1)
 HardMode = Requirement.setting_is("game_difficulty", 2)
 
@@ -108,13 +119,28 @@ Missiles = any(
 )
 MissileCount = lambda n: Requirement(
     lambda world, state:
-        5 * state.count("Missile Tank", world.player) + 2 * state.count("Super Missile Tank", world.player) >= n if NormalMode
-        else 2 * state.count("Missile Tank", world.player) + 1 * state.count("Super Missile Tank", world.player) >= n
+        5 * state.count("Missile Tank", world.player) +
+        2 * state.count("Super Missile Tank", world.player) >= n if world.options.game_difficulty == 1
+        else 2 * state.count("Missile Tank", world.player) + state.count("Super Missile Tank", world.player) >= n
 )
 SuperMissiles = SuperMissileTanks(1)
-SuperMissileCount = lambda n: SuperMissileTanks(n // 2) if NormalMode else SuperMissileTanks(n)  # TODO: check Hard
+SuperMissileCount = lambda n: Requirement(
+    lambda world, state:
+        2 * state.count("Super Missile Tank", world.player) >= n if world.options.game_difficulty == 1
+        else state.count("Super Missile Tank", world.player) >= n
+)
 PowerBombs = PowerBombTanks(1)
-PowerBombCount = lambda n: PowerBombTanks(n // 2) if not NormalMode else PowerBombTanks(n)  # TODO: check Hard
+PowerBombCount = lambda n: Requirement(
+    lambda world, state:
+        2 * state.count("Power Bomb Tank", world.player) >= n if world.options.game_difficulty == 1
+        else state.count("Power Bomb Tank", world.player) >= n
+)
+Energy = lambda n: Requirement(
+    lambda world, state:
+        100 * state.count("Energy Tank", world.player) + 99 >= n if world.options.game_difficulty == 1
+        else 50 * state.count("Energy Tank", world.player) + 99 >= n
+)
+
 
 # Various morph/bomb rules
 CanRegularBomb = all(
@@ -172,7 +198,7 @@ CanTrickySparks = all(
 )
 Hellrun = lambda n: all(
     Requirement.setting_enabled("hazard_runs"),
-    EnergyTanks(n),
+    Energy(n),
 )
 
 # Miscellaneous rules
@@ -197,7 +223,7 @@ CanHiGrip = all(
     HiJump,
     PowerGrip
 )
-CanEnterHighMorphTunnel = any(  #
+CanEnterHighMorphTunnel = any(
     CanIBJ,
     all(
         MorphBall,
@@ -293,22 +319,23 @@ ChozodiaCombat = any(
     all(
         NormalCombat,
         any(
-            MissileTanks(2),
+            MissileTanks(4),
             IceBeam,
             PlasmaBeam
         ),
-        EnergyTanks(2)
+        EnergyTanks(3)
     ),
     all(
         any(
-           IceBeam,
-           PlasmaBeam
+            MissileTanks(10),
+            IceBeam,
+            PlasmaBeam
         ),
         any(
             VariaSuit,
             GravitySuit
         ),
-        EnergyTanks(4)
+        EnergyTanks(5)
     ),
 )
 # Currently combat logic assumes non-100% Mecha Ridley

@@ -1,9 +1,9 @@
-Ziplines = CanReachEntrance("Kraid Main -> Acid Worm Area")
-KraidBoss = Event("Kraid Defeated")
-RidleyBoss = Event("Ridley Defeated")
-MotherBrainBoss = Event("Mother Brain Defeated")
-ChozoGhostBoss = Event("Chozo Ghost Defeated")
-MechaRidleyBoss = Event("Mecha Ridley Defeated")
+Ziplines = Has("Ziplines Activated")
+KraidBoss = Has("Kraid Defeated")
+RidleyBoss = Has("Ridley Defeated")
+MotherBrainBoss = Has("Mother Brain Defeated")
+ChozoGhostBoss = Has("Chozo Ghost Defeated")
+MechaRidleyBoss = Has("Mecha Ridley Defeated")
 
 UnknownItem1 = CanReachLocation("Crateria Unknown Item Statue")
 UnknownItem2 = CanReachLocation("Kraid Unknown Item Statue")
@@ -13,7 +13,16 @@ CanUseUnknownItems = Any(
     OptionEnabled("unknown_items_always_usable"),
     ChozoGhostBoss
 )
-LayoutPatches = OptionEnabled("layout_patches")
+LayoutPatches = function(n)
+    return Any(
+        OptionIs("layout_patches", 1),
+        All(
+            OptionIs("layout_patches", 2),
+            OptionIs("selected_patches", n)
+        )
+    )
+end
+
 NormalMode = OptionIs("game_difficulty", 1)
 HardMode = OptionIs("game_difficulty", 2)
 
@@ -52,10 +61,10 @@ Missiles = Any(
 )
 MissileCount = function(n)
     return function()
-        if NormalMode then
-            return 5 * Count("MissileTank")() + 2 * Count("SuperMissileTank")() >= n
+        if OptionIs("game_difficulty", 1) then
+            return 5 * Count("Missile Tank")() + 2 * Count("Super Missile Tank")() >= n
         else
-            return 2 * Count("MissileTank")() + 1 * Count("SuperMissileTank")() >= n
+            return 2 * Count("Missile Tank")() + Count("Super Missile Tank")() >= n
         end
     end
 end
@@ -63,20 +72,31 @@ end
 SuperMissiles = SuperMissileTanks(1)
 SuperMissileCount = function(n)
     return function()
-        if NormalMode then
-            return SuperMissileTanks(n // 2)
+        if OptionIs("game_difficulty", 1) then
+            return 2 * Count("Super Missile Tank")() >= n
         else
-            return SuperMissileTanks(n)
+            return Count("Super Missile Tank")() >= n
         end
     end
 end
+
 PowerBombs = PowerBombTanks(1)
 PowerBombCount = function(n)
     return function()
-        if NormalMode then
-            return PowerBombTanks(n // 2)
+        if OptionIs("game_difficulty", 1) then
+            return 2 * Count("Power Bomb Tank")() >= n
         else
-            return PowerBombTanks(n)
+            return Count("Power Bomb Tank")() >= n
+        end
+    end
+end
+
+Energy = function(n)
+    return function()
+        if OptionIs("game_difficulty", 1) then
+            return 100 * Count("Energy Tank")() + 99 >= n
+        else
+            return 50 * Count("Energy Tank")() + 99 >= n
         end
     end
 end
@@ -112,13 +132,11 @@ CanBallJump = All(
     )
 )
 CanLongBeam = function(n)
-    return function()
-        return Any(
-            LongBeam,
-            MissileCount(n),
-            CanBombTunnelBlock
-        )
-    end
+    return Any(
+        LongBeam,
+        MissileCount(n),
+        CanBombTunnelBlock
+    )
 end
 
 -- Logic option rules
@@ -140,29 +158,27 @@ CanTrickySparks = All(
     SpeedBooster
 )
 Hellrun = function(n)
-    return function()
-        return All(
-            OptionEnabled("hazard_runs"),
-            EnergyTanks(n)
-        )
-    end
+    return All(
+        OptionEnabled("hazard_runs"),
+        Energy(n)
+    )
 end
 
 -- Miscellaneous rules
-CanFly = Any( -- infinite vertical
+CanFly = Any(  -- infinite vertical
     CanIBJ,
     SpaceJump
 )
-CanFlyWall = Any( -- infinite vertical with a usable wall
+CanFlyWall = Any(  -- infinite vertical with a usable wall
     CanFly,
     CanWallJump
 )
-CanVertical = Any( -- any way of traversing vertically past base jump height, sans a wall
+CanVertical = Any(  -- any way of traversing vertically past base jump height, sans a wall
     HiJump,
     PowerGrip,
     CanFly
 )
-CanVerticalWall = Any( -- any way of traversing vertically past base jump height, with a usable wall
+CanVerticalWall = Any(  -- any way of traversing vertically past base jump height, with a usable wall
     CanVertical,
     CanWallJump
 )
@@ -170,7 +186,7 @@ CanHiGrip = All(
     HiJump,
     PowerGrip
 )
-CanEnterHighMorphTunnel = Any( --
+CanEnterHighMorphTunnel = Any(
     CanIBJ,
     All(
         MorphBall,
@@ -192,7 +208,7 @@ RuinsTestEscape = All(
             CanWallJump
         ),
         CanIBJ,
-        Has("Space Jump") -- Need SJ to escape, but it doesn't need to be active yet
+        Has("Space Jump")  -- Need SJ to escape, but it doesn't need to be active yet
     ),
     CanEnterMediumMorphTunnel
 )
@@ -266,14 +282,15 @@ ChozodiaCombat = Any(
     All(
         NormalCombat,
         Any(
-            MissileTanks(2),
+            MissileTanks(4),
             IceBeam,
             PlasmaBeam
         ),
-        EnergyTanks(2)
+        EnergyTanks(3)
     ),
     All(
         Any(
+            MissileTanks(10),
             IceBeam,
             PlasmaBeam
         ),
@@ -281,7 +298,7 @@ ChozodiaCombat = Any(
             VariaSuit,
             GravitySuit
         ),
-        EnergyTanks(4)
+        EnergyTanks(5)
     )
 )
 -- Currently combat logic assumes non-100% Mecha Ridley

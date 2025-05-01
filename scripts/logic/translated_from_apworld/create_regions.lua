@@ -86,7 +86,7 @@ ConnectRegions("Crateria -> Upper", "Crateria", "Upper Crateria", crateria_main_
 ConnectRegions("Crateria -> Chozodia Lower Door", "Crateria", "Chozodia Under Tube", crateria_to_under_tube())
 ConnectRegions("Crateria -> Chozodia Upper Door", "Upper Crateria", "Chozodia Ruins", crateria_upper_to_chozo_ruins())
 ConnectRegions("Chozo Ruins -> Chozo Ruins Test", "Chozodia Ruins", "Chozodia Ruins Test Area", chozo_ruins_to_ruins_test())
-ConnectRegions("Chozo Ruins Test -> Chozo Ruins", "Chozodia Ruins Test Area", "Chozodia Ruins", ChozoGhostBoss)
+ConnectRegions("Chozo Ruins Test -> Chozo Ruins", "Chozodia Ruins Test Area", "Chozodia Ruins", ruins_test_to_ruins())
 ConnectRegions("Chozo Ruins -> Glass Tube", "Chozodia Ruins", "Chozodia Glass Tube", chozo_ruins_to_chozodia_tube())
 ConnectRegions("Chozodia Under Tube -> Crateria", "Chozodia Under Tube", "Crateria", under_tube_to_crateria())
 ConnectRegions("Chozodia Under Tube -> Glass Tube", "Chozodia Under Tube", "Chozodia Glass Tube", under_tube_to_tube())

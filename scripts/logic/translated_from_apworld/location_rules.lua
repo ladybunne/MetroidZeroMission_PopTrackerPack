@@ -22,7 +22,7 @@ brinstar_main = {
             MorphBall,
             Any(
                 CanLongBeam(2),
-                LayoutPatches
+                LayoutPatches("brinstar_long_beam_hall")
             )
         ),
         ["Brinstar Main Shaft Left Alcove"] = All(
@@ -37,18 +37,38 @@ brinstar_main = {
             CanBallspark,
             CanBombTunnelBlock
         ),
-        ["Brinstar Ripper Climb"] = Any(  -- TODO hard mode changes
+        ["Brinstar Ripper Climb"] = Any(
             All(
                 PowerGrip,
                 Any(
                     All(
                         IceBeam,
-                        NormalMode
+                        NormalMode  -- On Hard, one Ripper is missing
                     ),
                     CanFlyWall
+                ),
+                Any(
+                    CanBallJump,
+                    CanSingleBombBlock,
+                    LayoutPatches("brinstar_top")
                 )
             ),
             CanIBJ,
+            All(  -- Dislodging a zoomer and then freezing it along the wall to grip, springball, or bomb jump up
+                AdvancedLogic,
+                IceBeam,
+                SuperMissiles,
+                Any(
+                    PowerGrip,
+                    All(
+                        CanBallJump,
+                        Any(
+                            NormalMode,
+                            CanVerticalWall  -- On Hard, one ripper is missing, so need vertical
+                        )
+                    )
+                )
+            ),
             All(
                 CanBallspark,
                 CanTrickySparks,
@@ -102,10 +122,19 @@ brinstar_top = {
                 CanHorizontalIBJ,
                 PowerGrip,
                 All(
-                    HiJump,
+                    GravitySuit,
+                    CanVerticalWall
+                ),
+                All(
                     Any(
-                        CanWallJump,
-                        GravitySuit
+                        Hellrun(199),
+                        VariaSuit
+                    ),
+                    HiJump,
+                    CanWallJump,
+                    Any(
+                        SpaceJump,
+                        AdvancedLogic
                     )
                 )
             ),
@@ -140,7 +169,7 @@ brinstar_top = {
             Any(
                 VariaSuit,
                 GravitySuit,
-                Hellrun(1)
+                Hellrun(199)
             )
         ),
         ["Brinstar Upper Pillar"] = True
@@ -160,9 +189,19 @@ brinstar_pasthives = {
 
 kraid_main = {
         ["Kraid Save Room Tunnel"] = CanBombTunnelBlock,
-        ["Kraid Zipline Morph Jump"] = All(
-            Ziplines,
-            CanBallJump
+        ["Kraid Zipline Morph Jump"] = Any(
+            All(
+                Ziplines,
+                CanBallJump
+            ),
+            All(  -- Frame-perfect crumble shenanigans
+                AdvancedLogic,
+                PowerGrip,
+                Any(
+                    HiJump,
+                    SpaceJump
+                )
+            )
         ),
         ["Kraid Acid Ballspark"] = All(
             Any(
@@ -216,12 +255,14 @@ kraid_left_shaft = {
             ),
             All(
                 NormalLogic,
+                Missiles,
                 Ziplines,
                 SpeedBooster,
                 HiJump
             ),
             All(
                 AdvancedLogic,
+                Missiles,
                 PowerGrip,  -- Quick jumps and gripping the crumble blocks prevents them from reforming
                 Any(
                     HiJump,
@@ -233,9 +274,33 @@ kraid_left_shaft = {
             Any(
                 Bomb,
                 PowerBombCount(4),  -- nowhere good to refill PBs between elevator shaft and here
-                ScrewAttack
+                ScrewAttack,
+                All(   -- space boosting to break one of the bomb blocks in the floor
+                    AdvancedLogic,
+                    SpeedBooster,
+                    SpaceJump,
+                    PowerBombCount(3)
+                ),
+                All(  -- going past, through the "T room" with the short zipline to refill your 2 PBs, then come back
+                    AdvancedLogic,
+                    Missiles,
+                    Any(
+                        All(
+                            Ziplines,
+                            CanBallJump
+                        ),
+                        All(  -- crumble shenanigans
+                            PowerGrip,
+                            Any(
+                                HiJump,
+                                SpaceJump,
+                                CanWallJump
+                            )
+                        )
+                    )
+                )
             ),
-            Any(
+            Any(  -- To enter the morph tunnel to leave after getting the item on the statue
                 PowerGrip,
                 HiJump,
                 CanIBJ,
@@ -243,8 +308,7 @@ kraid_left_shaft = {
                     IceBeam,
                     Bomb
                 )
-            ),
-            Missiles  -- required for escape - covers both cases of only hijump or only grip
+            )
         )
     }
 
@@ -271,6 +335,24 @@ kraid_bottom = {
                 SpeedBooster,
                 CanHiGrip,
                 CanFlyWall
+            ),
+            Any(  -- to escape via the bottom right shaft
+                LayoutPatches("kraid_right_shaft"),
+                SpeedBooster,
+                CanFly,
+                All(
+                    NormalLogic,
+                    IceBeam,
+                    Any(
+                        CanWallJump,
+                        PowerGrip
+                    )
+                ),
+                All(
+                    AdvancedLogic,
+                    HiJump,
+                    CanWallJump
+                )
             )
         )
     }
@@ -337,7 +419,7 @@ norfair_upper_right = {
         ),
         ["Norfair Heated Room Above Ice Beam"] = Any(
             VariaSuit,
-            Hellrun(1)
+            Hellrun(199)
         )
     }
 
@@ -363,10 +445,10 @@ norfair_under_brinstar_elevator = {
             SuperMissiles,
             Any(  -- TODO: Redo this hellrun; Hard mode has extra considerations
                 VariaSuit,
-                Hellrun(4),
+                Hellrun(499),
                 All(
                     SpeedBooster,
-                    Hellrun(1)
+                    Hellrun(199)
                 )
             )
         ),
@@ -378,10 +460,15 @@ norfair_lowerrightshaft = {
             CanIBJ,
             CanHiGrip,
             All(
+                SpaceJump,
+                PowerGrip
+            ),
+            All(
                 PowerGrip,
                 CanWallJump,
                 NormalLogic
-            )
+            ),
+            CanReachEntrance("Norfair Bottom -> Norfair Lower Right Shaft")
         )
     }
 
@@ -397,9 +484,9 @@ lower_norfair = {
                 GravitySuit,
                 All(
                     VariaSuit,
-                    Hellrun(5)
+                    Hellrun(599)
                 ),
-                Hellrun(9)
+                Hellrun(999)
             ),
             Any(
                 CanBombTunnelBlock,
@@ -422,7 +509,7 @@ lower_norfair = {
             CanVerticalWall,
             Any(
                 VariaSuit,
-                Hellrun(2)
+                Hellrun(299)
             ),
             Any(
                 CanIBJ,
@@ -438,7 +525,7 @@ lower_norfair = {
             CanVerticalWall,
             Any(
                 VariaSuit,
-                Hellrun(2)
+                Hellrun(299)
             )
         ),
     }
@@ -482,6 +569,7 @@ norfair_behind_superdoor = {
                 )
             ),
             Any(  -- To get out
+                LayoutPatches("norfair_behind_superdoor"),
                 SpeedBooster,
                 CanBallJump
             )
@@ -529,7 +617,10 @@ norfair_bottom = {
                     CanFlyWall,
                     IceBeam
                 ),
-                PowerGrip
+                Any(
+                    CanEnterMediumMorphTunnel,
+                    Bomb
+                )
             )
         )
     }
@@ -675,13 +766,17 @@ ridley_central = {
                     PowerGrip,
                     Any(
                         CanWallJump,
-                        SpaceJump
+                        SpaceJump,
+                        All(  -- A well-placed bomb and well-timed unmorph will grab the ledge
+                            NormalLogic,
+                            Bomb
+                        )
                     )
                 )
             ),
             Any(
                 CanBallCannon,
-                LayoutPatches
+                LayoutPatches("ridley_ballcannon")
             )
         ),
         ["Ridley Lower Ball Cannon Puzzle"] = All(
@@ -699,7 +794,7 @@ ridley_central = {
             Any(
                 CanBallCannon,
                 All(
-                    LayoutPatches,
+                    LayoutPatches("ridley_ballcannon"),
                     Any(
                         HiJump,
                         SpaceJump,
@@ -808,13 +903,13 @@ tourian = {
 
 crateria_main = {
         ["Crateria Landing Site Ballspark"] = All(
-            ChozoGhostBoss,
-            MotherBrainBoss,
             CanBallspark,
-            CanBallJump,
             PowerBombs,
             Any(
-                GravitySuit,
+                All(
+                    GravitySuit,
+                    ChozoGhostBoss
+                ),
                 CanReachEntrance("Brinstar -> Crateria Ballcannon")
             )
         ),
@@ -827,7 +922,7 @@ crateria_upper = {
             Any(
                 All(
                     CanVertical,
-                    LayoutPatches
+                    LayoutPatches("crateria_left_of_grip")
                 ),
                 CanEnterHighMorphTunnel
             )
@@ -857,9 +952,50 @@ chozodia_ruins_crateria_entrance = {
         ["Chozodia Ruins East of Upper Crateria Door"] = Missiles,
         ["Chozodia Triple Crawling Pirates"] = All(
             Missiles,
+            PowerBombCount(2),  -- 2 PBs ALWAYS required at minimum, but you may need many more
             Any(
-                Bomb,
-                PowerBombCount(3)
+                All(
+                    Bomb,
+                    Any(
+                        NormalMode,
+                        PowerBombCount(3)  -- on Hard a save room is disabled, so you cannot refill PBs, requiring more
+                    )
+                ),
+                PowerBombCount(7),  -- Hard, no refills, only PBs, no ability to skip any bomb chains
+                All(
+                    NormalMode,
+                    PowerBombCount(5)  -- no skipping bomb reqs, but with refills
+                ),
+                All(  -- Skips one PB on either the slow-crumble morph tunnel or the bomb chain after
+                    Any(
+                        PowerBombCount(6),
+                        All(
+                            NormalMode,
+                            PowerBombCount(4)
+                        )
+                    ),
+                    Any(
+                        ScrewAttack,
+                        WaveBeam,
+                        CanFlyWall
+                    ),
+                    NormalLogic
+                ),
+                All(  -- Skips both but still only PBs
+                    Any(
+                        ScrewAttack,
+                        WaveBeam
+                    ),
+                    CanFlyWall,
+                    NormalLogic,
+                    Any(
+                        PowerBombCount(5),
+                        All(
+                            NormalMode,
+                            PowerBombCount(3)
+                        )
+                    )
+                )
             ),
             Any(
                 CanHiGrip,
@@ -870,34 +1006,39 @@ chozodia_ruins_crateria_entrance = {
                 )
             ),
             ChozodiaCombat
-        ),
+        )
     }
 
 chozodia_ruins_test = {
         ["Chozodia Chozo Ghost Area Morph Tunnel Above Water"] = All(
-            ChozoGhostBoss,  -- The room leading to this item is inaccessible until the Chozo Ghost is defeated
+            MissileCount(3),
+            CanBallJump,
             Any(
-                CanWallJump,
-                All(
-                    GravitySuit,
-                    CanFly
+                All(  -- Going up through the water
+                    Any(
+                        CanWallJump,
+                        All(
+                            GravitySuit,
+                            CanFly
+                        )
+                    ),
+                    Any(
+                        ScrewAttack,
+                        NormalLogic  -- Skipping the screw attack wall with the missile tunnel
+                    )
                 ),
                 All(  -- Going up from the Triple Crawling Pirates room
                     NormalLogic,
                     CanFlyWall
                 )
-            ),
-            MissileCount(3),
-            CanBallJump
+            )
         ),
         ["Chozodia Chozo Ghost Area Underwater"] = All(
-            ChozoGhostBoss,  -- This item is fake until the Chozo Ghost is defeated
             Missiles,
             SpeedBooster,
             GravitySuit
         ),
         ["Chozodia Chozo Ghost Area Long Shinespark"] = All(
-            ChozoGhostBoss,  -- The room leading to this item is inaccessible until the Chozo Ghost is defeated
             Missiles,
             SpeedBooster,
             GravitySuit,
@@ -908,13 +1049,12 @@ chozodia_ruins_test = {
             Any(
                 ScrewAttack,
                 All(
-                    NormalLogic,
+                    AdvancedLogic,  -- You need to be very fast to keep the charge going this way
                     MissileCount(3)
                 )
             )
         ),
         ["Chozodia Lava Dive"] = All(  -- TODO redo this whole lava dive
-            ChozoGhostBoss,
             Any(
                 ScrewAttack,
                 All(
@@ -928,13 +1068,13 @@ chozodia_ruins_test = {
             Any(
                 GravitySuit,
                 All(
-                    Hellrun(4),
+                    Hellrun(499),
                     VariaSuit,
                     CanHiGrip
                 ),
                 All(
                     AdvancedLogic,
-                    Hellrun(6),
+                    Hellrun(699),
                     CanHiGrip
                 )
             ),
@@ -948,9 +1088,9 @@ chozodia_ruins_test = {
                 )
             )
         ),
-        ["Chozo Ghost"] = Any(
+        ["Chozo Ghost"] = All(
             MotherBrainBoss,
-            AdvancedLogic  -- TODO change when basepatch changes Chozodia
+            RuinsTestEscape
         )
     }
 
@@ -994,7 +1134,14 @@ chozodia_under_tube = {
         ),
         ["Chozodia Right of Glass Tube"] = All(
             PowerBombs,
-            CanFly
+            Any(
+                CanFly,
+                All(
+                    NormalLogic,
+                    SpeedBooster,
+                    CanVerticalWall
+                )
+            )
         )
     }
 
@@ -1014,8 +1161,8 @@ chozodia_upper_mothership = {
                     CanFlyWall
                 ),
                 All(
-                    AdvancedLogic,  -- doable without falling down using screw, but can get softlocked without infinite vertical
-                    ScrewAttack
+                    NormalLogic,  -- doable without falling down using screw or by leaving the room then returning
+                    CanSingleBombBlock
                 )
             )
         ),
@@ -1037,12 +1184,9 @@ chozodia_lower_mothership = {
         ["Chozodia Southeast Corner in Hull"] = All(
             Any(
                 SuperMissiles,
-                All(
-                    ChozoGhostBoss,
-                    Any(
-                        Bomb,
-                        PowerBombCount(2)
-                    )
+                Any(
+                    Bomb,
+                    PowerBombCount(2)
                 )
             ),
             CanVerticalWall,

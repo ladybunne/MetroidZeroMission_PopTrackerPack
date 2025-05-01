@@ -69,14 +69,41 @@ function kraid_upper_right()
     return All(
         Missiles,
         CanBallCannon,
-        Any(
+        Any(  -- Getting to the top of the right shaft
+            CanFlyWall,
+            PowerGrip,
+            All(
+                AdvancedLogic,
+                HiJump  -- Balljumps can get you up there using the crevices, but it's pretty tight
+            )
+        ),
+        Any(  -- Getting up to the top door of the right shaft
+            CanVertical,
+            All(  -- Freezing a zeela to get just enough height to WJ up. You might have to wait a while for it though
+                NormalLogic,
+                IceBeam,
+                CanWallJump
+            )
+        ),
+        Any(  -- Getting through the hole in the next room
             CanHorizontalIBJ,
             PowerGrip,
             All(
-                NormalLogic,
                 IceBeam,
-                CanBallJump,
-                CanVerticalWall
+                CanBallJump
+            ),
+            All(
+                GravitySuit,
+                CanIBJ
+            ),
+            All(
+                AdvancedLogic,
+                Any(
+                    Hellrun(99),
+                    VariaSuit
+                ),
+                HiJump,
+                CanIBJ
             )
         )
     )
@@ -89,6 +116,10 @@ function kraid_left_shaft_access()
         Any(
             CanHorizontalIBJ,
             PowerGrip,
+            All(
+                GravitySuit,
+                CanIBJ
+            ),
             All(
                 NormalLogic,
                 HiJump
@@ -145,7 +176,7 @@ function norfair_main_to_crateria()
             CanBallspark
         ),
         Any(
-            LayoutPatches,
+            LayoutPatches("crateria_water_speedway"),
             CanEnterMediumMorphTunnel
         )
     )
@@ -323,7 +354,7 @@ function norfair_lower_right_shaft_to_lower_norfair()
         ),
         Any(
             VariaSuit,
-            Hellrun(6)
+            Hellrun(699)
         ),
         Any(
             SpaceJump,
@@ -428,29 +459,46 @@ function lower_norfair_to_bottom_norfair()
         SpeedBooster,
         Any(
             VariaSuit,
-            Hellrun(1)
+            Hellrun(199)
         ),
         Any(
             WaveBeam,
             All(
-                NormalMode,
-                CanTrickySparks
-            ),
-            All(
-                ScrewAttack,  -- Hard mode adds extra enemies to the hardest room for this spark
-                CanTrickySparks
+                CanTrickySparks,
+                Any(
+                    NormalMode,
+                    ScrewAttack  -- Hard mode adds extra enemies to the hardest room for this spark
+                )
             )
         ),
         CanEnterMediumMorphTunnel,
         Any(  -- defeating the larvae
             PowerBombCount(2),
             All(
+                PowerBombs,
+                Any(
+                    PlasmaBeam,
+                    Bomb
+                )
+            ),
+            All(
                 WaveBeam,
-                CanBombTunnelBlock
+                Any(
+                    CanBallJump,
+                    LayoutPatches("norfair_larvae_room")
+                ),
+                Any(
+                    PlasmaBeam,
+                    CanBombTunnelBlock
+                )
             ),
             All(
                 AdvancedLogic,
-                Missiles,  -- you can defeat the first larva by jumping and shooting missiles up into the ceiling
+                Missiles,  -- you can defeat the first larva by jumping and shooting 2 missiles up against the ceiling
+                Any(
+                    CanBallJump,
+                    LayoutPatches("norfair_larvae_room")
+                ),
                 Any(
                     PlasmaBeam,
                     CanBombTunnelBlock
@@ -468,7 +516,7 @@ function lower_norfair_to_lower_right_shaft()
         CanBombTunnelBlock,
         Any(
             VariaSuit,
-            Hellrun(2)  -- TODO: may be possible with even just 1
+            Hellrun(299)  -- TODO: may be possible with even just 1
         )
     )
 
@@ -514,11 +562,19 @@ function bottom_norfair_to_ridley()
     return Any(
         All(
             Any(
-                MissileTanks(1),
-                SuperMissileCount(6)
+                MissileCount(20),
+                SuperMissileCount(8),
+                All(
+                    NormalCombat,
+                    Any(
+                        MissileTanks(1),
+                        SuperMissileCount(6)
+                    )
+                )
             ),
             Any(
                 IceBeam,
+                SpaceJump,
                 NormalLogic
             )
         ),
@@ -552,7 +608,7 @@ function ridley_main_to_left_shaft()
         ),
         Any(
             VariaSuit,
-            Hellrun(1),
+            Hellrun(199),
             All(
                 CanFly,
                 CanBombTunnelBlock
@@ -652,6 +708,7 @@ function ridley_central_to_ridley_room()
 
 
 end
+-- TODO: What to do about this only being one-time? It may matter in very rare cases
 function tourian_to_chozodia()
     return All(
         MotherBrainBoss,
@@ -660,14 +717,46 @@ function tourian_to_chozodia()
 
 
 end
--- Getting to Unknown 1 and everything above
+-- Getting above the Unknown Item block
 function crateria_main_to_crateria_upper()
     return Any(
         CanBallJump,
         All(
-            NormalLogic,
-            LayoutPatches,
-            CanFly
+            CanFly,
+            Any(
+                All(
+                    PowerBombs,
+                    SpeedBooster,
+                    GravitySuit
+                ),
+                All(
+                    NormalLogic,  -- not in Simple level logic because this requires meta knowledge of the rando
+                    LayoutPatches("crateria_water_speedway")
+                )
+            ),
+            Any(
+                LayoutPatches("crateria_left_of_grip"),
+                CanEnterHighMorphTunnel
+            )
+        ),
+        All(  -- Shinespark up landing site
+            Any(
+                PowerBombs,
+                LayoutPatches("crateria_water_speedway")
+            ),
+            SpeedBooster,
+            GravitySuit,
+            Any(
+                LayoutPatches("crateria_left_of_grip"),
+                CanEnterHighMorphTunnel
+            ),
+            Any(  -- Getting across the Power Grip climb; going down softlocks because of room state nonsense
+                CanFly,
+                All(
+                    NormalLogic,  -- Tight jump
+                    CanHiGrip
+                )
+            )
         ),
         All(
             NormalLogic,
@@ -693,6 +782,12 @@ function crateria_upper_to_chozo_ruins()
         Missiles,
         Any(
             CanFly,
+            All(
+                AdvancedLogic,
+                CanWallJump,
+                HiJump,
+                PowerGrip
+            ),
             CanReachLocation("Crateria Northeast Corner")
         ),
         Any(
@@ -704,31 +799,111 @@ function crateria_upper_to_chozo_ruins()
 
 end
 -- Ruins to Chozo Ghost, the three items in that general area, and the lava dive item
-function chozo_ruins_to_ruins_test()  -- TODO: Hard mode + Chozodia forced post-charlie will need this to change
+function chozo_ruins_to_ruins_test()
     return All(
         MorphBall,
-        PowerBombs,
+        PowerBombCount(2),  -- 2 PBs ALWAYS required at minimum, but you may need many more
         Any(
-            Bomb,
-            PowerBombCount(4),
             All(
-                PowerBombCount(3),
+                Bomb,
                 Any(
-                    CanFlyWall,
-                    ScrewAttack
+                    NormalMode,
+                    PowerBombCount(4)  -- on Hard a save room is disabled, so you cannot refill PBs, requiring more
+                )
+            ),
+            PowerBombCount(8),
+            All(
+                NormalMode,
+                PowerBombCount(5)
+            ),
+            All(  -- Skips one PB on the slow-crumble morph tunnel
+                Any(
+                    PowerBombCount(7),
+                    All(
+                        NormalMode,
+                        PowerBombCount(4)
+                    )
+                ),
+                Any(
+                    ScrewAttack,
+                    WaveBeam
                 ),
                 NormalLogic
             ),
-            All(
-                PowerBombCount(2),
+            All(  -- Skips the Triple Crawling Pirates room and a bomb chain but doesn't skip the crumble tunnel
+                Any(
+                    PowerBombCount(5),  -- Saves 2 on Hard
+                    All(
+                        NormalMode,
+                        PowerBombCount(4)  -- Only saves 1 on Normal because you can refill
+                    )
+                ),
                 CanFlyWall,
-                ScrewAttack,
+                MissileCount(3),
+                Missiles,
+                NormalLogic
+            ),
+            All(  -- Skips everything possible, but still only PBs
+                CanFlyWall,
+                Any(
+                    ScrewAttack,
+                    WaveBeam
+                ),
+                Missiles,
+                PowerBombCount(4),  -- technically should be 3 on Normal, but Normal can't have 3 max without having 4
                 NormalLogic
             )
         ),
         CanVerticalWall,
-        ChozodiaCombat,
-        RuinsTestEscape
+        ChozodiaCombat
+    )
+
+
+end
+--  Potentially useful for closed Chozodia in cases where post-MB you still can't access parts of Chozodia from Crateria
+function ruins_test_to_ruins()
+    return All(
+        ChozoGhostBoss,
+        RuinsTestEscape,
+        Any(
+            CanWallJump,
+            All(
+                GravitySuit,
+                CanFly
+            )
+        ),
+        Any(
+            All(  -- Through the lava
+                Any(
+                    ScrewAttack,
+                    All(
+                        NormalLogic,
+                        Missiles,
+                        Any(
+                            Bomb,
+                            PowerBombCount(2)
+                        )
+                    )
+                ),
+                GravitySuit,
+                All(
+                    Hellrun(249),
+                    VariaSuit
+                ),
+                Hellrun(399)
+            ),
+            All(  -- Or going all the way back through the ruins
+                NormalLogic,
+                Any(
+                    PowerBombCount(4),
+                    All(
+                        Bomb,
+                        PowerBombCount(2)
+                    )
+                ),
+                ScrewAttack
+            )
+        )
     )
 
 
@@ -760,7 +935,7 @@ function crateria_to_under_tube()
     return All(
         PowerBombs,
         MorphBall,
-        Any(  -- To get to the save station and warp out
+        Any(
             SpeedBooster,
             CanFlyWall,
             CanHiGrip
@@ -778,8 +953,7 @@ function under_tube_to_tube()
         SpeedBooster,
         All(
             CanFly,
-            PowerBombs,
-            ChozoGhostBoss  -- Change if basepatch makes the tube breakable before MB/Charlie
+            PowerBombs
         )
     )
 
@@ -801,9 +975,12 @@ function under_tube_to_crateria()
 
 end
 function tube_to_under_tube()
-    return All(
-        ChozoGhostBoss,
-        PowerBombs
+    return Any(
+        PowerBombCount(3),  -- most paths here require breaking a bomb chain on the way here and back
+        All(
+            Bomb,
+            PowerBombs
+        )
     )
 
 
@@ -828,11 +1005,35 @@ function chozodia_tube_to_mothership_central()
 end
 -- access to the map station
 function mothership_central_to_lower()
-    return Any(
-        PowerBombCount(2),
-        All(
-            Bomb,
-            PowerBombs
+    return All(
+        Any(
+            PowerBombCount(2),
+            All(
+                Bomb,
+                PowerBombs
+            )
+        ),
+        Any(  -- Getting to the save room
+            Missiles,
+            All(
+                Any(
+                    HiJump,
+                    All(
+                        NormalLogic,
+                        IceBeam
+                    )
+                ),
+                Any(
+                    PowerGrip,
+                    CanWallJump
+                )
+            ),
+            All(
+                NormalLogic,
+                HiJump,
+                IceBeam
+            ),
+            CanFly
         )
     )
 
@@ -841,6 +1042,7 @@ end
 -- accessing the missile door just under the Behind Workbot item
 function mothership_central_to_upper()
     return All(
+        Missiles,
         Any(
             Bomb,
             PowerBombCount(2)
@@ -868,13 +1070,22 @@ function mothership_central_to_upper()
                     All(
                         HiJump,
                         CanWallJump
+                    ),
+                    All(
+                        NormalLogic,
+                        IceBeam,
+                        Any(
+                            HiJump,
+                            CanWallJump,
+                            PowerGrip
+                        )
                     )
                 )
             ),
             -- the low% way
             All(
                 Any(
-                    MissileCount(2),
+                    MissileCount(3),
                     ScrewAttack
                 ),
                 Any(
@@ -923,8 +1134,17 @@ function mothership_upper_to_lower()
             CanFlyWall,
             CanHiGrip
         ),
-        MissileCount(4),
-        CanBombTunnelBlock
+        Any(
+            All(
+                NormalMode,
+                MissileCount(2),
+                CanBombTunnelBlock
+            ),
+            All(
+                MissileCount(4),
+                Bomb  -- On Hard, you'd need 2 PBs to go this way, so the more direct central -> lower route is better
+            )
+        )
     )
 
 
