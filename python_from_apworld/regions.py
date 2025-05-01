@@ -1,30 +1,30 @@
 from __future__ import annotations
-from typing import TYPE_CHECKING, Dict, List, Optional
+from typing import TYPE_CHECKING, Optional
 from BaseClasses import Region, Location, MultiWorld
-from .logic import *
+from .rules import *
 from .locations import full_location_table
 
 if TYPE_CHECKING:
     from . import MZMWorld
 
 
-def create_region(world: MultiWorld, player: int, region_name: str):
-    region = Region(region_name, player, world)
+def create_region(multiworld: MultiWorld, player: int, region_name: str):
+    region = Region(region_name, player, multiworld)
 
     for location_name, location_data in full_location_table.items():
         if location_data.region == region_name:
             location = Location(player, location_name, location_data.code, region)
-            location.game = world.game.get(player)
+            location.game = multiworld.game.get(player)
             region.locations.append(location)
 
-    world.regions.append(region)
+    multiworld.regions.append(region)
 
 
-def connect(world: MultiWorld, player: int, entrance_name: str, source: str, target: str,
+def connect(multiworld: MultiWorld, player: int, entrance_name: str, source: str, target: str,
             rule: Optional[Requirement] = None):
 
-    source_region = world.get_region(source, player)
-    target_region = world.get_region(target, player)
+    source_region = multiworld.get_region(source, player)
+    target_region = multiworld.get_region(target, player)
     source_region.connect(target_region, entrance_name, rule)
 
 
@@ -45,6 +45,7 @@ def create_regions_and_connections(world: MZMWorld):
     create_region(multiworld, player, "Norfair Right Shaft")
     create_region(multiworld, player, "Norfair Upper Right Shaft")
     create_region(multiworld, player, "Norfair Behind Ice Beam")
+    create_region(multiworld, player, "Norfair Under Brinstar Elevator")
     create_region(multiworld, player, "Norfair Lower Right Shaft")
     create_region(multiworld, player, "Lower Norfair")
     create_region(multiworld, player, "Norfair Screw Attack Area")
@@ -65,6 +66,9 @@ def create_regions_and_connections(world: MZMWorld):
     create_region(multiworld, player, "Chozodia Glass Tube")
     create_region(multiworld, player, "Chozodia Under Tube")
     create_region(multiworld, player, "Chozodia Mothership Central")
+    create_region(multiworld, player, "Chozodia Mothership Lower")
+    create_region(multiworld, player, "Chozodia Mothership Upper")
+    create_region(multiworld, player, "Chozodia Deep Mothership")
     create_region(multiworld, player, "Chozodia Mothership Cockpit")
     create_region(multiworld, player, "Chozodia Original Power Bomb Room")
     create_region(multiworld, player, "Chozodia Mecha Ridley Hallway")
@@ -87,14 +91,17 @@ def create_regions_and_connections(world: MZMWorld):
     connect(multiworld, player, "Norfair -> Crateria Elevator", "Norfair Main", "Crateria", norfair_main_to_crateria().create_rule(world))
     connect(multiworld, player, "Norfair Elevator -> Right Shaft", "Norfair Main", "Norfair Right Shaft", norfair_right_shaft_access().create_rule(world))
     connect(multiworld, player, "Norfair Right Shaft -> Upper", "Norfair Right Shaft", "Norfair Upper Right Shaft", norfair_upper_right_shaft().create_rule(world))
+    connect(multiworld, player, "Norfair Right Shaft -> Under Elevator", "Norfair Right Shaft", "Norfair Under Brinstar Elevator", norfair_shaft_to_under_elevator().create_rule(world))
     connect(multiworld, player, "Norfair Upper Right -> Behind Ice Beam", "Norfair Upper Right Shaft", "Norfair Behind Ice Beam", norfair_behind_ice_beam().create_rule(world))
     connect(multiworld, player, "Norfair Ridley Shortcut", "Norfair Behind Ice Beam", "Norfair Bottom", norfair_behind_ice_to_bottom().create_rule(world))
-    connect(multiworld, player, "Norfair Right Shaft -> Lower Shaft", "Norfair Right Shaft", "Norfair Lower Right Shaft", norfair_lower_right_shaft().create_rule(world))
+    connect(multiworld, player, "Norfair Right Shaft -> Lower Shaft", "Norfair Under Brinstar Elevator", "Norfair Lower Right Shaft", norfair_lower_right_shaft().create_rule(world))
+    connect(multiworld, player, "Norfair Lower Shaft -> Under Brinstar Elevator", "Norfair Lower Right Shaft", "Norfair Under Brinstar Elevator", norfair_lower_shaft_to_under_elevator().create_rule(world))
     connect(multiworld, player, "Norfair Right Shaft -> Lower Norfair", "Norfair Lower Right Shaft", "Lower Norfair", norfair_lower_right_shaft_to_lower_norfair().create_rule(world))
     connect(multiworld, player, "Lower Norfair -> Screw Attack", "Lower Norfair", "Norfair Screw Attack Area", lower_norfair_to_screwattack().create_rule(world))
     connect(multiworld, player, "Lower Norfair -> Behind Super Missile Door", "Lower Norfair", "Norfair Behind Super Door", lower_norfair_to_spaceboost_room().create_rule(world))
     connect(multiworld, player, "Lower Norfair -> Kraid", "Lower Norfair", "Kraid Bottom", lower_norfair_to_kraid().create_rule(world))
     connect(multiworld, player, "Lower Norfair -> Bottom", "Lower Norfair", "Norfair Bottom", lower_norfair_to_bottom_norfair().create_rule(world))
+    connect(multiworld, player, "Lower Norfair -> Lower Right Shaft", "Lower Norfair", "Norfair Lower Right Shaft", lower_norfair_to_lower_right_shaft().create_rule(world))
     connect(multiworld, player, "Norfair Bottom -> Norfair Lower Right Shaft", "Norfair Bottom", "Norfair Lower Right Shaft", bottom_norfair_to_lower_shaft().create_rule(world))
     connect(multiworld, player, "Norfair -> Ridley Elevator", "Norfair Bottom", "Ridley Main", bottom_norfair_to_ridley().create_rule(world))
     connect(multiworld, player, "Norfair Bottom -> Screw Attack", "Norfair Bottom", "Norfair Screw Attack Area", bottom_norfair_to_screw().create_rule(world))
@@ -103,6 +110,7 @@ def create_regions_and_connections(world: MZMWorld):
     connect(multiworld, player, "Ridley Elevator -> Right Shaft Shortcut", "Ridley Main", "Ridley Right Shaft", ridley_main_to_right_shaft().create_rule(world))
     connect(multiworld, player, "Ridley Left Shaft -> SW Puzzle", "Ridley Left Shaft", "Ridley SW Puzzle", ridley_left_shaft_to_sw_puzzle().create_rule(world))
     connect(multiworld, player, "Ridley Left Shaft -> Right Shaft", "Ridley Left Shaft", "Ridley Right Shaft")
+    connect(multiworld, player, "Ridley Right Shaft -> Left Shaft", "Ridley Right Shaft", "Ridley Left Shaft", ridley_right_shaft_to_left_shaft().create_rule(world))
     connect(multiworld, player, "Ridley Right Shaft -> Speed Puzzles", "Ridley Right Shaft", "Ridley Speed Puzzles", ridley_speed_puzzles_access().create_rule(world))
     connect(multiworld, player, "Ridley Right Shaft -> Central", "Ridley Right Shaft", "Central Ridley", ridley_right_shaft_to_central().create_rule(world))
     connect(multiworld, player, "Ridley Right Shaft -> SW Puzzle", "Ridley Right Shaft", "Ridley SW Puzzle", ridley_left_shaft_to_sw_puzzle().create_rule(world))
@@ -112,13 +120,21 @@ def create_regions_and_connections(world: MZMWorld):
     connect(multiworld, player, "Crateria -> Chozodia Lower Door", "Crateria", "Chozodia Under Tube", crateria_to_under_tube().create_rule(world))
     connect(multiworld, player, "Crateria -> Chozodia Upper Door", "Upper Crateria", "Chozodia Ruins", crateria_upper_to_chozo_ruins().create_rule(world))
     connect(multiworld, player, "Chozo Ruins -> Chozo Ruins Test", "Chozodia Ruins", "Chozodia Ruins Test Area", chozo_ruins_to_ruins_test().create_rule(world))
-    connect(multiworld, player, "Chozo Ruins Test -> Chozo Ruins", "Chozodia Ruins Test Area", "Chozodia Ruins", ChozoGhostBoss.create_rule(world))
+    connect(multiworld, player, "Chozo Ruins Test -> Chozo Ruins", "Chozodia Ruins Test Area", "Chozodia Ruins", ruins_test_to_ruins().create_rule(world))
     connect(multiworld, player, "Chozo Ruins -> Glass Tube", "Chozodia Ruins", "Chozodia Glass Tube", chozo_ruins_to_chozodia_tube().create_rule(world))
     connect(multiworld, player, "Chozodia Under Tube -> Crateria", "Chozodia Under Tube", "Crateria", under_tube_to_crateria().create_rule(world))
     connect(multiworld, player, "Chozodia Under Tube -> Glass Tube", "Chozodia Under Tube", "Chozodia Glass Tube", under_tube_to_tube().create_rule(world))
     connect(multiworld, player, "Chozodia Glass Tube -> Under Tube", "Chozodia Glass Tube", "Chozodia Under Tube", tube_to_under_tube().create_rule(world))
     connect(multiworld, player, "Chozodia Glass Tube -> Chozo Ruins", "Chozodia Glass Tube", "Chozodia Ruins", chozodia_tube_to_chozo_ruins().create_rule(world))
-    connect(multiworld, player, "Chozozia Glass Tube -> Mothership Central", "Chozodia Glass Tube", "Chozodia Mothership Central", chozodia_tube_to_mothership_central().create_rule(world))
-    connect(multiworld, player, "Chozodia Mothership -> Cockpit", "Chozodia Mothership Central", "Chozodia Mothership Cockpit", mothership_central_to_cockpit().create_rule(world))
+    connect(multiworld, player, "Chozodia Glass Tube -> Mothership Central", "Chozodia Glass Tube", "Chozodia Mothership Central", chozodia_tube_to_mothership_central().create_rule(world))
+    connect(multiworld, player, "Chozodia Central Mothership -> Lower Mothership", "Chozodia Mothership Central", "Chozodia Mothership Lower", mothership_central_to_lower().create_rule(world))
+    connect(multiworld, player, "Chozodia Central Mothership -> Upper Mothership", "Chozodia Mothership Central", "Chozodia Mothership Upper", mothership_central_to_upper().create_rule(world))
+    connect(multiworld, player, "Chozodia Lower Mothership -> Upper Mothership", "Chozodia Mothership Lower", "Chozodia Mothership Upper", mothership_lower_to_upper().create_rule(world))
+    connect(multiworld, player, "Chozodia Upper Mothership -> Lower Mothership", "Chozodia Mothership Upper",
+            "Chozodia Mothership Lower", mothership_upper_to_lower().create_rule(world))
+    connect(multiworld, player, "Chozodia Upper Mothership -> Deep Mothership", "Chozodia Mothership Upper",
+            "Chozodia Deep Mothership", mothership_upper_to_deep_mothership().create_rule(world))
+    connect(multiworld, player, "Chozodia Deep Mothership -> Cockpit", "Chozodia Deep Mothership",
+            "Chozodia Mothership Cockpit", deep_mothership_to_cockpit().create_rule(world))
     connect(multiworld, player, "Chozodia Cockpit -> Original PB", "Chozodia Mothership Cockpit", "Chozodia Original Power Bomb Room", cockpit_to_original_pb().create_rule(world))
     connect(multiworld, player, "Chozodia Cockpit -> Mecha Ridley", "Chozodia Mothership Cockpit", "Chozodia Mecha Ridley Hallway", cockpit_to_mecha_ridley().create_rule(world))

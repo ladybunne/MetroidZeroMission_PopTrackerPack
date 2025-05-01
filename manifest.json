@@ -1,36 +1,35 @@
 {
-    "name": "Metroid: Zero Mission - Archipelago",
-    "game_name": "Metroid: Zero Mission",
-    "package_version": "1.2.4",
-    "package_uid": "MetroidZeroMission-Archipelago",
-    "platform": "Windows",
-    "author": "Ladybunne",
-    "variants": {
-      "standard": {
-        "display_name": "Map Tracker - Standard",
-        "flags": [
-          "ap"
-        ]
-      },
-      "variant_01_items_on_left": {
-        "display_name": "Map Tracker - Items on Left",
-        "flags": [
-          "ap"
-        ]
-      },
-      "variant_02_map_only": {
-        "display_name": "Map Tracker - Map Only",
-        "flags": [
-          "ap"
-        ]
-      },
-      "variant_03_items_only": {
-        "display_name": "Item Tracker",
-        "flags": [
-          "ap"
-        ]
-      }
+  "name": "Metroid: Zero Mission - Archipelago",
+  "game_name": "Metroid: Zero Mission",
+  "package_version": "1.3",
+  "package_uid": "MetroidZeroMission-Archipelago",
+  "platform": "Windows",
+  "author": "Ladybunne",
+  "variants": {
+    "standard": {
+      "display_name": "Map Tracker - Standard",
+      "flags": [
+        "ap"
+      ]
     },
-    "versions_url": "https://raw.githubusercontent.com/ladybunne/MetroidZeroMission_PopTrackerPack/main/versions.json"
-  }
-  
+    "variant_01_items_on_left": {
+      "display_name": "Map Tracker - Items on Left",
+      "flags": [
+        "ap"
+      ]
+    },
+    "variant_02_map_only": {
+      "display_name": "Map Tracker - Map Only",
+      "flags": [
+        "ap"
+      ]
+    },
+    "variant_03_items_only": {
+      "display_name": "Item Tracker",
+      "flags": [
+        "ap"
+      ]
+    }
+  },
+  "versions_url": "https://raw.githubusercontent.com/ladybunne/MetroidZeroMission_PopTrackerPack/main/versions.json"
+}

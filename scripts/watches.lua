@@ -8,37 +8,37 @@ end
 
 -- Caching images for performance reasons.
 local unknown_items_known = {
-    ["PlasmaBeam"] = ImageReference:FromPackRelativePath("images/PlasmaBeam.png"),
-    ["SpaceJump"] = ImageReference:FromPackRelativePath("images/SpaceJump.png"),
-    ["GravitySuit"] = ImageReference:FromPackRelativePath("images/GravitySuit.png")
+    ["Plasma Beam"] = ImageReference:FromPackRelativePath("images/PlasmaBeam.png"),
+    ["Space Jump"] = ImageReference:FromPackRelativePath("images/SpaceJump.png"),
+    ["Gravity Suit"] = ImageReference:FromPackRelativePath("images/GravitySuit.png")
 }
 local unknown_items_known_disabled = {
-    ["PlasmaBeam"] = ImageReference:FromImageReference(unknown_items_known["PlasmaBeam"], "@disabled"),
-    ["SpaceJump"] = ImageReference:FromImageReference(unknown_items_known["SpaceJump"], "@disabled"),
-    ["GravitySuit"] = ImageReference:FromImageReference(unknown_items_known["GravitySuit"], "@disabled")
+    ["Plasma Beam"] = ImageReference:FromImageReference(unknown_items_known["Plasma Beam"], "@disabled"),
+    ["Space Jump"] = ImageReference:FromImageReference(unknown_items_known["Space Jump"], "@disabled"),
+    ["Gravity Suit"] = ImageReference:FromImageReference(unknown_items_known["Gravity Suit"], "@disabled")
 }
 local unknown_items_unknown = {
-    ["PlasmaBeam"] = ImageReference:FromPackRelativePath("images/UnknownPlasmaBeam.png"),
-    ["SpaceJump"] = ImageReference:FromPackRelativePath("images/UnknownSpaceJump.png"),
-    ["GravitySuit"] = ImageReference:FromPackRelativePath("images/UnknownGravitySuit.png")
+    ["Plasma Beam"] = ImageReference:FromPackRelativePath("images/UnknownPlasmaBeam.png"),
+    ["Space Jump"] = ImageReference:FromPackRelativePath("images/UnknownSpaceJump.png"),
+    ["Gravity Suit"] = ImageReference:FromPackRelativePath("images/UnknownGravitySuit.png")
 }
 local unknown_items_unknown_disabled = {
-    ["PlasmaBeam"] = ImageReference:FromImageReference(unknown_items_unknown["PlasmaBeam"], "@disabled"),
-    ["SpaceJump"] = ImageReference:FromImageReference(unknown_items_unknown["SpaceJump"], "@disabled"),
-    ["GravitySuit"] = ImageReference:FromImageReference(unknown_items_unknown["GravitySuit"], "@disabled")
-}
+    ["Plasma Beam"] = ImageReference:FromImageReference(unknown_items_unknown["Plasma Beam"], "@disabled"),
+    ["Space Jump"] = ImageReference:FromImageReference(unknown_items_unknown["Space Jump"], "@disabled"),
+    ["Gravity Suit"] = ImageReference:FromImageReference(unknown_items_unknown["Gravity Suit"], "@disabled")
+} 
 
 -- You can't change the name of JSON items... apparently... which makes this useless. Unfortunate.
 -- If that ever changes I'll wire these up.
 local unknown_items_names_known = {
-    ["PlasmaBeam"] = "Plasma Beam",
-    ["SpaceJump"] = "Space Jump",
-    ["GravitySuit"] = "Gravity Suit"
+    ["Plasma Beam"] = "Plasma Beam",
+    ["Space Jump"] = "Space Jump",
+    ["Gravity Suit"] = "Gravity Suit"
 }
 local unknown_items_names_unknown = {
-    ["PlasmaBeam"] = "Unknown Item 1 (Plasma Beam)",
-    ["SpaceJump"] = "Unknown Item 2 (Space Jump)",
-    ["GravitySuit"] = "Unknown Item 3 (Gravity Suit)"
+    ["Plasma Beam"] = "Unknown Item 1 (Plasma Beam)",
+    ["Space Jump"] = "Unknown Item 2 (Space Jump)",
+    ["Gravity Suit"] = "Unknown Item 3 (Gravity Suit)"
 }
 
 function UpdateUnknownItemIcon(item)
@@ -58,9 +58,9 @@ function UpdateUnknownItemIcon(item)
     end
 end
 
-function UpdateUnknownPlasmaBeam() UpdateUnknownItemIcon("PlasmaBeam") end
-function UpdateUnknownSpaceJump() UpdateUnknownItemIcon("SpaceJump") end
-function UpdateUnknownGravitySuit() UpdateUnknownItemIcon("GravitySuit") end
+function UpdateUnknownPlasmaBeam() UpdateUnknownItemIcon("Plasma Beam") end
+function UpdateUnknownSpaceJump() UpdateUnknownItemIcon("Space Jump") end
+function UpdateUnknownGravitySuit() UpdateUnknownItemIcon("Gravity Suit") end
 
 function UpdateUnknownItemIcons()
     UpdateUnknownPlasmaBeam()

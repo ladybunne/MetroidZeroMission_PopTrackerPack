@@ -21,9 +21,9 @@ ScriptHost:LoadScript("scripts/events.lua")
 
 -- Logic
 ScriptHost:LoadScript("scripts/logic/helpers.lua")
-ScriptHost:LoadScript("scripts/logic/requirements.lua")
 
     -- From apworld
+    ScriptHost:LoadScript("scripts/logic/translated_from_apworld/requirements.lua")
     ScriptHost:LoadScript("scripts/logic/translated_from_apworld/location_region_mappings.lua")
     ScriptHost:LoadScript("scripts/logic/translated_from_apworld/location_rules.lua")
     ScriptHost:LoadScript("scripts/logic/translated_from_apworld/region_rules.lua")
@@ -64,10 +64,10 @@ ScriptHost:AddWatchForCode("AutoSwitchTabOnOptionEnabled", "auto_switch_tabs", S
 
 -- Watch for either a change to Chozo Ghost Defeated or Unknown Items Always Usable,
 -- then update their item graphics in the tracker to reflect whether they're usable.
-ScriptHost:AddWatchForCode("UnknownItemsIconsChozoGhost", "fully_powered_suit", UpdateUnknownItemIcons)
-ScriptHost:AddWatchForCode("UnknownItemsIconsOption", "unknown_items", UpdateUnknownItemIcons)
+ScriptHost:AddWatchForCode("UnknownItemsIconsChozoGhost", "Chozo Ghost Defeated", UpdateUnknownItemIcons)
+ScriptHost:AddWatchForCode("UnknownItemsIconsOption", "unknown_items_always_usable", UpdateUnknownItemIcons)
 
 -- Also do so for the items in particular.
-ScriptHost:AddWatchForCode("UnknownItemsIconsPlasmaBeam", "PlasmaBeam", UpdateUnknownPlasmaBeam)
-ScriptHost:AddWatchForCode("UnknownItemsIconsSpaceJump", "SpaceJump", UpdateUnknownSpaceJump)
-ScriptHost:AddWatchForCode("UnknownItemsIconsGravitySuit", "GravitySuit", UpdateUnknownGravitySuit)
+ScriptHost:AddWatchForCode("UnknownItemsIconsPlasmaBeam", "Plasma Beam", UpdateUnknownPlasmaBeam)
+ScriptHost:AddWatchForCode("UnknownItemsIconsSpaceJump", "Space Jump", UpdateUnknownSpaceJump)
+ScriptHost:AddWatchForCode("UnknownItemsIconsGravitySuit", "Gravity Suit", UpdateUnknownGravitySuit)

@@ -17,12 +17,38 @@
         ]
     },
     {
+        "name": "Game Difficulty",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "game_difficulty",
+        "initial_stage_idx": 2,
+        "stages": [
+            {
+                "name": "Normal",
+                "img": "images/NormalSymbol.png"
+            },
+            {
+                "name": "Hard",
+                "img": "images/HardSymbol.png"
+            },
+            {
+                "name": "Either",
+                "img": "images/EitherSymbol.png"
+            }
+        ]
+    },
+    {
         "name": "Logic Difficulty",
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
         "codes": "logic_difficulty",
         "stages": [
+            {
+                "name": "Simple",
+                "img": "images/YellowZoomer.png"
+            },
             {
                 "name": "Normal",
                 "img": "images/RedSpacePirate.png"
@@ -34,11 +60,32 @@
         ]
     },
     {
+        "name": "Combat Logic Difficulty",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "combat_logic_difficulty",
+        "stages": [
+            {
+                "name": "Relaxed",
+                "img": "images/SuperMissileTank.png"
+            },
+            {
+                "name": "Normal",
+                "img": "images/MissileTank.png"
+            },
+            {
+                "name": "Minimal",
+                "img": "images/ChargeBeam.png"
+            }
+        ]
+    },
+    {
         "name": "Unknown Items Always Usable",
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
-        "codes": "unknown_items",
+        "codes": "unknown_items_always_usable",
         "initial_stage_idx": 1,
         "stages": [
             {
@@ -91,7 +138,7 @@
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
-        "codes": "ibj_logic",
+        "codes": "ibj_in_logic",
         "stages": [
             {
                 "name": "None",
@@ -134,7 +181,7 @@
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
-        "codes": "walljump_logic",
+        "codes": "walljumps_in_logic",
         "initial_stage_idx": 1,
         "stages": [
             {
@@ -149,11 +196,11 @@
         ]
     },
     {
-        "name": "Heatruns / Lavadives",
+        "name": "Hazard Runs",
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
-        "codes": "heatruns",
+        "codes": "hazard_runs",
         "stages": [
             {
                 "name": "Disabled",
@@ -200,6 +247,23 @@
                 "name": "Closed",
                 "img_mods": "@disabled",
                 "img": "images/ChozodiaGreyDoor.png"
+            }
+        ]
+    },
+    {
+        "name": "Selected Patches",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "selected_patches",
+        "stages": [
+            {
+                "name": "Disabled",
+                "img": "images/redsquare.png"
+            },
+            {
+                "name": "Enabled",
+                "img": "images/greensquare.png"
             }
         ]
     },

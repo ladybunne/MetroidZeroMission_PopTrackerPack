@@ -20,6 +20,12 @@ function Has(item, amount)
     end
 end
 
+function Count(item)
+    return function()
+        return Tracker:ProviderCountForCode(item)
+    end
+end
+
 function Event(flag)
     return function()
         local obj = Tracker:FindObjectForCode(flag)
@@ -31,6 +37,10 @@ function Event(flag)
         end
         return false
     end
+end
+
+function OptionEnabled(option)
+    return OptionAtLeast(option, 1)
 end
 
 function OptionIs(option, value)
@@ -62,6 +72,7 @@ function OptionAtLeast(option, value)
         return false
     end
 end
+
 
 function Any(...)
     local args = {...}
