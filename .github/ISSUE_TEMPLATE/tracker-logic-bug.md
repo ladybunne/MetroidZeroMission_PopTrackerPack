@@ -9,7 +9,7 @@ assignees: ladybunne
 
 ## Prerequisites
 
-Please ensure you have done the following before you continue any further. Issues will be closed if they do not follow all steps.
+<!-- Please ensure you have done the following before you continue any further. Issues will be closed if they do not follow all steps. -->
 
 **Basics**
 - [ ] I have read through [the readme of this repo](https://github.com/ladybunne/MetroidZeroMission_PopTrackerPack/blob/main/README.md) to ensure I understand what this project aims to accomplish, and broadly, how PopTracker works.
@@ -30,20 +30,28 @@ Please ensure you have done the following before you continue any further. Issue
 
 ## Description
 
+<!-- For each item, respond below the template text. -->
+
 **What issue have you observed?**
-Please describe the bug in specific terms, by referencing the names used by the tracker and the apworld. What exact check or checks are misbehaving? What state is it in?
+<!-- Please describe the bug in specific terms, by referencing the names used by the tracker and the apworld. What exact check or checks are misbehaving? What state is it in? -->
+
 
 **What conditions made this bug appear?**
-What combination of items, event flags and options make it happen? Does it happen with any other combinations?
+<!-- What combination of items, event flags and options make it happen? Does it happen with any other combinations? -->
+
 
 **What did you expect to happen instead?**
-Refer to apworld behaviour where possible.
+<!-- Refer to apworld behaviour where possible. -->
 
-**Is there anything else worth knowing about this bug?**
-If it started happening after a certain date / version, or only with certain plando blocks, stuff like this.
+
+**Please include anything else worth knowing about this bug.**
+<!-- If it started happening after a certain date / version, or only with certain plando blocks, stuff like this. -->
+
 
 ## Attachments
 
 Please attach the following:
 
-- [ ] An exported state from PopTracker. To get it, click this button:
+- [ ] An exported state from PopTracker. To get it, click the button up the top left that looks like a rectangle with a right arrow.
+- [ ] The apworld you used to generate the world.
+- [ ] The yaml you used to generate the world.
