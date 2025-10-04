@@ -16,6 +16,7 @@ assignees: ladybunne
 - [ ] I have played vanilla, and understand that if this is a misunderstanding of basic vanilla gameplay mechanics, I will be told to go play vanilla and the issue will be closed.
 - [ ] I have read the [Notes/Changes made for the randomiser pin in the thread](https://discord.com/channels/731205301247803413/1106280250528235620/1260233517464424448) and ensured this is not already covered there.
 - [ ] I have read [the Known Issues pin in the thread](https://discord.com/channels/731205301247803413/1106280250528235620/1260234016364433431) and ensured this is not already known.
+- [ ] I have [checked the issues on this repo](https://github.com/ladybunne/MetroidZeroMission_PopTrackerPack/issues) to ensure I am not creating a duplicate issue.
 
 **Logic**
 - [ ] I have found a logic bug that only appears in the tracker, not the apworld. I understand that if this is a logic bug found in both the apworld and the tracker, this issue will be closed.
