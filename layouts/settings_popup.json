@@ -1,0 +1,29 @@
+{
+    "settings_popup": {
+        "type": "tabbed",
+        "background": "#000000",
+        "tabs": [
+            {
+                "title": "Options",
+                "content": {
+                    "type": "layout",
+                    "key": "options"
+                }
+            },
+            {
+                "title": "Layout Patches",
+                "content": {
+                    "type": "layout",
+                    "key": "layout_patches"
+                }
+            },
+            {
+                "title": "Tricks",
+                "content": {
+                    "type": "layout",
+                    "key": "tricks"
+                }
+            }
+        ]
+    }
+}

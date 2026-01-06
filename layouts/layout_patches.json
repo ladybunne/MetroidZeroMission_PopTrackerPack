@@ -1,0 +1,51 @@
+{
+    "layout_patches": {
+        "type": "container",
+        "background": "#000000",
+        "content": [
+            {
+                "type": "array",
+                "orientation": "vertical",
+                "margin": "0, 0, 0, 0",
+                "content": [
+                    {
+                        "type": "array",
+                        "orientation": "horizontal",
+                        "content": [
+                            {
+                                "type": "item",
+                                "item": "layout_patches",
+                                "max_height": 32,
+                                "max_width": 32,
+                                "margin": "4"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Layout Patches",
+                                "v_alignment": "center"
+                            }
+                        ]
+                    },
+                                        {
+                        "type": "array",
+                        "orientation": "horizontal",
+                        "content": [
+                            {
+                                "type": "item",
+                                "item": "selected_patches",
+                                "max_height": 32,
+                                "max_width": 32,
+                                "margin": "4"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Selected Patches",
+                                "v_alignment": "center"
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -45,9 +45,14 @@ Tracker:AddLayouts("layouts/major_bosses.json")
 Tracker:AddLayouts("layouts/major_bosses_vertical.json")
 Tracker:AddLayouts("layouts/major_bosses_supervertical.json")
 -- Tracker:AddLayouts("layouts/minor_bosses.json")
-Tracker:AddLayouts("layouts/tracker.json")
-Tracker:AddLayouts("layouts/broadcast.json")
 Tracker:AddLayouts("layouts/options.json")
+Tracker:AddLayouts("layouts/layout_patches.json")
+Tracker:AddLayouts("layouts/tricks.json")
+
+-- Composite layouts
+Tracker:AddLayouts("layouts/tracker.json")
+Tracker:AddLayouts("layouts/tracker_broadcast.json")
+Tracker:AddLayouts("layouts/settings_popup.json")
 
 -- Autotracking
 if PopVersion and PopVersion >= "0.18.0" then
@@ -65,7 +70,7 @@ ScriptHost:AddWatchForCode("AutoSwitchTabOnOptionEnabled", "auto_switch_tabs", S
 -- Watch for either a change to Chozo Ghost Defeated or Unknown Items Always Usable,
 -- then update their item graphics in the tracker to reflect whether they're usable.
 ScriptHost:AddWatchForCode("UnknownItemsIconsChozoGhost", "Chozo Ghost Defeated", UpdateUnknownItemIcons)
-ScriptHost:AddWatchForCode("UnknownItemsIconsOption", "unknown_items_always_usable", UpdateUnknownItemIcons)
+ScriptHost:AddWatchForCode("UnknownItemsIconsOption", "unknown_items_usable", UpdateUnknownItemIcons)
 
 -- Also do so for the items in particular.
 ScriptHost:AddWatchForCode("UnknownItemsIconsPlasmaBeam", "Plasma Beam", UpdateUnknownPlasmaBeam)

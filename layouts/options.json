@@ -1,12 +1,12 @@
 {
-    "settings_popup": {
+    "options": {
         "type": "container",
         "background": "#000000",
         "content": [
             {
                 "type": "array",
                 "orientation": "vertical",
-                "margin": "0, 0, 0, 100",
+                "margin": "0, 0, 0, 0",
                 "content": [
                     {
                         "type": "array",
@@ -21,7 +21,43 @@
                             },
                             {
                                 "type": "text",
-                                "text": "All Bosses Required for Goal",
+                                "text": "Goal",
+                                "v_alignment": "center"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "array",
+                        "orientation": "horizontal",
+                        "content": [
+                            {
+                                "type": "item",
+                                "item": "metroid_dna_available",
+                                "max_height": 32,
+                                "max_width": 32,
+                                "margin": "4"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Metroid DNA Available",
+                                "v_alignment": "center"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "array",
+                        "orientation": "horizontal",
+                        "content": [
+                            {
+                                "type": "item",
+                                "item": "metroid_dna_required",
+                                "max_height": 32,
+                                "max_width": 32,
+                                "margin": "4"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Metroid DNA Required",
                                 "v_alignment": "center"
                             }
                         ]
@@ -68,14 +104,14 @@
                         "content": [
                             {
                                 "type": "item",
-                                "item": "unknown_items_always_usable",
+                                "item": "unknown_items_usable",
                                 "max_height": 32,
                                 "max_width": 32,
                                 "margin": "4"
                             },
                             {
                                 "type": "text",
-                                "text": "Unknown Items Always Usable",
+                                "text": "Fully Powered Suit",
                                 "v_alignment": "center"
                             }
                         ]
@@ -194,24 +230,6 @@
                         "content": [
                             {
                                 "type": "item",
-                                "item": "layout_patches",
-                                "max_height": 32,
-                                "max_width": 32,
-                                "margin": "4"
-                            },
-                            {
-                                "type": "text",
-                                "text": "Layout Patches",
-                                "v_alignment": "center"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "array",
-                        "orientation": "horizontal",
-                        "content": [
-                            {
-                                "type": "item",
                                 "item": "remote_items",
                                 "max_height": 32,
                                 "max_width": 32,
@@ -244,7 +262,6 @@
                     }
                 ]
             }
-            
         ]
     }
 }

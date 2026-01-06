@@ -49,8 +49,8 @@
     {
         "name": "Escaped Zebes",
         "codes": "Escaped Zebes",
-        "img": "images/greensquare.png",
-        "disabled_img": "images/redsquare.png",
+        "img": "images/misc/greensquare.png",
+        "disabled_img": "images/misc/redsquare.png",
         "disabled_img_mods": "",
         "type": "toggle"
     },
@@ -69,8 +69,8 @@
     {
         "name": "Escaped Chozodia",
         "codes": "Escaped Chozodia",
-        "img": "images/greensquare.png",
-        "disabled_img": "images/redsquare.png",
+        "img": "images/misc/greensquare.png",
+        "disabled_img": "images/misc/redsquare.png",
         "disabled_img_mods": "",
         "type": "toggle"
     }

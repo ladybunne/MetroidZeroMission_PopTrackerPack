@@ -8,9 +8,9 @@ end
 
 -- Caching images for performance reasons.
 local unknown_items_known = {
-    ["Plasma Beam"] = ImageReference:FromPackRelativePath("images/PlasmaBeam.png"),
-    ["Space Jump"] = ImageReference:FromPackRelativePath("images/SpaceJump.png"),
-    ["Gravity Suit"] = ImageReference:FromPackRelativePath("images/GravitySuit.png")
+    ["Plasma Beam"] = ImageReference:FromPackRelativePath("images/items/PlasmaBeam.png"),
+    ["Space Jump"] = ImageReference:FromPackRelativePath("images/items/SpaceJump.png"),
+    ["Gravity Suit"] = ImageReference:FromPackRelativePath("images/items/GravitySuit.png")
 }
 local unknown_items_known_disabled = {
     ["Plasma Beam"] = ImageReference:FromImageReference(unknown_items_known["Plasma Beam"], "@disabled"),
@@ -18,9 +18,9 @@ local unknown_items_known_disabled = {
     ["Gravity Suit"] = ImageReference:FromImageReference(unknown_items_known["Gravity Suit"], "@disabled")
 }
 local unknown_items_unknown = {
-    ["Plasma Beam"] = ImageReference:FromPackRelativePath("images/UnknownPlasmaBeam.png"),
-    ["Space Jump"] = ImageReference:FromPackRelativePath("images/UnknownSpaceJump.png"),
-    ["Gravity Suit"] = ImageReference:FromPackRelativePath("images/UnknownGravitySuit.png")
+    ["Plasma Beam"] = ImageReference:FromPackRelativePath("images/items/UnknownPlasmaBeam.png"),
+    ["Space Jump"] = ImageReference:FromPackRelativePath("images/items/UnknownSpaceJump.png"),
+    ["Gravity Suit"] = ImageReference:FromPackRelativePath("images/items/UnknownGravitySuit.png")
 }
 local unknown_items_unknown_disabled = {
     ["Plasma Beam"] = ImageReference:FromImageReference(unknown_items_unknown["Plasma Beam"], "@disabled"),

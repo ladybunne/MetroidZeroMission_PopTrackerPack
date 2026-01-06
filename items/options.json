@@ -1,20 +1,45 @@
 [
     {
-        "name": "Deathlink",
+        "name": "Goal",
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
-        "codes": "death_link",
+        "codes": "goal",
+        "initial_stage_idx": 2,
         "stages": [
             {
-                "name": "Good.",
-                "img": "images/redsquare.png"
+                "name": "Mecha-Ridley Only",
+                "img": "images/bosses/MechaRidley.png"
             },
             {
-                "name": "Ugh.",
-                "img": "images/greensquare.png"
+                "name": "All Bosses",
+                "img": "images/bosses/MotherBrain.png"
+            },
+            {
+                "name": "Metroid DNA",
+                "img": "images/items/MetroidDNA.png"
             }
-        ]
+        ],
+        "notes": "Mecha-Ridley is 0, Bosses is 1. Bosses needs Kraid, Ridley, Mother Brain and Chozo Ghost. Metroid DNA is 2."
+    },
+    {
+        "name": "Metroid DNA Available",
+        "codes": "metroid_dna_available",
+        "img": "images/items/MetroidDNA.png",
+        "type": "consumable",
+        "max_quantity": 25,
+        "overlay_background": "000000",
+        "overlay_font_size": 12
+    },
+    {
+        "name": "Metroid DNA Required",
+        "codes": "metroid_dna_required",
+        "img_mods": "overlay|images/misc/Tick.png",
+        "img": "images/items/MetroidDNA.png",
+        "type": "consumable",
+        "max_quantity": 25,
+        "overlay_background": "000000",
+        "overlay_font_size": 12
     },
     {
         "name": "Game Difficulty",
@@ -26,75 +51,15 @@
         "stages": [
             {
                 "name": "Normal",
-                "img": "images/NormalSymbol.png"
+                "img": "images/options/NormalSymbol.png"
             },
             {
                 "name": "Hard",
-                "img": "images/HardSymbol.png"
+                "img": "images/options/HardSymbol.png"
             },
             {
                 "name": "Either",
-                "img": "images/EitherSymbol.png"
-            }
-        ]
-    },
-    {
-        "name": "Logic Difficulty",
-        "type": "progressive",
-        "loop": "true",
-        "allow_disabled": false,
-        "codes": "logic_difficulty",
-        "stages": [
-            {
-                "name": "Simple",
-                "img": "images/YellowZoomer.png"
-            },
-            {
-                "name": "Normal",
-                "img": "images/RedSpacePirate.png"
-            },
-            {
-                "name": "Advanced",
-                "img": "images/BlackSpacePirate.png"
-            }
-        ]
-    },
-    {
-        "name": "Combat Logic Difficulty",
-        "type": "progressive",
-        "loop": "true",
-        "allow_disabled": false,
-        "codes": "combat_logic_difficulty",
-        "stages": [
-            {
-                "name": "Relaxed",
-                "img": "images/SuperMissileTank.png"
-            },
-            {
-                "name": "Normal",
-                "img": "images/MissileTank.png"
-            },
-            {
-                "name": "Minimal",
-                "img": "images/ChargeBeam.png"
-            }
-        ]
-    },
-    {
-        "name": "Unknown Items Always Usable",
-        "type": "progressive",
-        "loop": "true",
-        "allow_disabled": false,
-        "codes": "unknown_items_always_usable",
-        "initial_stage_idx": 1,
-        "stages": [
-            {
-                "name": "Disabled",
-                "img": "images/UnknownPlasmaBeam.png"
-            },
-            {
-                "name": "Enabled",
-                "img": "images/PlasmaBeam.png"
+                "img": "images/options/EitherSymbol.png"
             }
         ]
     },
@@ -107,109 +72,46 @@
         "stages": [
             {
                 "name": "Disabled",
-                "img": "images/ItemSphere.png"
+                "img": "images/options/ItemSphere.png"
             },
             {
                 "name": "Enabled",
-                "img": "images/archipelago-color-icon.png"
+                "img": "images/options/AP-Filler.png"
             }
         ]
     },
     {
-        "name": "Tricky Shinesparks",
+        "name": "Deathlink",
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
-        "codes": "tricky_shinesparks",
+        "codes": "death_link",
         "stages": [
             {
-                "name": "Disabled",
-                "img_mods": "@disabled",
-                "img": "images/SpeedBooster.png"
+                "name": "Good.",
+                "img": "images/misc/redsquare.png"
             },
             {
-                "name": "Enabled",
-                "img": "images/SpeedBooster.png"
+                "name": "Ugh.",
+                "img": "images/misc/greensquare.png"
             }
         ]
     },
     {
-        "name": "IBJ In Logic",
+        "name": "Chozodia Access",
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
-        "codes": "ibj_in_logic",
+        "codes": "chozodia_access",
         "stages": [
             {
-                "name": "None",
+                "name": "Open",
+                "img": "images/options/ChozodiaYellowDoor.png"
+            },
+            {
+                "name": "Closed",
                 "img_mods": "@disabled",
-                "img": "images/IBJBall.png"
-            },
-            {
-                "name": "Vertical Only",
-                "img_mods": "overlay|images/IBJVertical.png",
-                "img": "images/IBJBall.png"
-            },
-            {
-                "name": "Horizontal and Vertical",
-                "img_mods": "overlay|images/IBJDiagonal.png",
-                "img": "images/IBJBall.png"
-            }
-        ]
-    },
-    {
-        "name": "Goal",
-        "type": "progressive",
-        "loop": "true",
-        "allow_disabled": false,
-        "codes": "goal",
-        "initial_stage_idx": 1,
-        "stages": [
-            {
-                "name": "Mecha-Ridley Only",
-                "img": "images/bosses/MechaRidley.png"
-            },
-            {
-                "name": "All Bosses",
-                "img": "images/bosses/MotherBrain.png"
-            }
-        ],
-        "notes": "Mecha-Ridley is 0, Bosses is 1. Bosses needs Kraid, Ridley, Mother Brain and Chozo Ghost."
-    },
-    {
-        "name": "Walljumps In Logic",
-        "type": "progressive",
-        "loop": "true",
-        "allow_disabled": false,
-        "codes": "walljumps_in_logic",
-        "initial_stage_idx": 1,
-        "stages": [
-            {
-                "name": "Disabled",
-                "img_mods": "@disabled",
-                "img": "images/HiJump.png"
-            },
-            {
-                "name": "Enabled",
-                "img": "images/HiJump.png"
-            }
-        ]
-    },
-    {
-        "name": "Hazard Runs",
-        "type": "progressive",
-        "loop": "true",
-        "allow_disabled": false,
-        "codes": "hazard_runs",
-        "stages": [
-            {
-                "name": "Disabled",
-                "img_mods": "@disabled",
-                "img": "images/EnergyTank.png"
-            },
-            {
-                "name": "Enabled",
-                "img": "images/EnergyTank.png"
+                "img": "images/options/ChozodiaGreyDoor.png"
             }
         ]
     },
@@ -224,29 +126,11 @@
             {
                 "name": "Disabled",
                 "img_mods": "@disabled",
-                "img": "images/LayoutBlockBreakable.png"
+                "img": "images/options/LayoutBlockBreakable.png"
             },
             {
                 "name": "Enabled",
-                "img": "images/LayoutBlockBreakable.png"
-            }
-        ]
-    },
-    {
-        "name": "Chozodia Access",
-        "type": "progressive",
-        "loop": "true",
-        "allow_disabled": false,
-        "codes": "chozodia_access",
-        "stages": [
-            {
-                "name": "Open",
-                "img": "images/ChozodiaYellowDoor.png"
-            },
-            {
-                "name": "Closed",
-                "img_mods": "@disabled",
-                "img": "images/ChozodiaGreyDoor.png"
+                "img": "images/options/LayoutBlockBreakable.png"
             }
         ]
     },
@@ -259,11 +143,218 @@
         "stages": [
             {
                 "name": "Disabled",
-                "img": "images/redsquare.png"
+                "img": "images/misc/redsquare.png"
             },
             {
                 "name": "Enabled",
-                "img": "images/greensquare.png"
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Fully Powered Suit",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "unknown_items_usable",
+        "initial_stage_idx": 3,
+        "stages": [
+            {
+                "name": "Ruins Test",
+                "img": "images/bosses/ChozoGhost.png"
+            },
+            {
+                "name": "Shuffled",
+                "img": "images/items/FullyPoweredSuit.png"
+            },
+            {
+                "name": "Start With",
+                "img": "images/items/PlasmaBeam.png"
+            },
+            {
+                "name": "Legacy Always Usable",
+                "img": "images/items/PlasmaBeam.png"
+            }
+        ]
+    },
+    {
+        "name": "Walljumps",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "walljumps_in_logic",
+        "initial_stage_idx": 4,
+        "stages": [
+            {
+                "name": "Disabled",
+                "img_mods": "@disabled",
+                "img": "images/items/HiJump.png"
+            },
+            {
+                "name": "Shuffled",
+                "img": "images/items/HiJump.png"
+            },
+            {
+                "name": "Enabled (Not Logical)",
+                "img": "images/items/HiJump.png"
+            },
+            {
+                "name": "Enabled",
+                "img": "images/items/HiJump.png"
+            }
+        ]
+    },
+    {
+        "name": "Spring Ball",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "spring_ball",
+        "stages": [
+            {
+                "name": "Disabled",
+                "img_mods": "@disabled",
+                "img": "images/items/SpringBall.png"
+            },
+            {
+                "name": "Enabled",
+                "img": "images/items/SpringBall.png"
+            }
+        ]
+    },
+    {
+        "name": "Logic Difficulty",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "logic_difficulty",
+        "stages": [
+            {
+                "name": "Simple",
+                "img": "images/options/YellowZoomer.png"
+            },
+            {
+                "name": "Normal",
+                "img": "images/options/RedSpacePirate.png"
+            },
+            {
+                "name": "Advanced",
+                "img": "images/options/BlackSpacePirate.png"
+            }
+        ]
+    },
+    {
+        "name": "Combat Logic Difficulty",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "combat_logic_difficulty",
+        "stages": [
+            {
+                "name": "Relaxed",
+                "img": "images/items/SuperMissileTank.png"
+            },
+            {
+                "name": "Normal",
+                "img": "images/items/MissileTank.png"
+            },
+            {
+                "name": "Minimal",
+                "img": "images/items/ChargeBeam.png"
+            }
+        ]
+    },
+    {
+        "name": "Infinite Bomb Jump In Logic",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "ibj_in_logic",
+        "stages": [
+            {
+                "name": "None",
+                "img_mods": "@disabled",
+                "img": "images/options/IBJBall.png"
+            },
+            {
+                "name": "Vertical Only",
+                "img_mods": "overlay|images/options/IBJVertical.png",
+                "img": "images/options/IBJBall.png"
+            },
+            {
+                "name": "Horizontal and Vertical",
+                "img_mods": "overlay|images/options/IBJDiagonal.png",
+                "img": "images/options/IBJBall.png"
+            }
+        ]
+    },
+    {
+        "name": "Hazard Runs",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "hazard_runs",
+        "stages": [
+            {
+                "name": "Disabled",
+                "img_mods": "@disabled",
+                "img": "images/items/EnergyTank.png"
+            },
+            {
+                "name": "Enabled",
+                "img": "images/items/EnergyTank.png"
+            }
+        ]
+    },
+    {
+        "name": "Tricky Shinesparks",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "tricky_shinesparks",
+        "stages": [
+            {
+                "name": "Disabled",
+                "img_mods": "@disabled",
+                "img": "images/items/SpeedBooster.png"
+            },
+            {
+                "name": "Enabled",
+                "img": "images/items/SpeedBooster.png"
+            }
+        ]
+    },
+    {
+        "name": "Tricks Allowed",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "tricks_allowed",
+        "stages": [
+            {
+                "name": "Disabled",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Enabled",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Tricks Denied",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "tricks_denied",
+        "stages": [
+            {
+                "name": "Disabled",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Enabled",
+                "img": "images/misc/greensquare.png"
             }
         ]
     },
@@ -278,11 +369,11 @@
             {
                 "name": "Disabled",
                 "img_mods": "@disabled",
-                "img": "images/PauseMap.png"
+                "img": "images/options/PauseMap.png"
             },
             {
                 "name": "Enabled",
-                "img": "images/PauseMap.png"
+                "img": "images/options/PauseMap.png"
             }
         ]
     }
