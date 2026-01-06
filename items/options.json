@@ -131,6 +131,10 @@
             {
                 "name": "Enabled",
                 "img": "images/options/LayoutBlockBreakable.png"
+            },
+            {
+                "name": "Choice",
+                "img": "images/misc/greensquare.png"
             }
         ]
     },

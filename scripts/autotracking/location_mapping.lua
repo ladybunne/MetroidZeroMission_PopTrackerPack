@@ -99,4 +99,5 @@ LOCATION_MAPPING = {
     [261397] = {"@Chozodia/Chozodia/Chozodia Ceiling Near Map Station"},
     [261398] = {"@Chozodia/Chozodia/Chozodia Under Mecha Ridley Hallway"},
     [261399] = {"@Chozodia/Chozodia/Chozodia Southeast Corner in Hull"},
+    [261400] = {"@Chozodia/Chozodia/Chozodia Ruins Test Reward"},
 }

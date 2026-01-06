@@ -1,30 +1,39 @@
-Ziplines = CanReachEntrance("Kraid Main -> Acid Worm Area")
+Ziplines = Has("Ziplines Activated")
 KraidBoss = Has("Kraid Defeated")
 RidleyBoss = Has("Ridley Defeated")
 MotherBrainBoss = Has("Mother Brain Defeated")
 ChozoGhostBoss = Has("Chozo Ghost Defeated")
 MechaRidleyBoss = Has("Mecha Ridley Defeated")
+CanReachLocation = function(n) return CanReachLocation(n) end
+CanReachEntrance = function(n) return CanReachEntrance(n) end
 
 UnknownItem1 = CanReachLocation("Crateria Unknown Item Statue")
 UnknownItem2 = CanReachLocation("Kraid Unknown Item Statue")
 UnknownItem3 = CanReachLocation("Ridley Unknown Item Statue")
 
-CanUseUnknownItems = Any(
-    OptionEnabled("unknown_items_always_usable"),
-    ChozoGhostBoss
-)
-LayoutPatches = function(n)
-    return Any(
-        OptionIs("layout_patches", 1),
-        All(
-            OptionIs("layout_patches", 2),
-            OptionIs("selected_patches", n)
-        )
+CanUseUnknownItems = Has("Fully Powered Suit")
+LayoutPatches = function(n) return Any(
+    OptionIs("layout_patches", 1),
+    All(
+        OptionIs("layout_patches", 2),
+        -- TODO Implement this
+        -- Requirement.setting_contains("selected_patches", n)
+        True
     )
-end
+)  end
+Trick = function(n) return All(
+    -- TODO Implement this
+    -- Requirement.trick_enabled(n),
+    True,
+    -- TODO Implement this
+    -- Requirement.trick_rule(n)
+    True
+) end
 
-NormalMode = OptionIs("game_difficulty", 1)
-HardMode = OptionIs("game_difficulty", 2)
+NormalMode = OptionIs("game_difficulty", "normal")
+HardMode = OptionIs("game_difficulty", "hard")
+
+CombinedHiJumpAndSpringBall = OptionIs("spring_ball", False)
 
 
 EnergyTanks = function(n) return Has("Energy Tank", n) end
@@ -54,11 +63,13 @@ SpaceJump = All(
     CanUseUnknownItems
 )
 PowerGrip = Has("Power Grip")
+SpringBall = Has("Spring Ball")
 
 Missiles = Any(
     MissileTanks(1),
     SuperMissileTanks(1)
 )
+
 MissileCount = function(n)
     return function()
         if OptionIs("game_difficulty", 1) then
@@ -119,25 +130,40 @@ CanSingleBombBlock = Any(
     ScrewAttack
 )
 CanBallCannon = CanRegularBomb
-CanBallspark = All(
+CanSpringBall = All(
     MorphBall,
+    Any(
+        All(
+            HiJump,
+            CombinedHiJumpAndSpringBall
+        ),
+        SpringBall
+    )
+)
+CanHiSpringBall = All(
+    MorphBall,
+    HiJump,
+    Any(
+        SpringBall,
+        CombinedHiJumpAndSpringBall
+    )
+)
+CanBallspark = All(
     SpeedBooster,
-    HiJump
+    CanSpringBall
 )
 CanBallJump = All(
     MorphBall,
     Any(
         Bomb,
-        HiJump
+        CanSpringBall
     )
 )
-CanLongBeam = function(n)
-    return Any(
-        LongBeam,
-        MissileCount(n),
-        CanBombTunnelBlock
-    )
-end
+CanLongBeam = function(n) return Any(
+    LongBeam,
+    MissileCount(n),
+    CanBombTunnelBlock
+) end
 
 -- Logic option rules
 NormalLogic = OptionAtLeast("logic_difficulty", 1)
@@ -152,17 +178,18 @@ CanHorizontalIBJ = All(
     CanIBJ,
     OptionAtLeast("ibj_in_logic", 2)
 )
-CanWallJump = OptionAtLeast("walljumps_in_logic", 1)
+CanWallJump = All(
+    Has("Wall Jump"),
+    Any(
+        OptionIs("walljumps", 1),  -- Shuffled
+        OptionIs("walljumps", 3)   -- Enabled
+    )
+)
 CanTrickySparks = All(
     OptionEnabled("tricky_shinesparks"),
     SpeedBooster
 )
-Hellrun = function(n)
-    return All(
-        OptionEnabled("hazard_runs"),
-        Energy(n)
-    )
-end
+HazardRuns = OptionAtLeast("hazard_runs", 1)
 
 -- Miscellaneous rules
 CanFly = Any(  -- infinite vertical
@@ -186,25 +213,26 @@ CanHiGrip = All(
     HiJump,
     PowerGrip
 )
-CanEnterHighMorphTunnel = Any(
+CanHiWallJump = All(
+    HiJump,
+    CanWallJump
+)
+CanEnterHighMorphTunnel = Any(  -- morph tunnel 5 tiles above ground
     CanIBJ,
     All(
         MorphBall,
         PowerGrip
     )
 )
-CanEnterMediumMorphTunnel = Any(
+CanEnterMediumMorphTunnel = Any(  -- morph tunnel 3 or 4 tiles above ground
     CanEnterHighMorphTunnel,
-    All(
-        MorphBall,
-        HiJump
-    )
+    CanHiSpringBall
 )
 RuinsTestEscape = All(
     Any(
         All(
             NormalLogic,
-            CanHiGrip,
+            HiJump,
             CanWallJump
         ),
         CanIBJ,
@@ -269,8 +297,13 @@ MotherBrainCombat = Any(
             VariaSuit,
             GravitySuit
         ),
-        WaveBeam,
-        ScrewAttack,
+        Any(
+            ChargeBeam,
+            LongBeam,
+            WaveBeam,
+            PlasmaBeam,
+            ScrewAttack
+        ),
         PowerGrip,
         MissileTanks(10),
         SuperMissileTanks(3),
@@ -333,11 +366,17 @@ MechaRidleyCombat = Any(
 -- Goal
 ReachedGoal = Any(
     All(
-        OptionIs("goal", 0)
+        OptionIs("goal", "mecha_ridley")
     ),
     All(
-        OptionIs("goal", 1),
+        OptionIs("goal", "bosses"),
         MotherBrainBoss,
         ChozoGhostBoss
+    ),
+    All(
+        OptionIs("goal", "metroid_dna"),
+        -- TODO Implement this
+        -- Requirement.has_metroid_dna()
+        True
     )
 )

@@ -1,0 +1,47 @@
+The below tends to get mangled by the Python conversion. Here's the Lua version.
+
+---
+
+MissileCount = function(n)
+    return function()
+        if OptionIs("game_difficulty", 1) then
+            return 5 * Count("Missile Tank")() + 2 * Count("Super Missile Tank")() >= n
+        else
+            return 2 * Count("Missile Tank")() + Count("Super Missile Tank")() >= n
+        end
+    end
+end
+
+SuperMissiles = SuperMissileTanks(1)
+SuperMissileCount = function(n)
+    return function()
+        if OptionIs("game_difficulty", 1) then
+            return 2 * Count("Super Missile Tank")() >= n
+        else
+            return Count("Super Missile Tank")() >= n
+        end
+    end
+end
+
+PowerBombs = PowerBombTanks(1)
+PowerBombCount = function(n)
+    return function()
+        if OptionIs("game_difficulty", 1) then
+            return 2 * Count("Power Bomb Tank")() >= n
+        else
+            return Count("Power Bomb Tank")() >= n
+        end
+    end
+end
+
+Energy = function(n)
+    return function()
+        if OptionIs("game_difficulty", 1) then
+            return 100 * Count("Energy Tank")() + 99 >= n
+        else
+            return 50 * Count("Energy Tank")() + 99 >= n
+        end
+    end
+end
+
+---

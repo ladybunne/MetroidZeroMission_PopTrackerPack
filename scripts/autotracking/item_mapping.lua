@@ -17,4 +17,9 @@ ITEM_MAPPING = {
     [261315] = {"Screw Attack", "toggle"},
     [261316] = {"Space Jump", "toggle"},
     [261317] = {"Power Grip", "toggle"},
+    -- [261318] = {"Nothing", "consumable"},
+    [261319] = {"Fully Powered Suit", "toggle"},
+    [261320] = {"Wall Jump", "toggle"},
+    [261321] = {"Spring Ball", "toggle"},
+    [261322] = {"Metroid DNA", "consumable"},
 }

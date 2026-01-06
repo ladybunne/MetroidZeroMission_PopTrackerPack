@@ -118,5 +118,32 @@
         "codes": "Power Grip",
         "img": "images/items/PowerGrip.png",
         "type": "toggle"
+    },
+    {
+        "name": "Fully Powered Suit",
+        "codes": "Fully Powered Suit",
+        "img": "images/items/FullyPoweredSuit.png",
+        "type": "toggle"
+    },
+    {
+        "name": "Wall Jump",
+        "codes": "Wall Jump",
+        "img": "images/items/HiJump.png",
+        "type": "toggle"
+    },
+    {
+        "name": "Spring Ball",
+        "codes": "Spring Ball",
+        "img": "images/items/SpringBall.png",
+        "type": "toggle"
+    },
+    {
+        "name": "Metroid DNA",
+        "codes": "Metroid DNA",
+        "img": "images/items/MetroidDNA.png",
+        "type": "consumable",
+        "max_quantity": 25,
+        "overlay_background": "000000",
+        "overlay_font_size": 12
     }
 ]

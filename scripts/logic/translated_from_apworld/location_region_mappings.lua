@@ -7,9 +7,9 @@ brinstar_location_table = {
     ["Brinstar Ballspark"] = "Brinstar Main",
     ["Brinstar Ripper Climb"] = "Brinstar Main",
     ["Brinstar Speed Booster Shortcut"] = "Brinstar Main",
-    ["Brinstar Varia Suit"] = "Brinstar Top",
+    ["Brinstar Varia Suit"] = "Brinstar Varia Area",
     ["Brinstar Worm Drop"] = "Brinstar Main",
-    ["Brinstar Acid Near Varia"] = "Brinstar Top",
+    ["Brinstar Acid Near Varia"] = "Brinstar Varia Area",
     ["Brinstar First Missile"] = "Brinstar Main",
     ["Brinstar Behind Hive"] = "Brinstar Main",
     ["Brinstar Under Bridge"] = "Brinstar Main",
@@ -58,7 +58,7 @@ norfair_location_table = {
     ["Norfair Big Room"] = "Norfair Right Shaft",
     ["Norfair Behind Top Chozo Statue"] = "Norfair Behind Ice Beam",
     ["Norfair Larva Ceiling"] = "Norfair Bottom",
-    ["Norfair Right Shaft Near Hi-Jump"] = "Norfair Lower Right Shaft",
+    ["Norfair Right Shaft Near Hi-Jump"] = "Norfair LRS By Hi-Jump",
     ["Norfair Right Shaft Bottom"] = "Norfair Bottom"
 }
 
@@ -93,13 +93,13 @@ tourian_location_table = {
 }
 
 crateria_location_table = {
-    ["Crateria Landing Site Ballspark"] = "Crateria",
-    ["Crateria Power Grip"] = "Upper Crateria",
-    ["Crateria Moat"] = "Crateria",
-    ["Crateria Statue Water"] = "Upper Crateria",
-    ["Crateria Unknown Item Statue"] = "Upper Crateria",
-    ["Crateria East Ballspark"] = "Upper Crateria",
-    ["Crateria Northeast Corner"] = "Upper Crateria"
+    ["Crateria Landing Site Ballspark"] = "Lower Crateria",
+    ["Crateria Power Grip"] = "Crateria Power Grip",
+    ["Crateria Moat"] = "Lower Crateria",
+    ["Crateria Statue Water"] = "Lower Crateria",
+    ["Crateria Unknown Item Statue"] = "Lower Crateria",
+    ["Crateria East Ballspark"] = "Upper Right Crateria",
+    ["Crateria Northeast Corner"] = "Upper Right Crateria"
 }
 
 chozodia_location_table = {
@@ -121,6 +121,7 @@ chozodia_location_table = {
     ["Chozodia Ceiling Near Map Station"] = "Chozodia Mothership Lower",
     ["Chozodia Under Mecha Ridley Hallway"] = "Chozodia Mecha Ridley Hallway",
     ["Chozodia Southeast Corner in Hull"] = "Chozodia Mothership Lower",
+    ["Chozodia Ruins Test Reward"] = "Chozodia Ruins Test Area", 100,
     ["Chozo Ghost"] = "Chozodia Ruins Test Area",
     ["Mecha Ridley"] = "Chozodia Mecha Ridley Hallway",
     ["Chozodia Space Pirate's Ship"] = "Chozodia Mecha Ridley Hallway"
