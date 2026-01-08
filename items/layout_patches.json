@@ -1,0 +1,262 @@
+[
+    {
+        "name": "Brinstar Long Beam Hall",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "brinstar_long_beam_hall",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Brinstar Long Beam Hall - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/brinstar_long_beam_hall.png"
+            },
+            {
+                "name": "Brinstar Long Beam Hall - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/brinstar_long_beam_hall_patched.png"
+            }
+        ]
+    },
+    {
+        "name": "Brinstar Top",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "brinstar_top",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Brinstar Top - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/brinstar_top.png"
+            },
+            {
+                "name": "Brinstar Top - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/brinstar_top_patched.png"
+            }
+        ]
+    },
+    {
+        "name": "Brinstar Bridge",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "brinstar_bridge",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Brinstar Bridge - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/brinstar_bridge.png"
+            },
+            {
+                "name": "Brinstar Bridge - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/brinstar_bridge_patched.png"
+            }
+        ]
+    },
+        {
+        "name": "Kraid Speed Jump",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "kraid_speed_jump",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Speed Jump - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/kraid_speed_jump.png"
+            },
+            {
+                "name": "Kraid Speed Jump - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/kraid_speed_jump_patched.png"
+            }
+        ]
+    },
+        {
+        "name": "Kraid Map Ball Cannon",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "kraid_map_ballcannon",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Map Ball Cannon - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/kraid_map_ballcannon.png"
+            },
+            {
+                "name": "Kraid Map Ball Cannon - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/kraid_map_ballcannon_patched.png"
+            }
+        ]
+    },
+        {
+        "name": "Kraid Right Shaft",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "kraid_right_shaft",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Right Shaft - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/kraid_right_shaft.png"
+            },
+            {
+                "name": "Kraid Right Shaft - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/kraid_right_shaft_patched.png"
+            }
+        ]
+    },
+        {
+        "name": "Norfair Brinstar Elevator",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "norfair_brinstar_elevator",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Brinstar Elevator - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/norfair_brinstar_elevator.png"
+            },
+            {
+                "name": "Norfair Brinstar Elevator - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/norfair_brinstar_elevator_patched.png"
+            }
+        ]
+    },
+        {
+        "name": "Norfair Larvae Room",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "norfair_larvae_room",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Larvae Room - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/norfair_larvae_room.png"
+            },
+            {
+                "name": "Norfair Larvae Room - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/norfair_larvae_room_patched.png"
+            }
+        ]
+    },
+        {
+        "name": "Norfair Behind Super Door",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "norfair_behind_superdoor",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Behind Super Door - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/norfair_behind_superdoor.png"
+            },
+            {
+                "name": "Norfair Behind Super Door - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/norfair_behind_superdoor_patched.png"
+            }
+        ]
+    },
+        {
+        "name": "Ridley Ball Cannon",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "ridley_ballcannon",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Ridley Ball Cannon - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/ridley_ballcannon.png"
+            },
+            {
+                "name": "Ridley Ball Cannon - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/ridley_ballcannon_patched.png"
+            }
+        ]
+    },
+        {
+        "name": "Crateria Moat",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "crateria_moat",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Crateria Moat - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/crateria_moat.png"
+            },
+            {
+                "name": "Crateria Moat - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/crateria_moat_patched.png"
+            }
+        ]
+    },
+        {
+        "name": "Crateria Water Speedway",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "crateria_water_speedway",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Crateria Water Speedway - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/crateria_water_speedway.png"
+            },
+            {
+                "name": "Crateria Water Speedway - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/crateria_water_speedway_patched.png"
+            }
+        ]
+    },
+        {
+        "name": "Crateria Left of Grip",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "crateria_left_of_grip",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Crateria Left of Grip - Disabled",
+                "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
+                "img": "images/layout_patches/crateria_left_of_grip.png"
+            },
+            {
+                "name": "Crateria Left of Grip - Enabled",
+                "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
+                "img": "images/layout_patches/crateria_left_of_grip_patched.png"
+            }
+        ]
+    }
+]

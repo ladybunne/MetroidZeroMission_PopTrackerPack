@@ -4,7 +4,7 @@
         "tabs": [
             {
                 "title": "Brinstar",
-                "icon": "images/MorphBall.png",
+                "icon": "images/items/MorphBall.png",
                 "content": {
                     "type": "map",
                     "maps": [
@@ -24,7 +24,7 @@
             },
             {
                 "title": "Norfair",
-                "icon": "images/ScrewAttack.png",
+                "icon": "images/items/ScrewAttack.png",
                 "content": {
                     "type": "map",
                     "maps": [
@@ -54,7 +54,7 @@
             },
             {
                 "title": "Crateria",
-                "icon": "images/PowerGrip.png",
+                "icon": "images/items/PowerGrip.png",
                 "content": {
                     "type": "map",
                     "maps": [
@@ -74,7 +74,7 @@
             },
             {
                 "title": "Combined",
-                "icon": "images/PowerBombTank.png",
+                "icon": "images/items/PowerBombTank.png",
                 "content": {
                     "type": "map",
                     "maps": [

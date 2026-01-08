@@ -58,11 +58,11 @@ def lambda_to_function(input: str) -> str:
 def has_item(input: str) -> str:
     return re.sub(r"Requirement.item", r"Has", input)
 
-
+# Remember to remove the relevant line in requirements, otherwise the pack will hang.
 def can_reach_location(input: str) -> str:
     return re.sub(r"Requirement.location", r"CanReachLocation", input)
 
-
+# Remember to remove the relevant line in requirements, otherwise the pack will hang.
 def can_reach_entrance(input: str) -> str:
     return re.sub(r"Requirement.entrance", r"CanReachEntrance", input)
 

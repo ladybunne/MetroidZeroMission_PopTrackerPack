@@ -5,13 +5,17 @@ OPTION_MAPPING = {
 }
 
 function LoadOptions(slot_data)
+    local selected_patches
+
     if not slot_data then
         return
     end
 
     for k, v in pairs(slot_data) do
         -- Ignore tables for now, this is more complex.
-        if type(v) == "table" then goto continue end
+        -- if type(v) == "table" then
+        --     goto continue
+        -- end
 
         -- Map strings to ints.
         if OPTION_MAPPING[k] ~= nil then
@@ -24,7 +28,8 @@ function LoadOptions(slot_data)
 
         local game_difficulty_offset = 0
         -- Don't do this yet.
-        if k == "selected_patches" then
+        if k == "selected_patches" and type(v) == "table" then
+            selected_patches = v
         else
             if k == "game_difficulty" then
                 game_difficulty_offset = -1
@@ -39,5 +44,29 @@ function LoadOptions(slot_data)
             end
         end
         ::continue::
+    end
+
+    if not selected_patches then
+        return
+    end
+
+    layout_patches = Tracker:FindObjectForCode("layout_patches")
+    
+    -- Something has gone wrong if this fails.
+    if not layout_patches.Type == "progressive" then
+        return
+    end
+
+    -- Need to rewrite this to actually work properly.
+    for k, v in pairs(selected_patches) do
+        local obj = Tracker:FindObjectForCode(v)
+        if obj then
+            local obj = Tracker:FindObjectForCode(v)
+            if layout_patches.CurrentStage ~= 3 then
+                obj.Active = layout_patches.CurrentStage == 2
+            else
+                obj.Active = true
+            end
+        end
     end
 end

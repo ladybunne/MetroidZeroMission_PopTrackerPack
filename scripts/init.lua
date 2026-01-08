@@ -5,6 +5,7 @@ ENABLE_DEBUG_LOG = true
 Tracker:AddItems("items/equipment.json")
 Tracker:AddItems("items/events.json")
 Tracker:AddItems("items/options.json")
+Tracker:AddItems("items/layout_patches.json")
 
 -- Maps
 Tracker:AddMaps("maps/maps.json")
@@ -67,10 +68,9 @@ end
 -- This is the nichest of niche UX improvements, but I like it, and that's what matters.
 ScriptHost:AddWatchForCode("AutoSwitchTabOnOptionEnabled", "auto_switch_tabs", SwitchTabOnAutoSwitchOptionEnabled)
 
--- Watch for either a change to Chozo Ghost Defeated or Unknown Items Always Usable,
+-- Watch for a change to Fully Powered Suit...
 -- then update their item graphics in the tracker to reflect whether they're usable.
-ScriptHost:AddWatchForCode("UnknownItemsIconsChozoGhost", "Chozo Ghost Defeated", UpdateUnknownItemIcons)
-ScriptHost:AddWatchForCode("UnknownItemsIconsOption", "unknown_items_usable", UpdateUnknownItemIcons)
+ScriptHost:AddWatchForCode("UnknownItemsIconsFullyPoweredSuit", "Fully Powered Suit", UpdateUnknownItemIcons)
 
 -- Also do so for the items in particular.
 ScriptHost:AddWatchForCode("UnknownItemsIconsPlasmaBeam", "Plasma Beam", UpdateUnknownPlasmaBeam)

@@ -26,22 +26,28 @@
                             }
                         ]
                     },
-                                        {
+                    {
                         "type": "array",
-                        "orientation": "horizontal",
+                        "margin": "4, 12, 0, 0",
                         "content": [
                             {
-                                "type": "item",
-                                "item": "selected_patches",
-                                "max_height": 32,
-                                "max_width": 32,
-                                "margin": "4"
-                            },
-                            {
                                 "type": "text",
-                                "text": "Selected Patches",
-                                "v_alignment": "center"
+                                "text": "Individual Patches",
+                                "v_alignment": "left"
                             }
+                        ]
+                    },
+                    {
+                        "type": "itemgrid",
+                        "item_margin": "4, 4",
+                        "margin": "4, 4, 4, 0",
+                        "h_alignment": "left",
+                        "item_size": "96,96",
+                        "rows": [
+                            ["brinstar_long_beam_hall", "brinstar_top", "brinstar_bridge", "kraid_speed_jump"],
+                            ["kraid_map_ballcannon", "kraid_right_shaft", "norfair_brinstar_elevator", "norfair_larvae_room"],
+                            ["norfair_behind_superdoor", "ridley_ballcannon", "crateria_moat", "crateria_water_speedway"],
+                            ["crateria_left_of_grip"]
                         ]
                     }
                 ]

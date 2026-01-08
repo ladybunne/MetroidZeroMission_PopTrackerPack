@@ -186,7 +186,7 @@
         "type": "progressive",
         "loop": "true",
         "allow_disabled": false,
-        "codes": "walljumps_in_logic",
+        "codes": "walljumps",
         "initial_stage_idx": 4,
         "stages": [
             {

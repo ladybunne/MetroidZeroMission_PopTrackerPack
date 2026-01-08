@@ -4,8 +4,6 @@ RidleyBoss = Has("Ridley Defeated")
 MotherBrainBoss = Has("Mother Brain Defeated")
 ChozoGhostBoss = Has("Chozo Ghost Defeated")
 MechaRidleyBoss = Has("Mecha Ridley Defeated")
-CanReachLocation = function(n) return CanReachLocation(n) end
-CanReachEntrance = function(n) return CanReachEntrance(n) end
 
 UnknownItem1 = CanReachLocation("Crateria Unknown Item Statue")
 UnknownItem2 = CanReachLocation("Kraid Unknown Item Statue")
