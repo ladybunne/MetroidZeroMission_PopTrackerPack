@@ -68,3 +68,4 @@ function UpdateUnknownItemIcons()
     UpdateUnknownGravitySuit()
 end
 
+-- The function for updating layout patches is in `layout_patches.lua`.

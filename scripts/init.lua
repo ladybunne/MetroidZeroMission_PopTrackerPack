@@ -13,10 +13,14 @@ Tracker:AddMaps("maps/maps.json")
 -- Locations
 Tracker:AddLocations("locations/locations.json")
 
+-- Lua items
+ScriptHost:LoadScript("scripts/lua_items.lua")
+
 -- Non-logic helpers
 ScriptHost:LoadScript("scripts/utils.lua")
 
 ScriptHost:LoadScript("scripts/tab_switching.lua")
+ScriptHost:LoadScript("scripts/layout_patches.lua")
 ScriptHost:LoadScript("scripts/yaml_options.lua")
 ScriptHost:LoadScript("scripts/events.lua")
 
@@ -76,3 +80,6 @@ ScriptHost:AddWatchForCode("UnknownItemsIconsFullyPoweredSuit", "Fully Powered S
 ScriptHost:AddWatchForCode("UnknownItemsIconsPlasmaBeam", "Plasma Beam", UpdateUnknownPlasmaBeam)
 ScriptHost:AddWatchForCode("UnknownItemsIconsSpaceJump", "Space Jump", UpdateUnknownSpaceJump)
 ScriptHost:AddWatchForCode("UnknownItemsIconsGravitySuit", "Gravity Suit", UpdateUnknownGravitySuit)
+
+-- Watch the Layout Patches setting and toggle patches accordingly.
+ScriptHost:AddWatchForCode("UpdateLayoutPatches", "layout_patches", UpdateLayoutPatches)

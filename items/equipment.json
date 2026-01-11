@@ -128,7 +128,7 @@
     {
         "name": "Wall Jump",
         "codes": "Wall Jump",
-        "img": "images/items/HiJump.png",
+        "img": "images/items/SamusLeg.png",
         "type": "toggle"
     },
     {
@@ -139,7 +139,8 @@
     },
     {
         "name": "Metroid DNA",
-        "codes": "Metroid DNA",
+        "codes": "tempdisabled",
+        "notes": "Original code was 'Metroid DNA'.",
         "img": "images/items/MetroidDNA.png",
         "type": "consumable",
         "max_quantity": 25,
