@@ -13,29 +13,21 @@ function UpdateLayoutPatches()
         return
     end
 
+    -- Set all patches to their correct values.
+    for k, v in pairs(LAYOUT_PATCH_ITEMS) do
+        local obj = Tracker:FindObjectForCode(v)
+        if obj then
+            -- Set on if all patches are enabled, otherwise set off.
+            obj.CurrentStage = layout_patches.CurrentStage == 1 and 1 or 0
+        end
+    end
+
     -- Enable selected patches.
     if layout_patches.CurrentStage == 2 then
         for k, v in pairs(SELECTED_PATCHES) do
             local obj = Tracker:FindObjectForCode(v)
             if obj then
-                -- Because patches default to on, this needs to invert them,
-                -- then we need to invert all of them.
-                obj.CurrentStage = 1 - obj.CurrentStage
-            end
-        end
-    end
-
-    -- Set all patches to their correct values.
-    for k, v in pairs(LAYOUT_PATCH_ITEMS) do
-        local obj = Tracker:FindObjectForCode(v)
-        if obj then
-            if layout_patches.CurrentStage ~= 2 then
-                -- 0 = disabled, 1 = enabled, 2 = choice
-                obj.CurrentStage = layout_patches.CurrentStage
-            else
-                -- This flips it so that the ones we disabled are now active, and
-                -- all others are disabled.
-                obj.CurrentStage = 1 - obj.CurrentStage
+                obj.CurrentStage = 1
             end
         end
     end

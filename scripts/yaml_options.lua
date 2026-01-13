@@ -34,6 +34,8 @@ function LoadOptions(slot_data)
                     obj.Active = v >= 1
                 elseif obj.Type == "progressive" then
                     obj.CurrentStage = v
+                elseif obj.Type == "consumable" then
+                    obj.AcquiredCount = v
                 end
             end
         end

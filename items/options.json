@@ -27,6 +27,7 @@
         "codes": "metroid_dna_available",
         "img": "images/items/MetroidDNA.png",
         "type": "consumable",
+        "initial_quantity": 5,
         "max_quantity": 25,
         "overlay_background": "000000",
         "overlay_font_size": 12
@@ -37,6 +38,7 @@
         "img_mods": "overlay|images/misc/Tick.png",
         "img": "images/items/MetroidDNA.png",
         "type": "consumable",
+        "initial_quantity": 5,
         "max_quantity": 25,
         "overlay_background": "000000",
         "overlay_font_size": 12

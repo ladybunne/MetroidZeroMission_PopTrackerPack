@@ -43,6 +43,7 @@ function OnClear(slot_data)
     end
 
     -- reset items
+    ResetLuaItems()
     for _, v in pairs(ITEM_MAPPING) do
         if v[1] and v[2] then
             if AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
@@ -57,6 +58,8 @@ function OnClear(slot_data)
                     obj.Active = false
                 elseif v[2] == "consumable" then
                     obj.AcquiredCount = 0
+                elseif v[2] == "custom" then
+                    ;
                 elseif AUTOTRACKER_ENABLE_DEBUG_LOGGING_AP then
                     print(string.format("OnClear: unknown item type %s for code %s", v[2], v[1]))
                 end

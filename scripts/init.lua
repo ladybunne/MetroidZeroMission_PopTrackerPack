@@ -14,7 +14,9 @@ Tracker:AddMaps("maps/maps.json")
 Tracker:AddLocations("locations/locations.json")
 
 -- Lua items
+ScriptHost:LoadScript("scripts/lua_items/metroid_dna.lua")
 ScriptHost:LoadScript("scripts/lua_items.lua")
+UpdateLuaItems()
 
 -- Non-logic helpers
 ScriptHost:LoadScript("scripts/utils.lua")
@@ -41,6 +43,7 @@ ScriptHost:LoadScript("scripts/logic/scout_rules.lua")
 ScriptHost:LoadScript("scripts/logic/out_of_logic_rules.lua")
 
 ScriptHost:LoadScript("scripts/watches.lua")
+UpdateUnknownItemIcons()
 
 -- Layouts
 Tracker:AddLayouts("layouts/maps.json")
@@ -65,8 +68,17 @@ if PopVersion and PopVersion >= "0.18.0" then
 end
 
 
--- Extra init stuff
+-- Lua item watches
 
+-- Watch for goal changes and disable Metroid DNA options if they're not relevant.
+ScriptHost:AddWatchForCode("UpdateMetroidDNAOptions", "goal", UpdateMetroidDNAOptions)
+
+-- Watch for Metroid DNA options changing and update the LuaItem accordingly.
+ScriptHost:AddWatchForCode("UpdateMetroidDNARequired", "metroid_dna_required", UpdateRequiredDNA)
+ScriptHost:AddWatchForCode("UpdateMetroidDNAAvailable", "metroid_dna_available", UpdateAvailableDNA)
+
+
+-- Misc watches
 
 -- Watch for auto swap tab option changing
 -- This is the nichest of niche UX improvements, but I like it, and that's what matters.

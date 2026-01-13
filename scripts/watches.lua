@@ -1,5 +1,21 @@
 -- File for watches, which can be loaded last.
 
+-- Disable Metroid DNA quantity options if we're not on the Metroid DNA goal.
+function UpdateMetroidDNAOptions()
+    local required = Tracker:FindObjectForCode("metroid_dna_required")
+    local available = Tracker:FindObjectForCode("metroid_dna_available")
+    if Tracker:FindObjectForCode("goal").CurrentStage == 2 then
+        required.MaxCount = 25
+        available.MaxCount = 25
+    else
+        METROID_DNA.ItemState.current = 0
+        required.AcquiredCount = 0
+        required.MaxCount = 0
+        available.AcquiredCount = 0
+        available.MaxCount = 0
+    end
+end
+
 function SwitchTabOnAutoSwitchOptionEnabled(code)
     if Tracker:FindObjectForCode(code).CurrentStage == 1 then
         SwitchTab(CURRENT_TAB_VALUE)
@@ -45,7 +61,11 @@ function UpdateUnknownItemIcon(item)
     local item_object = Tracker:FindObjectForCode(item)
     if not item_object then
         return
-    elseif CanUseUnknownItems() then
+    end
+
+    -- Need to find a way to confirm that these are JsonItems.
+    -- They are, but safety and all.
+    if CanUseUnknownItems() then
         -- item_object.Name = unknown_items_names_known[item]
         item_object.Icon = item_object.Active and unknown_items_known[item] or unknown_items_known_disabled[item]
         item_object:SetOverlay("")
