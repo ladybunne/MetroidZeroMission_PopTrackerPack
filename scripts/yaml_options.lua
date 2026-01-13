@@ -10,11 +10,6 @@ function LoadOptions(slot_data)
     end
 
     for k, v in pairs(slot_data) do
-        -- Not ready to handle these yet.
-        if k == "tricks_allowed" or k == "tricks_denied" then
-            goto continue
-        end
-
         -- Map strings to ints.
         if OPTION_MAPPING[k] ~= nil then
             for i, str in ipairs(OPTION_MAPPING[k]) do
@@ -27,6 +22,10 @@ function LoadOptions(slot_data)
         -- Defer handling of selected patches until after all other options.
         if k == "selected_patches" and type(v) == "table" then
             SELECTED_PATCHES = v
+        elseif k == "tricks_allowed" and type(v) == "table" then
+            ALLOWED_TRICKS = v
+        elseif k == "tricks_denied" and type(v) == "table" then
+            DENIED_TRICKS = v
         else
             local obj = Tracker:FindObjectForCode(k)
             if obj then
@@ -39,8 +38,8 @@ function LoadOptions(slot_data)
                 end
             end
         end
-        ::continue::
     end
 
     UpdateLayoutPatches()
+    UpdateTricks()
 end

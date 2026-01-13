@@ -1,0 +1,22 @@
+{
+    "name": "$1",
+    "type": "progressive",
+    "loop": "true",
+    "allow_disabled": false,
+    "codes": "$1",
+    "initial_stage_idx": 1,
+    "stages": [
+        {
+            "name": "$1\\nDenied",
+            "img": "images/misc/redsquare.png"
+        },
+        {
+            "name": "$1\\nLogic-Dependent",
+            "img": "images/misc/yellowsquare.png"
+        },
+        {
+            "name": "$1\\nAllowed",
+            "img": "images/misc/greensquare.png"
+        }
+    ]
+},

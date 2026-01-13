@@ -28,7 +28,7 @@
                     },
                     {
                         "type": "array",
-                        "margin": "4, 12, 0, 0",
+                        "margin": "6, 12, 0, 0",
                         "content": [
                             {
                                 "type": "text",

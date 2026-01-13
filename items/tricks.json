@@ -1,0 +1,1806 @@
+[
+    {
+        "name": "Norfair-Ridley Shortcut",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair-Ridley Shortcut",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair-Ridley Shortcut\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair-Ridley Shortcut\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair-Ridley Shortcut\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Kraid-Norfair Shortcut",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Kraid-Norfair Shortcut",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid-Norfair Shortcut\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Kraid-Norfair Shortcut\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Kraid-Norfair Shortcut\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Ridley Right Shaft Shortcut",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Ridley Right Shaft Shortcut",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Ridley Right Shaft Shortcut\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Ridley Right Shaft Shortcut\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Ridley Right Shaft Shortcut\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Chozo Ghost Access Reverse",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Chozo Ghost Access Reverse",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Chozo Ghost Access Reverse\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Chozo Ghost Access Reverse\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Chozo Ghost Access Reverse\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Mecha Ridley Hall PB Skip",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Mecha Ridley Hall PB Skip",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Mecha Ridley Hall PB Skip\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Mecha Ridley Hall PB Skip\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Mecha Ridley Hall PB Skip\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Varia Area Access Enemy Freeze",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Varia Area Access Enemy Freeze",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Varia Area Access Enemy Freeze\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Varia Area Access Enemy Freeze\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Varia Area Access Enemy Freeze\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Brinstar Varia Suit Power Bomb",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Brinstar Varia Suit Power Bomb",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Brinstar Varia Suit Power Bomb\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Brinstar Varia Suit Power Bomb\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Brinstar Varia Suit Power Bomb\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Kraid Right Shaft Enemy Freeze",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Kraid Right Shaft Enemy Freeze",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Right Shaft Enemy Freeze\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Kraid Right Shaft Enemy Freeze\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Kraid Right Shaft Enemy Freeze\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Kraid Quad Ball Cannon No Bombs",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Kraid Quad Ball Cannon No Bombs",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Quad Ball Cannon No Bombs\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Kraid Quad Ball Cannon No Bombs\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Kraid Quad Ball Cannon No Bombs\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Kraid Bottom Escape Enemy Freeze",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Kraid Bottom Escape Enemy Freeze",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Bottom Escape Enemy Freeze\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Kraid Bottom Escape Enemy Freeze\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Kraid Bottom Escape Enemy Freeze\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Under Crateria Elevator Enemy Freeze",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Under Crateria Elevator Enemy Freeze",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Under Crateria Elevator Enemy Freeze\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Under Crateria Elevator Enemy Freeze\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Under Crateria Elevator Enemy Freeze\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Big Room Walljump",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Big Room Walljump",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Big Room Walljump\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Big Room Walljump\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Big Room Walljump\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Bomb Trap PB Only",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Bomb Trap PB Only",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Bomb Trap PB Only\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Bomb Trap PB Only\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Bomb Trap PB Only\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Right Shaft Get-Around Walljump",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Right Shaft Get-Around Walljump",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Right Shaft Get-Around Walljump\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Right Shaft Get-Around Walljump\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Right Shaft Get-Around Walljump\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Screw Attack Access Shinespark",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Screw Attack Access Shinespark",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Screw Attack Access Shinespark\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Screw Attack Access Shinespark\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Screw Attack Access Shinespark\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Behind Super Door Left Enemy Freeze",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Behind Super Door Left Enemy Freeze",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Behind Super Door Left Enemy Freeze\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Behind Super Door Left Enemy Freeze\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Behind Super Door Left Enemy Freeze\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Larvae Room Missiles",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Larvae Room Missiles",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Larvae Room Missiles\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Larvae Room Missiles\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Larvae Room Missiles\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Ridley Fake Floor Skip",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Ridley Fake Floor Skip",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Ridley Fake Floor Skip\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Ridley Fake Floor Skip\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Ridley Fake Floor Skip\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Mother Brain Access Wall Jump",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Mother Brain Access Wall Jump",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Mother Brain Access Wall Jump\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Mother Brain Access Wall Jump\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Mother Brain Access Wall Jump\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Chozo Ghost Shinespark No Screw",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Chozo Ghost Shinespark No Screw",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Chozo Ghost Shinespark No Screw\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Chozo Ghost Shinespark No Screw\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Chozo Ghost Shinespark No Screw\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Chozodia Pirates Enemy Freezes",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Chozodia Pirates Enemy Freezes",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Chozodia Pirates Enemy Freezes\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Chozodia Pirates Enemy Freezes\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Chozodia Pirates Enemy Freezes\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Chozodia Under Tube Items Ballspark",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Chozodia Under Tube Items Ballspark",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Chozodia Under Tube Items Ballspark\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Chozodia Under Tube Items Ballspark\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Chozodia Under Tube Items Ballspark\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Mothership Upper Access Walljump",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Mothership Upper Access Walljump",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Mothership Upper Access Walljump\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Mothership Upper Access Walljump\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Mothership Upper Access Walljump\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Balljump to IBJ From Acid",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Balljump to IBJ From Acid",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Balljump to IBJ From Acid\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Balljump to IBJ From Acid\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Balljump to IBJ From Acid\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Brinstar Ripper Climb Zoomer Freeze",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Brinstar Ripper Climb Zoomer Freeze",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Brinstar Ripper Climb Zoomer Freeze\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Brinstar Ripper Climb Zoomer Freeze\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Brinstar Ripper Climb Zoomer Freeze\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Brinstar Top Access Damage Boost",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Brinstar Top Access Damage Boost",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Brinstar Top Access Damage Boost\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Brinstar Top Access Damage Boost\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Brinstar Top Access Damage Boost\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Varia Area Access Get-Around Walljump",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Varia Area Access Get-Around Walljump",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Varia Area Access Get-Around Walljump\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Varia Area Access Get-Around Walljump\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Varia Area Access Get-Around Walljump\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Kraid Zipline Morph Jump Without Ziplines",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Kraid Zipline Morph Jump Without Ziplines",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Zipline Morph Jump Without Ziplines\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Kraid Zipline Morph Jump Without Ziplines\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Kraid Zipline Morph Jump Without Ziplines\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Kraid Right Shaft Balljump Climb",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Kraid Right Shaft Balljump Climb",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Right Shaft Balljump Climb\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Kraid Right Shaft Balljump Climb\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Kraid Right Shaft Balljump Climb\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Kraid Left Shaft Access Space Jump Only",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Kraid Left Shaft Access Space Jump Only",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Left Shaft Access Space Jump Only\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Kraid Left Shaft Access Space Jump Only\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Kraid Left Shaft Access Space Jump Only\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Acid Worm Skip Grip Only",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Acid Worm Skip Grip Only",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Acid Worm Skip Grip Only\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Acid Worm Skip Grip Only\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Acid Worm Skip Grip Only\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Acid Worm Skip Grip And Bombs",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Acid Worm Skip Grip And Bombs",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Acid Worm Skip Grip And Bombs\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Acid Worm Skip Grip And Bombs\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Acid Worm Skip Grip And Bombs\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Kraid Quad Ball Cannon Crumble Grip",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Kraid Quad Ball Cannon Crumble Grip",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Quad Ball Cannon Crumble Grip\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Kraid Quad Ball Cannon Crumble Grip\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Kraid Quad Ball Cannon Crumble Grip\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Kraid Unknown Item Spaceboost",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Kraid Unknown Item Spaceboost",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Unknown Item Spaceboost\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Kraid Unknown Item Spaceboost\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Kraid Unknown Item Spaceboost\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Kraid Unknown Item With 2 PBs",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Kraid Unknown Item With 2 PBs",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Unknown Item With 2 PBs\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Kraid Unknown Item With 2 PBs\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Kraid Unknown Item With 2 PBs\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Kraid Bottom Escape Get-Around Walljump",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Kraid Bottom Escape Get-Around Walljump",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Kraid Bottom Escape Get-Around Walljump\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Kraid Bottom Escape Get-Around Walljump\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Kraid Bottom Escape Get-Around Walljump\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Big Room Entrance Enemy Freeze",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Big Room Entrance Enemy Freeze",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Big Room Entrance Enemy Freeze\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Big Room Entrance Enemy Freeze\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Big Room Entrance Enemy Freeze\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Ice Beam Hi-Jump Only",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Ice Beam Hi-Jump Only",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Ice Beam Hi-Jump Only\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Ice Beam Hi-Jump Only\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Ice Beam Hi-Jump Only\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Behind Ice Beam Shaft Hard Mode Enemy Freeze",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Behind Ice Beam Shaft Hard Mode Enemy Freeze",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Behind Ice Beam Shaft Hard Mode Enemy Freeze\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Behind Ice Beam Shaft Hard Mode Enemy Freeze\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Behind Ice Beam Shaft Hard Mode Enemy Freeze\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Screw Attack Access Enemy Freeze",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Screw Attack Access Enemy Freeze",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Screw Attack Access Enemy Freeze\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Screw Attack Access Enemy Freeze\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Screw Attack Access Enemy Freeze\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Lower Norfair Wave Beam Skip With Bombs",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Lower Norfair Wave Beam Skip With Bombs",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Lower Norfair Wave Beam Skip With Bombs\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Lower Norfair Wave Beam Skip With Bombs\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Lower Norfair Wave Beam Skip With Bombs\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Ridley Southwest Puzzle Crumble Jump",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Ridley Southwest Puzzle Crumble Jump",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Ridley Southwest Puzzle Crumble Jump\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Ridley Southwest Puzzle Crumble Jump\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Ridley Southwest Puzzle Crumble Jump\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Ridley Northeast Corner Get-Around Walljump",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Ridley Northeast Corner Get-Around Walljump",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Ridley Northeast Corner Get-Around Walljump\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Ridley Northeast Corner Get-Around Walljump\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Ridley Northeast Corner Get-Around Walljump\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Ridley Bomb Puzzle No Grip",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Ridley Bomb Puzzle No Grip",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Ridley Bomb Puzzle No Grip\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Ridley Bomb Puzzle No Grip\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Ridley Bomb Puzzle No Grip\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Ridley Bomb Puzzle Power Bombs",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Ridley Bomb Puzzle Power Bombs",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Ridley Bomb Puzzle Power Bombs\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Ridley Bomb Puzzle Power Bombs\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Ridley Bomb Puzzle Power Bombs\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Mother Brain Access Ice Only",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Mother Brain Access Ice Only",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Mother Brain Access Ice Only\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Mother Brain Access Ice Only\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Mother Brain Access Ice Only\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Tourian Escape Shinespark",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Tourian Escape Shinespark",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Tourian Escape Shinespark\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Tourian Escape Shinespark\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Tourian Escape Shinespark\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Tourian Escape Hard Mode IBJ",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Tourian Escape Hard Mode IBJ",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Tourian Escape Hard Mode IBJ\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Tourian Escape Hard Mode IBJ\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Tourian Escape Hard Mode IBJ\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Crateria-Chozodia Door Get-Around Walljump",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Crateria-Chozodia Door Get-Around Walljump",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Crateria-Chozodia Door Get-Around Walljump\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Crateria-Chozodia Door Get-Around Walljump\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Crateria-Chozodia Door Get-Around Walljump\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Alpha PB Area Ice Escape",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Alpha PB Area Ice Escape",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Alpha PB Area Ice Escape\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Alpha PB Area Ice Escape\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Alpha PB Area Ice Escape\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Acid Worm Skip Bomb Only",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Acid Worm Skip Bomb Only",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Acid Worm Skip Bomb Only\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Acid Worm Skip Bomb Only\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Acid Worm Skip Bomb Only\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Ridley Speed Jump No Wave",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Ridley Speed Jump No Wave",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Ridley Speed Jump No Wave\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Ridley Speed Jump No Wave\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Ridley Speed Jump No Wave\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Brinstar Ceiling E-Tank Tricky Spark",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Brinstar Ceiling E-Tank Tricky Spark",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Brinstar Ceiling E-Tank Tricky Spark\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Brinstar Ceiling E-Tank Tricky Spark\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Brinstar Ceiling E-Tank Tricky Spark\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Brinstar Ripper Climb Tricky Spark",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Brinstar Ripper Climb Tricky Spark",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Brinstar Ripper Climb Tricky Spark\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Brinstar Ripper Climb Tricky Spark\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Brinstar Ripper Climb Tricky Spark\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Varia Area Access Tricky Spark",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Varia Area Access Tricky Spark",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Varia Area Access Tricky Spark\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Varia Area Access Tricky Spark\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Varia Area Access Tricky Spark\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Acid Worm Skip Tricky Spark",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Acid Worm Skip Tricky Spark",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Acid Worm Skip Tricky Spark\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Acid Worm Skip Tricky Spark\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Acid Worm Skip Tricky Spark\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Lower Norfair Wave Beam Skip Tricky Spark",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Lower Norfair Wave Beam Skip Tricky Spark",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Lower Norfair Wave Beam Skip Tricky Spark\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Lower Norfair Wave Beam Skip Tricky Spark\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Lower Norfair Wave Beam Skip Tricky Spark\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Ridley Left Shaft Climb Tricky Spark",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Ridley Left Shaft Climb Tricky Spark",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Ridley Left Shaft Climb Tricky Spark\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Ridley Left Shaft Climb Tricky Spark\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Ridley Left Shaft Climb Tricky Spark\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Crateria Upper Access Tricky Spark",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Crateria Upper Access Tricky Spark",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Crateria Upper Access Tricky Spark\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Crateria Upper Access Tricky Spark\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Crateria Upper Access Tricky Spark\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Crateria Northeast Corner Tricky Spark",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Crateria Northeast Corner Tricky Spark",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Crateria Northeast Corner Tricky Spark\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Crateria Northeast Corner Tricky Spark\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Crateria Northeast Corner Tricky Spark\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Brinstar Acid Near Varia Acid Dive - Normal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Brinstar Acid Near Varia Acid Dive - Normal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Brinstar Acid Near Varia Acid Dive - Normal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Brinstar Acid Near Varia Acid Dive - Normal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Brinstar Acid Near Varia Acid Dive - Normal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Above Ice Hellrun - Normal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Above Ice Hellrun - Normal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Above Ice Hellrun - Normal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Above Ice Hellrun - Normal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Above Ice Hellrun - Normal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Under Elevator Hellrun - Normal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Under Elevator Hellrun - Normal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Under Elevator Hellrun - Normal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Under Elevator Hellrun - Normal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Under Elevator Hellrun - Normal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Right Shaft to Lower Hellrun - Normal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Right Shaft to Lower Hellrun - Normal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Right Shaft to Lower Hellrun - Normal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Right Shaft to Lower Hellrun - Normal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Right Shaft to Lower Hellrun - Normal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Lower Norfair to Right Shaft Hellrun - Normal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Lower Norfair to Right Shaft Hellrun - Normal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Lower Norfair to Right Shaft Hellrun - Normal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Lower Norfair to Right Shaft Hellrun - Normal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Lower Norfair to Right Shaft Hellrun - Normal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Under Wave Hellrun Left - Normal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Under Wave Hellrun Left - Normal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Under Wave Hellrun Left - Normal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Under Wave Hellrun Left - Normal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Under Wave Hellrun Left - Normal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Under Wave Hellrun Right - Normal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Under Wave Hellrun Right - Normal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Under Wave Hellrun Right - Normal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Under Wave Hellrun Right - Normal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Under Wave Hellrun Right - Normal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Lower Norfair Lava Dive - Normal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Lower Norfair Lava Dive - Normal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Lower Norfair Lava Dive - Normal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Lower Norfair Lava Dive - Normal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Lower Norfair Lava Dive - Normal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Ridley Hellrun - Normal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Ridley Hellrun - Normal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Ridley Hellrun - Normal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Ridley Hellrun - Normal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Ridley Hellrun - Normal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Chozodia Lava Dive Item - Normal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Chozodia Lava Dive Item - Normal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Chozodia Lava Dive Item - Normal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Chozodia Lava Dive Item - Normal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Chozodia Lava Dive Item - Normal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Chozodia Lava Dive Escape - Normal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Chozodia Lava Dive Escape - Normal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Chozodia Lava Dive Escape - Normal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Chozodia Lava Dive Escape - Normal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Chozodia Lava Dive Escape - Normal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Brinstar Acid Near Varia Acid Dive - Minimal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Brinstar Acid Near Varia Acid Dive - Minimal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Brinstar Acid Near Varia Acid Dive - Minimal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Brinstar Acid Near Varia Acid Dive - Minimal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Brinstar Acid Near Varia Acid Dive - Minimal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Above Ice Hellrun - Minimal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Above Ice Hellrun - Minimal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Above Ice Hellrun - Minimal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Above Ice Hellrun - Minimal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Above Ice Hellrun - Minimal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Under Elevator Hellrun - Minimal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Under Elevator Hellrun - Minimal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Under Elevator Hellrun - Minimal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Under Elevator Hellrun - Minimal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Under Elevator Hellrun - Minimal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Right Shaft to Lower Hellrun - Minimal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Right Shaft to Lower Hellrun - Minimal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Right Shaft to Lower Hellrun - Minimal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Right Shaft to Lower Hellrun - Minimal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Right Shaft to Lower Hellrun - Minimal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Lower Norfair to Right Shaft Hellrun - Minimal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Lower Norfair to Right Shaft Hellrun - Minimal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Lower Norfair to Right Shaft Hellrun - Minimal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Lower Norfair to Right Shaft Hellrun - Minimal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Lower Norfair to Right Shaft Hellrun - Minimal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Under Wave Hellrun Left - Minimal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Under Wave Hellrun Left - Minimal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Under Wave Hellrun Left - Minimal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Under Wave Hellrun Left - Minimal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Under Wave Hellrun Left - Minimal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Norfair Under Wave Hellrun Right - Minimal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Norfair Under Wave Hellrun Right - Minimal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Norfair Under Wave Hellrun Right - Minimal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Norfair Under Wave Hellrun Right - Minimal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Norfair Under Wave Hellrun Right - Minimal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Lower Norfair Lava Dive - Minimal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Lower Norfair Lava Dive - Minimal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Lower Norfair Lava Dive - Minimal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Lower Norfair Lava Dive - Minimal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Lower Norfair Lava Dive - Minimal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Ridley Hellrun - Minimal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Ridley Hellrun - Minimal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Ridley Hellrun - Minimal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Ridley Hellrun - Minimal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Ridley Hellrun - Minimal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Chozodia Lava Dive Item - Minimal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Chozodia Lava Dive Item - Minimal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Chozodia Lava Dive Item - Minimal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Chozodia Lava Dive Item - Minimal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Chozodia Lava Dive Item - Minimal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    },
+    {
+        "name": "Chozodia Lava Dive Escape - Minimal",
+        "type": "progressive",
+        "loop": "true",
+        "allow_disabled": false,
+        "codes": "Chozodia Lava Dive Escape - Minimal",
+        "initial_stage_idx": 1,
+        "stages": [
+            {
+                "name": "Chozodia Lava Dive Escape - Minimal\nDenied",
+                "img": "images/misc/redsquare.png"
+            },
+            {
+                "name": "Chozodia Lava Dive Escape - Minimal\nLogic-Dependent",
+                "img": "images/misc/yellowsquare.png"
+            },
+            {
+                "name": "Chozodia Lava Dive Escape - Minimal\nAllowed",
+                "img": "images/misc/greensquare.png"
+            }
+        ]
+    }
+]

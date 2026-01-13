@@ -1,6 +1,11 @@
 # A script that runs a bunch of regex to translate apworld logic files into Lua.
 # This is SO COOL. Super hyped that it all works!
 
+# Stuff to fix up:
+# - removal of trailing commas
+# - requirements.lua (it's super broken)
+
+
 import re
 from collections.abc import Callable
 
@@ -171,63 +176,81 @@ def strip_requirements_start(input: str) -> str:
 def strip_region_rules_start(input: str) -> str:
     return re.sub(r"^.*?(?=# Regional connection)", r"", input, flags=re.DOTALL)
 
+def strip_tricks_start(input: str) -> str:
+    return re.sub(r"^.*?(?=tricks_normal)", r"", input, flags=re.DOTALL)
+
+def strip_tricks_end(input: str) -> str:
+    return re.sub(r"(?=).*", r"all_tricks", input, flags=re.DOTALL)
 
 # Test
 # translate("test.txt", "temp/output.txt", [any_all, none_to_true, table_strings, def_to_function])
 
-# create_regions.lua
-translate(
-    "python_from_apworld/regions.py",
-    "scripts/logic/translated_from_apworld/create_regions.lua",
-    [
-        strip_regions_start,
-        *common_transformations,
-        create_region,
-        connect,
-        remove_create_rule,
-    ],
-)
+# # create_regions.lua
+# translate(
+#     "python_from_apworld/regions.py",
+#     "scripts/logic/translated_from_apworld/create_regions.lua",
+#     [
+#         strip_regions_start,
+#         *common_transformations,
+#         create_region,
+#         connect,
+#         remove_create_rule,
+#     ],
+# )
 
-# location_region_mappings.lua
-translate(
-    "python_from_apworld/locations.py",
-    "scripts/logic/translated_from_apworld/location_region_mappings.lua",
-    [
-        strip_location_tables_start,
-        strip_location_tables_end,
-        *common_transformations,
-        remove_locationdata,
-    ],
-)
+# # location_region_mappings.lua
+# translate(
+#     "python_from_apworld/locations.py",
+#     "scripts/logic/translated_from_apworld/location_region_mappings.lua",
+#     [
+#         strip_location_tables_start,
+#         strip_location_tables_end,
+#         *common_transformations,
+#         remove_locationdata,
+#     ],
+# )
 
-# location_rules.lua
-translate(
-    "python_from_apworld/rules.py",
-    "scripts/logic/translated_from_apworld/location_rules.lua",
-    [
-        strip_location_rules_start,
-        strip_location_rules_end,
-        *common_transformations,
-    ],
-)
+# # location_rules.lua
+# translate(
+#     "python_from_apworld/rules.py",
+#     "scripts/logic/translated_from_apworld/location_rules.lua",
+#     [
+#         strip_location_rules_start,
+#         strip_location_rules_end,
+#         *common_transformations,
+#     ],
+# )
 
-# region_rules.lua
-translate(
-    "python_from_apworld/rules.py",
-    "scripts/logic/translated_from_apworld/region_rules.lua",
-    [
-        strip_region_rules_start,
-        *common_transformations,
-    ],
-)
+# # region_rules.lua
+# translate(
+#     "python_from_apworld/rules.py",
+#     "scripts/logic/translated_from_apworld/region_rules.lua",
+#     [
+#         strip_region_rules_start,
+#         *common_transformations,
+#     ],
+# )
 
-# requirements_lua
+# # requirements_lua
+# # This needs a lot of work.
+# translate(
+#     "python_from_apworld/logic.py",
+#     "scripts/logic/translated_from_apworld/requirements.lua",
+#     [
+#         strip_requirements_start,
+#         *common_transformations,
+#         count,
+#     ],
+# )
+
+# tricks.lua
+# Manually replace array thing at the end.
 translate(
-    "python_from_apworld/logic.py",
-    "scripts/logic/translated_from_apworld/requirements.lua",
+    "python_from_apworld/tricks.py",
+    "scripts/logic/translated_from_apworld/tricks.lua",
     [
-        strip_requirements_start,
+        strip_tricks_start,
+        strip_tricks_end,
         *common_transformations,
-        count,
     ],
 )

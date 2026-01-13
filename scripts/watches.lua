@@ -83,9 +83,42 @@ function UpdateUnknownSpaceJump() UpdateUnknownItemIcon("Space Jump") end
 function UpdateUnknownGravitySuit() UpdateUnknownItemIcon("Gravity Suit") end
 
 function UpdateUnknownItemIcons()
+    -- Putting this here so you can't take off the suit if the option
+    -- starts you with it.
+    local option = Tracker:FindObjectForCode("unknown_items_usable")
+    local item = Tracker:FindObjectForCode("Fully Powered Suit")
+    if option and option.CurrentStage > 1 then
+        item.Active = true
+    end
     UpdateUnknownPlasmaBeam()
     UpdateUnknownSpaceJump()
     UpdateUnknownGravitySuit()
+end
+
+function UpdateFullyPoweredSuitItem()
+    local option = Tracker:FindObjectForCode("unknown_items_usable")
+    local item = Tracker:FindObjectForCode("Fully Powered Suit")
+    if not option or not item then
+        return
+    end
+    if option.CurrentStage > 1 then
+        item.Active = true
+    else
+        item.Active = false
+    end
+end
+
+function UpdateWalljumpItem()
+    local option = Tracker:FindObjectForCode("walljumps")
+    local item = Tracker:FindObjectForCode("Wall Jump")
+    if not option or not item then
+        return
+    end
+    if option.CurrentStage > 1 then
+        item.Active = true
+    else
+        item.Active = false
+    end
 end
 
 -- The function for updating layout patches is in `layout_patches.lua`.

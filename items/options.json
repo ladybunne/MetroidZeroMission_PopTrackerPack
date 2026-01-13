@@ -25,7 +25,7 @@
     {
         "name": "Metroid DNA Available",
         "codes": "metroid_dna_available",
-        "img": "images/items/MetroidDNA.png",
+        "img": "images/items/MetroidDNAGreen.png",
         "type": "consumable",
         "initial_quantity": 5,
         "max_quantity": 25,
@@ -35,8 +35,7 @@
     {
         "name": "Metroid DNA Required",
         "codes": "metroid_dna_required",
-        "img_mods": "overlay|images/misc/Tick.png",
-        "img": "images/items/MetroidDNA.png",
+        "img": "images/items/MetroidDNAYellow.png",
         "type": "consumable",
         "initial_quantity": 5,
         "max_quantity": 25,

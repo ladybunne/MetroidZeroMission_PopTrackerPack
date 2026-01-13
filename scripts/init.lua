@@ -6,6 +6,7 @@ Tracker:AddItems("items/equipment.json")
 Tracker:AddItems("items/events.json")
 Tracker:AddItems("items/options.json")
 Tracker:AddItems("items/layout_patches.json")
+Tracker:AddItems("items/tricks.json")
 
 -- Maps
 Tracker:AddMaps("maps/maps.json")
@@ -23,6 +24,7 @@ ScriptHost:LoadScript("scripts/utils.lua")
 
 ScriptHost:LoadScript("scripts/tab_switching.lua")
 ScriptHost:LoadScript("scripts/layout_patches.lua")
+ScriptHost:LoadScript("scripts/load_tricks.lua")
 ScriptHost:LoadScript("scripts/yaml_options.lua")
 ScriptHost:LoadScript("scripts/events.lua")
 
@@ -43,7 +45,9 @@ ScriptHost:LoadScript("scripts/logic/scout_rules.lua")
 ScriptHost:LoadScript("scripts/logic/out_of_logic_rules.lua")
 
 ScriptHost:LoadScript("scripts/watches.lua")
+UpdateFullyPoweredSuitItem()
 UpdateUnknownItemIcons()
+UpdateWalljumpItem()
 
 -- Layouts
 Tracker:AddLayouts("layouts/maps.json")
@@ -84,6 +88,9 @@ ScriptHost:AddWatchForCode("UpdateMetroidDNAAvailable", "metroid_dna_available",
 -- This is the nichest of niche UX improvements, but I like it, and that's what matters.
 ScriptHost:AddWatchForCode("AutoSwitchTabOnOptionEnabled", "auto_switch_tabs", SwitchTabOnAutoSwitchOptionEnabled)
 
+-- Watch for changes to the option for Fully Powered Suit and force the item's state accordingly.
+ScriptHost:AddWatchForCode("FullyPoweredSuitOption", "unknown_items_usable", UpdateFullyPoweredSuitItem)
+
 -- Watch for a change to Fully Powered Suit...
 -- then update their item graphics in the tracker to reflect whether they're usable.
 ScriptHost:AddWatchForCode("UnknownItemsIconsFullyPoweredSuit", "Fully Powered Suit", UpdateUnknownItemIcons)
@@ -92,6 +99,9 @@ ScriptHost:AddWatchForCode("UnknownItemsIconsFullyPoweredSuit", "Fully Powered S
 ScriptHost:AddWatchForCode("UnknownItemsIconsPlasmaBeam", "Plasma Beam", UpdateUnknownPlasmaBeam)
 ScriptHost:AddWatchForCode("UnknownItemsIconsSpaceJump", "Space Jump", UpdateUnknownSpaceJump)
 ScriptHost:AddWatchForCode("UnknownItemsIconsGravitySuit", "Gravity Suit", UpdateUnknownGravitySuit)
+
+-- Watch for changes to the option for walljumps and force the item's state accordingly.
+ScriptHost:AddWatchForCode("WalljumpOption", "walljumps", UpdateWalljumpItem)
 
 -- Watch the Layout Patches setting and toggle patches accordingly.
 ScriptHost:AddWatchForCode("UpdateLayoutPatches", "layout_patches", UpdateLayoutPatches)

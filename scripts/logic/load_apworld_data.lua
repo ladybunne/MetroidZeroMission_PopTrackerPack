@@ -57,6 +57,15 @@ local location_region_mappings_from_apworld = {
     chozodia_location_table,
 }
 
+local trick_tables_from_apworld = {
+    tricks_normal,
+    tricks_advanced,
+    tricks_ludicrous,
+    tricky_shinesparks,
+    hazard_runs_normal,
+    hazard_runs_minimal
+}
+
 -- Unpack all tables in `tables_from_apworld` and put them all in one table!
 for k, v in pairs(location_tables_from_apworld) do
     for k2, v2 in pairs(v) do
@@ -69,6 +78,14 @@ end
 for k, v in pairs(location_region_mappings_from_apworld) do
     for k2, v2 in pairs(v) do
         location_regions[k2] = v2
+        -- print(string.format("%s, %s", k2, v2))
+    end
+end
+
+-- And the same for tricks.
+for k, v in pairs(trick_tables_from_apworld) do
+    for k2, v2 in pairs(v) do
+        tricks[k2] = v2
         -- print(string.format("%s, %s", k2, v2))
     end
 end

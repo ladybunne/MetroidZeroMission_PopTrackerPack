@@ -1,6 +1,21 @@
 {
     "versions": [
         {
+            "package_version": "1.4.0",
+            "download_url": "https://github.com/ladybunne/MetroidZeroMission_PopTrackerPack/releases/download/v1.4.0/MetroidZeroMission_PopTrackerPack.zip",
+            "sha256": "9a9877ad5136263db1df83c24f8cb14d34267b55de38a56b3da2f9357a3b7563",
+            "changelog": [
+                "Added new items: Wall Jump, Spring Ball, Fully Powered Suit, Metroid DNA",
+                "Added new options: Metroid DNA Required, Metroid DNA Available, Walljumps, Selected Patches, Tricks Allowed, Tricks Denied",
+                "Added new choices for existing options: Goal, Fully Powered Suit",
+                "Added support for all layout patches and all tricks",
+                "Overhauled settings popup: new two-column options page, new selected layout patches grid, new (WIP) allowed/denied tricks grid",
+                "Updated to latest logic (apworld version 0.4.2)",
+                "Added new assets: credits to myself, Mystical, lil David, PaperKoopa and Nintendo",
+                "Updated equipment layouts to accommmodate new items"
+            ]
+        },
+        {
             "package_version": "1.3",
             "download_url": "https://github.com/ladybunne/MetroidZeroMission_PopTrackerPack/releases/download/v1.3/MetroidZeroMission_PopTrackerPack.zip",
             "sha256": "7a72301f46f26e21c401787f170dfadd48a4abce1084c2327abab87386186265",

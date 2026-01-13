@@ -10,22 +10,16 @@ UnknownItem2 = CanReachLocation("Kraid Unknown Item Statue")
 UnknownItem3 = CanReachLocation("Ridley Unknown Item Statue")
 
 CanUseUnknownItems = Has("Fully Powered Suit")
-LayoutPatches = function(n) return Any(
+LayoutPatches = function(patch) return Any(
     OptionIs("layout_patches", 1),
     All(
         OptionIs("layout_patches", 2),
-        -- TODO Implement this
-        -- Requirement.setting_contains("selected_patches", n)
-        True
+        OptionIs(patch, 1)
     )
 )  end
-Trick = function(n) return All(
-    -- TODO Implement this
-    -- Requirement.trick_enabled(n),
-    True,
-    -- TODO Implement this
-    -- Requirement.trick_rule(n)
-    True
+Trick = function(trick) return All(
+    OptionIs(trick, 2),
+    tricks[trick]
 ) end
 
 NormalMode = OptionIs("game_difficulty", "normal")
@@ -373,8 +367,6 @@ ReachedGoal = Any(
     ),
     All(
         OptionIs("goal", "metroid_dna"),
-        -- TODO Implement this
-        -- Requirement.has_metroid_dna()
-        True
+        function() return METROID_DNA.ItemState.current >= Count("metroid_dna_required")() end
     )
 )

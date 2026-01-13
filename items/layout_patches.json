@@ -8,12 +8,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Brinstar Long Beam Hall - Disabled",
+                "name": "Brinstar Long Beam Hall\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/brinstar_long_beam_hall.png"
             },
             {
-                "name": "Brinstar Long Beam Hall - Enabled",
+                "name": "Brinstar Long Beam Hall\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/brinstar_long_beam_hall_patched.png"
             }
@@ -28,12 +28,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Brinstar Top - Disabled",
+                "name": "Brinstar Top\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/brinstar_top.png"
             },
             {
-                "name": "Brinstar Top - Enabled",
+                "name": "Brinstar Top\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/brinstar_top_patched.png"
             }
@@ -48,12 +48,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Brinstar Bridge - Disabled",
+                "name": "Brinstar Bridge\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/brinstar_bridge.png"
             },
             {
-                "name": "Brinstar Bridge - Enabled",
+                "name": "Brinstar Bridge\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/brinstar_bridge_patched.png"
             }
@@ -68,12 +68,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Kraid Speed Jump - Disabled",
+                "name": "Kraid Speed Jump\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/kraid_speed_jump.png"
             },
             {
-                "name": "Kraid Speed Jump - Enabled",
+                "name": "Kraid Speed Jump\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/kraid_speed_jump_patched.png"
             }
@@ -88,12 +88,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Kraid Map Ball Cannon - Disabled",
+                "name": "Kraid Map Ball Cannon\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/kraid_map_ballcannon.png"
             },
             {
-                "name": "Kraid Map Ball Cannon - Enabled",
+                "name": "Kraid Map Ball Cannon\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/kraid_map_ballcannon_patched.png"
             }
@@ -108,12 +108,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Kraid Right Shaft - Disabled",
+                "name": "Kraid Right Shaft\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/kraid_right_shaft.png"
             },
             {
-                "name": "Kraid Right Shaft - Enabled",
+                "name": "Kraid Right Shaft\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/kraid_right_shaft_patched.png"
             }
@@ -128,12 +128,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Norfair Brinstar Elevator - Disabled",
+                "name": "Norfair Brinstar Elevator\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/norfair_brinstar_elevator.png"
             },
             {
-                "name": "Norfair Brinstar Elevator - Enabled",
+                "name": "Norfair Brinstar Elevator\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/norfair_brinstar_elevator_patched.png"
             }
@@ -148,12 +148,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Norfair Larvae Room - Disabled",
+                "name": "Norfair Larvae Room\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/norfair_larvae_room.png"
             },
             {
-                "name": "Norfair Larvae Room - Enabled",
+                "name": "Norfair Larvae Room\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/norfair_larvae_room_patched.png"
             }
@@ -168,12 +168,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Norfair Behind Super Door - Disabled",
+                "name": "Norfair Behind Super Door\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/norfair_behind_superdoor.png"
             },
             {
-                "name": "Norfair Behind Super Door - Enabled",
+                "name": "Norfair Behind Super Door\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/norfair_behind_superdoor_patched.png"
             }
@@ -188,12 +188,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Ridley Ball Cannon - Disabled",
+                "name": "Ridley Ball Cannon\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/ridley_ballcannon.png"
             },
             {
-                "name": "Ridley Ball Cannon - Enabled",
+                "name": "Ridley Ball Cannon\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/ridley_ballcannon_patched.png"
             }
@@ -208,12 +208,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Crateria Moat - Disabled",
+                "name": "Crateria Moat\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/crateria_moat.png"
             },
             {
-                "name": "Crateria Moat - Enabled",
+                "name": "Crateria Moat\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/crateria_moat_patched.png"
             }
@@ -228,12 +228,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Crateria Water Speedway - Disabled",
+                "name": "Crateria Water Speedway\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/crateria_water_speedway.png"
             },
             {
-                "name": "Crateria Water Speedway - Enabled",
+                "name": "Crateria Water Speedway\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/crateria_water_speedway_patched.png"
             }
@@ -248,12 +248,12 @@
         "initial_stage_idx": 1,
         "stages": [
             {
-                "name": "Crateria Left of Grip - Disabled",
+                "name": "Crateria Left of Grip\nDisabled",
                 "img_mods": "overlay|images/layout_patches/PatchDisabled.png",
                 "img": "images/layout_patches/crateria_left_of_grip.png"
             },
             {
-                "name": "Crateria Left of Grip - Enabled",
+                "name": "Crateria Left of Grip\nEnabled",
                 "img_mods": "overlay|images/layout_patches/PatchEnabled.png",
                 "img": "images/layout_patches/crateria_left_of_grip_patched.png"
             }

@@ -1,16 +1,18 @@
 {
     "options": {
-        "type": "container",
+        "type": "dock",
         "background": "#000000",
         "content": [
             {
                 "type": "array",
+                "dock": "left",
                 "orientation": "vertical",
                 "margin": "0, 0, 0, 0",
                 "content": [
                     {
                         "type": "array",
                         "orientation": "horizontal",
+                        "margin": "6, 0, 130, 0",
                         "content": [
                             {
                                 "type": "item",
@@ -29,6 +31,7 @@
                     {
                         "type": "array",
                         "orientation": "horizontal",
+                        "margin": "6, 0, 0, 0",
                         "content": [
                             {
                                 "type": "item",
@@ -44,9 +47,10 @@
                             }
                         ]
                     },
-                                        {
+                    {
                         "type": "array",
                         "orientation": "horizontal",
+                        "margin": "6, 0, 0, 0",
                         "content": [
                             {
                                 "type": "item",
@@ -65,6 +69,7 @@
                     {
                         "type": "array",
                         "orientation": "horizontal",
+                        "margin": "6, 0, 0, 0",
                         "content": [
                             {
                                 "type": "item",
@@ -83,42 +88,7 @@
                     {
                         "type": "array",
                         "orientation": "horizontal",
-                        "content": [
-                            {
-                                "type": "item",
-                                "item": "chozodia_access",
-                                "max_height": 32,
-                                "max_width": 32,
-                                "margin": "4"
-                            },
-                            {
-                                "type": "text",
-                                "text": "Chozodia Access",
-                                "v_alignment": "center"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "array",
-                        "orientation": "horizontal",
-                        "content": [
-                            {
-                                "type": "item",
-                                "item": "unknown_items_usable",
-                                "max_height": 32,
-                                "max_width": 32,
-                                "margin": "4"
-                            },
-                            {
-                                "type": "text",
-                                "text": "Fully Powered Suit",
-                                "v_alignment": "center"
-                            }
-                        ]
-                    },
-                    {
-                        "type": "array",
-                        "orientation": "horizontal",
+                        "margin": "6, 0, 0, 0",
                         "content": [
                             {
                                 "type": "item",
@@ -137,6 +107,7 @@
                     {
                         "type": "array",
                         "orientation": "horizontal",
+                        "margin": "6, 0, 0, 0",
                         "content": [
                             {
                                 "type": "item",
@@ -148,6 +119,50 @@
                             {
                                 "type": "text",
                                 "text": "Combat Logic Difficulty",
+                                "v_alignment": "center"
+                            }
+                        ]
+                    },
+                    {
+                        "type": "array",
+                        "orientation": "horizontal",
+                        "margin": "6, 0, 0, 0",
+                        "content": [
+                            {
+                                "type": "item",
+                                "item": "chozodia_access",
+                                "max_height": 32,
+                                "max_width": 32,
+                                "margin": "4"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Chozodia Access",
+                                "v_alignment": "center"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "type": "array",
+                "orientation": "vertical",
+                "margin": "0, 0, 0, 0",
+                "content": [
+                    {
+                        "type": "array",
+                        "orientation": "horizontal",
+                        "content": [
+                            {
+                                "type": "item",
+                                "item": "unknown_items_usable",
+                                "max_height": 32,
+                                "max_width": 32,
+                                "margin": "4"
+                            },
+                            {
+                                "type": "text",
+                                "text": "Fully Powered Suit",
                                 "v_alignment": "center"
                             }
                         ]

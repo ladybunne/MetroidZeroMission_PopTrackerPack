@@ -2,6 +2,9 @@
 access_rules = {}
 location_regions = {}
 
+-- Tricks.
+tricks = {}
+
 -- Additional access rules that live on PopTracker's side (not inherited from apworld).
 additional_access_rules = {}
 

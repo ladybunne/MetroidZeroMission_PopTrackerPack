@@ -11,8 +11,8 @@
                 "h_alignment": "center",
                 "rows": [
                     ["Morph Ball", "Bomb", "Power Grip", "Speed Booster"],
-                    ["Hi-Jump", "Screw Attack", "Space Jump"],
-                    ["Varia Suit", "Gravity Suit"]
+                    ["Hi-Jump", "Spring Ball", "Screw Attack", "Space Jump"],
+                    ["Wall Jump", "Varia Suit", "Gravity Suit", "Fully Powered Suit"]
                 ]
             },
             {
@@ -31,7 +31,8 @@
                 "margin": "0, 10",
                 "h_alignment": "center",
                 "rows": [
-                    ["Energy Tank", "Missile Tank", "Super Missile Tank", "Power Bomb Tank"]
+                    ["Energy Tank", "Missile Tank", "Super Missile Tank", "Power Bomb Tank"],
+                    ["Metroid DNA"]
                 ]
             }
         ]
