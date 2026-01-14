@@ -2,7 +2,7 @@
 name: Tracker non-logic bug
 about: A bug with the pack's functionality, not related to logic
 title: "[Bug] Title"
-labels: bug
+labels: bug, tracker non-logic
 assignees: ladybunne
 
 ---
