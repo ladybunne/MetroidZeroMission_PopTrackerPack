@@ -121,4 +121,14 @@ function UpdateWalljumpItem()
     end
 end
 
+function PreventRemovingWalljump()
+    local option = Tracker:FindObjectForCode("walljumps")
+    local item = Tracker:FindObjectForCode("Wall Jump")
+    if not option or not item then
+        return
+    end
+    if option.CurrentStage > 1 then
+        item.Active = true
+    end
+end
 -- The function for updating layout patches is in `layout_patches.lua`.

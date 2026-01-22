@@ -34,6 +34,7 @@ ScriptHost:LoadScript("scripts/logic/helpers.lua")
     -- From apworld
     ScriptHost:LoadScript("scripts/logic/translated_from_apworld/requirements.lua")
     ScriptHost:LoadScript("scripts/logic/translated_from_apworld/location_region_mappings.lua")
+    ScriptHost:LoadScript("scripts/logic/translated_from_apworld/tricks.lua")
     ScriptHost:LoadScript("scripts/logic/translated_from_apworld/location_rules.lua")
     ScriptHost:LoadScript("scripts/logic/translated_from_apworld/region_rules.lua")
     ScriptHost:LoadScript("scripts/logic/translated_from_apworld/create_regions.lua")
@@ -102,6 +103,9 @@ ScriptHost:AddWatchForCode("UnknownItemsIconsGravitySuit", "Gravity Suit", Updat
 
 -- Watch for changes to the option for walljumps and force the item's state accordingly.
 ScriptHost:AddWatchForCode("WalljumpOption", "walljumps", UpdateWalljumpItem)
+
+-- Prevent removing walljumps if your option forces it on.
+ScriptHost:AddWatchForCode("PreventRemovingWalljump", "Wall Jump", PreventRemovingWalljump)
 
 -- Watch the Layout Patches setting and toggle patches accordingly.
 ScriptHost:AddWatchForCode("UpdateLayoutPatches", "layout_patches", UpdateLayoutPatches)
