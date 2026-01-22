@@ -1,6 +1,15 @@
 {
     "versions": [
         {
+            "package_version": "1.4.1",
+            "download_url": "https://github.com/ladybunne/MetroidZeroMission_PopTrackerPack/releases/download/v1.4.1/MetroidZeroMission_PopTrackerPack.zip",
+            "sha256": "7b3037659992f663db1866c1c52e0e05ea0881d194347ce1df5e55942db78ca1",
+            "changelog": [
+                "Fixed a bug preventing trick data from the apworld from being loaded",
+                "Added a watch to Wall Jump's option to prevent toggling the item if it can't ever be disabled due to options"
+            ]
+        },
+        {
             "package_version": "1.4.0",
             "download_url": "https://github.com/ladybunne/MetroidZeroMission_PopTrackerPack/releases/download/v1.4.0/MetroidZeroMission_PopTrackerPack.zip",
             "sha256": "9a9877ad5136263db1df83c24f8cb14d34267b55de38a56b3da2f9357a3b7563",
