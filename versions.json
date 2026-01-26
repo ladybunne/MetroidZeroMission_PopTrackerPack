@@ -2,7 +2,7 @@
     "versions": [
         {
             "package_version": "1.4.2",
-            "download_url": "https://github.com/ladybunne/MetroidZeroMission_PopTrackerPack/releases/download/v1.4.1/MetroidZeroMission_PopTrackerPack.zip",
+            "download_url": "https://github.com/ladybunne/MetroidZeroMission_PopTrackerPack/releases/download/v1.4.2/MetroidZeroMission_PopTrackerPack.zip",
             "sha256": "7a855ff67be27c8be1e543e03dac3edd80b1b9415b1e15b013ea65cf7004583c",
             "changelog": [
                 "Fix SHA issue with previous release"
