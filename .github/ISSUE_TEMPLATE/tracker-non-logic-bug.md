@@ -48,5 +48,7 @@ assignees: ladybunne
 Please attach the following:
 
 - [ ] An exported state from PopTracker. To get it, click the button up the top left that looks like a rectangle with a right arrow.
-- [ ] The apworld you used to generate the world.
 - [ ] The yaml you used to generate the world.
+
+Please link to the following:
+- [ ] The release page for version of the apworld you're using.
