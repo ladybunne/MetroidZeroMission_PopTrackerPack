@@ -15,4 +15,4 @@ print("---------------------------------------------------------------------")
 print("")
 
 -- loads the AP autotracking code
-ScriptHost:LoadScript("scripts/autotracking/archipelago.lua")
+ScriptHost:LoadScript("src/autotracking/archipelago.lua")

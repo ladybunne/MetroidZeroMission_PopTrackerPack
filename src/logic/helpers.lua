@@ -163,7 +163,7 @@ function CanReachEntrance(entrance)
     end
 end
 
-require("logic.logic")
+require("src.logic.logic")
 
 function CanReachLocation(location)
     return function()

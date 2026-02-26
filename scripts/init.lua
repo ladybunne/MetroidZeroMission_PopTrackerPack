@@ -15,37 +15,37 @@ Tracker:AddMaps("maps/maps.json")
 Tracker:AddLocations("locations/locations.json")
 
 -- Lua items
-ScriptHost:LoadScript("scripts/lua_items/metroid_dna.lua")
-ScriptHost:LoadScript("scripts/lua_items.lua")
+ScriptHost:LoadScript("src/lua_items/metroid_dna.lua")
+ScriptHost:LoadScript("src/lua_items/lua_items.lua")
 UpdateLuaItems()
 
 -- Non-logic helpers
-ScriptHost:LoadScript("scripts/utils.lua")
+ScriptHost:LoadScript("src/utils.lua")
 
-ScriptHost:LoadScript("scripts/tab_switching.lua")
-ScriptHost:LoadScript("scripts/layout_patches.lua")
-ScriptHost:LoadScript("scripts/load_tricks.lua")
-ScriptHost:LoadScript("scripts/yaml_options.lua")
-ScriptHost:LoadScript("scripts/events.lua")
+ScriptHost:LoadScript("src/setup/tab_switching.lua")
+ScriptHost:LoadScript("src/setup/layout_patches.lua")
+ScriptHost:LoadScript("src/setup/load_tricks.lua")
+ScriptHost:LoadScript("src/setup/yaml_options.lua")
+ScriptHost:LoadScript("src/setup/events.lua")
 
 -- Logic
-ScriptHost:LoadScript("scripts/logic/helpers.lua")
+ScriptHost:LoadScript("src/logic/helpers.lua")
 
     -- From apworld
-    ScriptHost:LoadScript("scripts/logic/translated_from_apworld/requirements.lua")
-    ScriptHost:LoadScript("scripts/logic/translated_from_apworld/location_region_mappings.lua")
-    ScriptHost:LoadScript("scripts/logic/translated_from_apworld/tricks.lua")
-    ScriptHost:LoadScript("scripts/logic/translated_from_apworld/location_rules.lua")
-    ScriptHost:LoadScript("scripts/logic/translated_from_apworld/region_rules.lua")
-    ScriptHost:LoadScript("scripts/logic/translated_from_apworld/create_regions.lua")
+    ScriptHost:LoadScript("src/from_apworld/requirements.lua")
+    ScriptHost:LoadScript("src/from_apworld/location_region_mappings.lua")
+    ScriptHost:LoadScript("src/from_apworld/tricks.lua")
+    ScriptHost:LoadScript("src/from_apworld/location_rules.lua")
+    ScriptHost:LoadScript("src/from_apworld/region_rules.lua")
+    ScriptHost:LoadScript("src/from_apworld/create_regions.lua")
 
-ScriptHost:LoadScript("scripts/logic/logic.lua")
-ScriptHost:LoadScript("scripts/logic/load_apworld_data.lua")
-ScriptHost:LoadScript("scripts/logic/additional_rules.lua")
-ScriptHost:LoadScript("scripts/logic/scout_rules.lua")
-ScriptHost:LoadScript("scripts/logic/out_of_logic_rules.lua")
+ScriptHost:LoadScript("src/logic/logic.lua")
+ScriptHost:LoadScript("src/logic/load_apworld_data.lua")
+ScriptHost:LoadScript("src/logic/additional_rules.lua")
+ScriptHost:LoadScript("src/logic/scout_rules.lua")
+ScriptHost:LoadScript("src/logic/out_of_logic_rules.lua")
 
-ScriptHost:LoadScript("scripts/watches.lua")
+ScriptHost:LoadScript("src/setup/watches.lua")
 UpdateFullyPoweredSuitItem()
 UpdateUnknownItemIcons()
 UpdateWalljumpItem()
@@ -69,7 +69,7 @@ Tracker:AddLayouts("layouts/settings_popup.json")
 
 -- Autotracking
 if PopVersion and PopVersion >= "0.18.0" then
-    ScriptHost:LoadScript("scripts/autotracking.lua")
+    ScriptHost:LoadScript("src/autotracking/autotracking.lua")
 end
 
 

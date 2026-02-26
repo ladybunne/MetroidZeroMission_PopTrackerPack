@@ -1,6 +1,11 @@
 # Compiled Lua sources
 luac.out
 
+# luarocks
+/lua
+/lua_modules
+/.luarocks
+
 # luarocks build files
 *.src.rock
 *.zip
@@ -43,4 +48,4 @@ luac.out
 
 # Project-specific ignores
 output/
-MetroidZeroMission_PopTrackerPack.zip
+/luarocks
