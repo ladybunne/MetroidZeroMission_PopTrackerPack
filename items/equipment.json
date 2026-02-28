@@ -136,15 +136,5 @@
         "codes": "Spring Ball",
         "img": "images/items/SpringBall.png",
         "type": "toggle"
-    },
-    {
-        "name": "Metroid DNA",
-        "codes": "tempdisabled",
-        "notes": "Original code was 'Metroid DNA'.",
-        "img": "images/items/MetroidDNA.png",
-        "type": "consumable",
-        "max_quantity": 25,
-        "overlay_background": "000000",
-        "overlay_font_size": 12
     }
 ]
