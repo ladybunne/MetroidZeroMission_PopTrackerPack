@@ -19,3 +19,11 @@ function DumpTable(o, depth)
         return tostring(o)
     end
 end
+
+function LoadJSONToTable(path)
+    local file = io.open(path, "rb")
+    assert(file)
+    local content = file:read("*a")
+    file:close()
+    return JSON:decode(content)
+end

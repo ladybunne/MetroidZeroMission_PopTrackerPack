@@ -2,6 +2,7 @@
 
 require("spec.mocks.tracker_mock")
 require("src.logic.helpers")
+inspect = require("inspect")
 
 describe("helper functions: ", function()
     -- Simple tests to ensure everything's working correctly
@@ -19,7 +20,17 @@ describe("helper functions: ", function()
     end)
 
     -- Testing the PopTracker function mocks
-    it("Has() should return true (for now)", function()
-        assert.truthy(Has("any item", 1)())
+    it("Has() should return false for all items with an empty inventory", function()
+        for k, _ in pairs(FULL_INVENTORY) do
+            assert.falsy(Has(k, 1)())
+        end
     end)
+
+    it("Has() should return true for all items with a full inventory", function()
+        SetTestPackState(FULL_INVENTORY)
+        for k, _ in pairs(FULL_INVENTORY) do
+            assert.truthy(Has(k, 1)())
+        end
+    end)
+
 end)
