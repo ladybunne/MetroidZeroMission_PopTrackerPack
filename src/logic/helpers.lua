@@ -26,6 +26,8 @@ function Count(item)
     end
 end
 
+-- Works on any kind of item as long as it's toggleable, not just events.
+-- Not intended to work that way, it's just easier to write it this way.
 function Event(flag)
     return function()
         local obj = Tracker:FindObjectForCode(flag)
@@ -39,6 +41,8 @@ function Event(flag)
     end
 end
 
+-- All of these option-specific functions work on non-options for the same
+-- rationale as the above function.
 function OptionEnabled(option)
     return OptionAtLeast(option, 1)
 end

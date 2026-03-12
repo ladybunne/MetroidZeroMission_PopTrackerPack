@@ -5,17 +5,15 @@ JSON = require("JSON")
 inspect = require("inspect")
 require("src.utils")
 
-
--- We need a table that has all the items/locations that can be looked up.
--- This is a bit more complex, will need to think about how to structure it.
-ALL_ITEMS = {}
-
--- We also need to track current items.
+-- We need to track current items.
 TEST_PACK_STATE = {}
 
 -- It would be useful to have some example sets of data.
 EMPTY_INVENTORY = {}
 FULL_INVENTORY = {}
+
+NO_EVENTS = {}
+ALL_EVENTS = {}
 
 DEFAULT_YAML_OPTIONS = {}
 MOST_PERMISSIVE_YAML_OPTIONS = {}
@@ -46,6 +44,38 @@ end
 
 FULL_INVENTORY = GetFullInventory()
 
+local function GetAllEvents()
+    local table = LoadJSONToTable("items/events.json")
+    local output = {}
+
+    for k, v in pairs(table) do
+        output[v["codes"]] = 1
+    end
+
+    return output
+end
+
+ALL_EVENTS = GetAllEvents()
+
+-- We need a table that has all the items/locations that can be looked up.
+-- This is a bit more complex, will need to think about how to structure it.
+local function GetAllItems()
+    local item_files = { "equipment.json", "events.json", "layout_patches.json", "options.json", "tricks.json" }
+    local output = {}
+
+    for _, v in ipairs(item_files) do
+        local loaded_table = LoadJSONToTable("items/" .. v)
+        for _, v2 in pairs(loaded_table) do
+            output[v2["codes"]] = v2
+        end
+    end
+
+    return output
+end
+
+ALL_ITEMS = GetAllItems()
+
+
 function NewJsonItem(type, active, acquired_count, current_stage)
     -- Artificially creating a JsonItem.
     -- local item = {
@@ -63,7 +93,9 @@ function NewJsonItem(type, active, acquired_count, current_stage)
 end
 
 function SetTestPackState(table)
-    TEST_PACK_STATE = table
+    -- Need to clone the table.
+    TEST_PACK_STATE = {}
+    for k, v in pairs(table) do TEST_PACK_STATE[k] = v end
 end
 
 ---@class Tracker
@@ -72,10 +104,28 @@ Tracker = {}
 ---@diagnostic disable-next-line: duplicate-set-field
 function Tracker:FindObjectForCode(code)
     -- So, this is the hard one.
+    local active = false
+    local acquired_count = 0
+    local current_stage = 0
 
     -- Lookup object from the items table.
     local object = ALL_ITEMS[code]
-    return NewJsonItem(object.Type, object.Active, object.AcquiredCount, object.CurrentStage)
+    if object == nil then
+        return nil
+    end
+
+    local state_copy = TEST_PACK_STATE[code]
+    if state_copy ~= nil then
+        if object.Type == "toggle" then
+            active = state_copy ~= nil and state_copy > 0 or false
+        elseif object.Type == "consumable" then
+            acquired_count = state_copy ~= nil and state_copy or 0
+        elseif object.Type == "progressive" then
+            current_stage = state_copy ~= nil and state_copy or 0
+        end
+    end
+
+    return NewJsonItem(object.Type, active, acquired_count, current_stage)
 end
 
 ---@diagnostic disable-next-line: duplicate-set-field

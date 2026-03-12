@@ -2,7 +2,6 @@
 
 require("spec.mocks.tracker_mock")
 require("src.logic.helpers")
-inspect = require("inspect")
 
 describe("helper functions: ", function()
     -- Simple tests to ensure everything's working correctly
@@ -21,6 +20,7 @@ describe("helper functions: ", function()
 
     -- Testing the PopTracker function mocks
     it("Has() should return false for all items with an empty inventory", function()
+        SetTestPackState(EMPTY_INVENTORY)
         for k, _ in pairs(FULL_INVENTORY) do
             assert.falsy(Has(k, 1)())
         end
@@ -32,5 +32,41 @@ describe("helper functions: ", function()
             assert.truthy(Has(k, 1)())
         end
     end)
+
+    it("Count() should return the count of an item", function()
+        SetTestPackState(EMPTY_INVENTORY)
+        assert.are.equal(Count("Missile Tank")(), 0)
+        SetTestPackState(FULL_INVENTORY)
+        assert.are.equal(Count("Missile Tank")(), 50)
+    end)
+
+    it("Count() should return 0 for an unknown item", function()
+        assert.are.equal(Count("Fake Item That Doesn't Exist")(), 0)
+    end)
+
+    it("Event() should reflect an event's state", function()
+        -- Need a way to store events in the pack's current state.
+        SetTestPackState(NO_EVENTS)
+        assert.are.equal(Event("Kraid Defeated")(), false)
+        SetTestPackState(ALL_EVENTS)
+        assert.are.equal(Event("Kraid Defeated")(), true)
+    end)
+
+    it("Event() should return false if used on an item of the wrong type", function()
+        SetTestPackState(FULL_INVENTORY)
+        assert.are.equal(Event("Missile Tank")(), false)
+    end)
+
+    pending("OptionEnabled() should reflect an option's state")
+
+    pending("OptionEnabled() should return false if used on an item of the wrong type")
+
+    pending("OptionIs() should reflect an option's state")
+
+    pending("OptionIs() should return false if used on an item of the wrong type")
+
+    pending("OptionAtLeast() should reflect an option's state")
+
+    pending("OptionAtLeast() should return false if used on an item of the wrong type")
 
 end)
