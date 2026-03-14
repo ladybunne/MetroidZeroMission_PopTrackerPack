@@ -8,7 +8,7 @@
             "name": "Debug Lua Interpreter",
             "type": "lua-local",
             "request": "launch",
-            "env": { 
+            "env": {
                 "LUA_INIT": "@src/setup.lua",
             },
             "program": {
@@ -17,13 +17,21 @@
             }
         },
         {
-            "name": "Debug Custom Lua Environment",
+            "name": "Busted",
             "type": "lua-local",
             "request": "launch",
-            "program": {
-                "command": "command"
+            "env": {
+                "LOCAL_LUA_DEBUGGER_VSCODE": "1",
+                "LUA_INIT_5_4": "if os and os.getenv and os.getenv('LOCAL_LUA_DEBUGGER_VSCODE')=='1' then require('lldebugger').start() end",
+                "LUA_INIT": "if os and os.getenv and os.getenv('LOCAL_LUA_DEBUGGER_VSCODE')=='1' then require('lldebugger').start() end"
             },
-            "args": []
+            "program": {
+                "command": "lua_modules/bin/busted"
+            },
+            "cwd": "${workspaceFolder}",
+            "args": [
+                "--suppress-pending ${file}"
+            ]
         }
     ]
 }

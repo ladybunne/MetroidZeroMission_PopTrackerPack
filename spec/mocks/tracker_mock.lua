@@ -116,16 +116,17 @@ function Tracker:FindObjectForCode(code)
 
     local state_copy = TEST_PACK_STATE[code]
     if state_copy ~= nil then
-        if object.Type == "toggle" then
+        if object["type"] == "toggle" then
             active = state_copy ~= nil and state_copy > 0 or false
-        elseif object.Type == "consumable" then
+        elseif object["type"] == "consumable" then
             acquired_count = state_copy ~= nil and state_copy or 0
-        elseif object.Type == "progressive" then
+        elseif object["type"] == "progressive" then
             current_stage = state_copy ~= nil and state_copy or 0
         end
     end
 
-    return NewJsonItem(object.Type, active, acquired_count, current_stage)
+    output = NewJsonItem(object["type"], active, acquired_count, current_stage)
+    return output
 end
 
 ---@diagnostic disable-next-line: duplicate-set-field
