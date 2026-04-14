@@ -316,40 +316,6 @@
         ]
     },
     {
-        "name": "Tricks Allowed",
-        "type": "progressive",
-        "loop": "true",
-        "allow_disabled": false,
-        "codes": "tricks_allowed",
-        "stages": [
-            {
-                "name": "Disabled",
-                "img": "images/misc/redsquare.png"
-            },
-            {
-                "name": "Enabled",
-                "img": "images/misc/greensquare.png"
-            }
-        ]
-    },
-    {
-        "name": "Tricks Denied",
-        "type": "progressive",
-        "loop": "true",
-        "allow_disabled": false,
-        "codes": "tricks_denied",
-        "stages": [
-            {
-                "name": "Disabled",
-                "img": "images/misc/redsquare.png"
-            },
-            {
-                "name": "Enabled",
-                "img": "images/misc/greensquare.png"
-            }
-        ]
-    },
-    {
         "name": "Auto-Switch Tabs",
         "type": "progressive",
         "loop": "true",

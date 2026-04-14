@@ -1,0 +1,5 @@
+PopTracker uses Lua 5.4.8.
+I need to find a way to force this project to use it too.
+Could use `.envrc` if that works.
+Otherwise https://github.com/stonedcoder/Lua-venv is an option.
+luarocks are breaking without doing this.

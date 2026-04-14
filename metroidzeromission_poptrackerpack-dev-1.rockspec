@@ -1,3 +1,4 @@
+rockspec_format = "3.0"
 package = "MetroidZeroMission_PopTrackerPack"
 version = "dev-1"
 source = {
@@ -9,11 +10,9 @@ description = {
    license = "*** please specify a license ***"
 }
 dependencies = {
-   queries = {}
+   "lua = 5.4"
 }
-build_dependencies = {
-   queries = {}
-}
+build_dependencies = {}
 build = {
    type = "builtin",
    modules = {
@@ -44,6 +43,4 @@ build = {
       utils = "src/utils.lua"
    }
 }
-test_dependencies = {
-   queries = {}
-}
+test_dependencies = {}
