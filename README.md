@@ -57,3 +57,7 @@ Some item and map sprites from the game are sourced by PaperKoopa. Others were s
 I also produced several original assets for the pack.
 
 The Archipelago logo is sourced from the Archipelago asset pack.
+
+### AI
+
+No AI has been used in the development of this project. Furthermore, any and all forks of or pull requests to this project are forbidden from any contributions involving AI in any way.
